@@ -9,4 +9,4 @@ As these experiments are tremendously computationally expensive, they were run o
 
 ### Requiriments
 
-- dask_jobqueue (if planning to use the run.py short queue submissions)
+- dask_jobqueue (if planning to use the run.py short queue submissions) - This is likely not needed though!
