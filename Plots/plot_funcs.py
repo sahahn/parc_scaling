@@ -7,11 +7,11 @@ from IPython.display import display
 from scipy.stats import linregress, theilslopes
 
 
-def remove_duplicate_labels():
+def remove_duplicate_labels(ax):
 
-    handles, labels = plt.gca().get_legend_handles_labels()
+    handles, labels = ax.get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(), loc=1)
+    ax.legend(by_label.values(), by_label.keys(), loc=1)
 
 
 def extract_scatter_points():
@@ -144,9 +144,11 @@ def conv_to_df(results, only=None):
     
     return df
 
-def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050, log=False):
+def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050,
+                    log=False, ax=None, sm=1):
     
-    plt.figure(figsize=(12, 8))
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(12, 8))
     
     cmap = plt.get_cmap('viridis')
     
@@ -208,39 +210,41 @@ def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050, log=False):
                 marker = "o"
 
         n_parcels = parc_sizes[parcel]
-        plt.scatter(n_parcels, scores.loc[parcel],
+        ax.scatter(n_parcels, scores.loc[parcel],
                     color=color, alpha=alpha,
-                    label=label, marker=marker, s=s)
+                    label=label, marker=marker, s=s*sm)
         
-    plt.ylabel(ylabel, fontsize=16)
-    plt.xlabel('Num. Parcels', fontsize=16)
+    ax.set_ylabel(ylabel, fontsize=16)
+    ax.set_xlabel('Num. Parcels', fontsize=16)
     
     if xlim is not None:
-        plt.xlim(-10, xlim)
-    
-    plt.xticks(fontsize=14)
-    plt.yticks(fontsize=14)
+        ax.set_xlim(-10, xlim)
+
+    ax.xaxis.set_tick_params(labelsize=14)
+    ax.yaxis.set_tick_params(labelsize=14)
 
     if log:
-        plt.xscale('log')
-        plt.yscale('log')
+        ax.set_xscale('log')
+        ax.set_yscale('log')
     
-    plt.legend()
-    remove_duplicate_labels()
+    ax.legend()
+    remove_duplicate_labels(ax)
     
     plt.title(title, fontsize=20)
     
-def plot_scores(parc_sizes, means, ylabel, avg_only=False, log=False):
-    
-    if not avg_only:
-        for model, name in zip(['elastic', 'svm', 'lgbm'],
-                            ['Elastic-Net', 'SVM', 'LGBM']):
-            plot_score_by_n(parc_sizes, means.loc[model], name, ylabel, xlim=None, log=log)
-    
-    plot_score_by_n(parc_sizes, means.groupby('parcel').mean(),
-                    'All Model Pipelines Avg.', ylabel,
-                    xlim=None, log=log)
-    
+def plot_scores(parc_sizes, means, ylabel, avg_only=False, model='average', **plot_args):
+
+    if model == 'svm':
+        plot_score_by_n(parc_sizes, means.loc[model], 'SVM', ylabel, xlim=None, **plot_args)
+    if model == 'lgbm':
+        plot_score_by_n(parc_sizes, means.loc[model], 'LGBM', ylabel, xlim=None, **plot_args)
+    if model == 'elastic':
+        plot_score_by_n(parc_sizes, means.loc[model], 'Elastic-Net', ylabel, xlim=None, **plot_args)
+    else:
+        plot_score_by_n(parc_sizes, means.groupby('parcel').mean(),
+                        'All Model Pipelines Avg.', ylabel,
+                        xlim=None, **plot_args)
+
 def mean_score(df):
     return df['score'].mean()
 
@@ -273,7 +277,8 @@ def get_rank_model_order(df):
 
     return df[['rank', 'model']]
 
-def plot_ranks(parc_sizes, df, plot_min_max=False, avg_only=False, log=False):
+def plot_ranks(parc_sizes, df, plot='mean',
+               avg_only=False, **plot_args):
     
     parcel_df = df.reset_index().set_index('parcel')
     ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
@@ -286,19 +291,22 @@ def plot_ranks(parc_sizes, df, plot_min_max=False, avg_only=False, log=False):
     out_of = str(len(mean_ranks) // 3)
     post = ' - (' + out_of + ' Total)'
 
-    if plot_min_max:
+    if plot == 'max':
         plot_scores(parc_sizes, max_ranks,
-                    ylabel='Max Rank' + post, avg_only=avg_only, log=log)
+                    ylabel='Max Rank' + post, avg_only=avg_only, **plot_args)
+    elif plot == 'min':
         plot_scores(parc_sizes, min_ranks,
-                    ylabel='Min Rank' + post, avg_only=avg_only, log=log)
-
+                    ylabel='Min Rank' + post, avg_only=avg_only, **plot_args)
     else:
         plot_scores(parc_sizes, mean_ranks,
-            ylabel='Mean Rank' + post, avg_only=avg_only, log=log)
+                    ylabel='Mean Rank' + post, avg_only=avg_only, **plot_args)
+
 
 def plot_rank_comparison(parc_sizes, df,
                          title='Mean Rank Across Model Pipeline',
-                         xlim=None, log=False):
+                         xlim=None, **plot_args):
+
+    
 
     parcel_df = df.reset_index().set_index('parcel')
     ranks = parcel_df.groupby(['target']).apply(get_rank_model_order)
