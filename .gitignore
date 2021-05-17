@@ -21,3 +21,5 @@ Test_Notebooks/
 Plots/Figures/*
 results_done.pkl
 Old/
+cache/
+cache_fit/
