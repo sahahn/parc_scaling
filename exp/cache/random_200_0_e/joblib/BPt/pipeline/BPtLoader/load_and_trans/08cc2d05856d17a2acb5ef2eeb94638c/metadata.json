@@ -1,0 +1,1 @@
+{"duration": 0.021556854248046875, "input_args": {"transformer": "SurfLabels(labels='/home/sage/Parcs_Project/extra_random_parcels/random_200_0.npy')", "load_func": "<function load at 0x7f14bb311d30>", "loc": "'/home/sage/Parcs_Project/data/consolidated/NDAR_INVD32LCBUY.npy'"}}
