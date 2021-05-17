@@ -1,3 +1,13 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "cSpell.words": [
+        "ADAP",
+        "BARY",
+        "curv",
+        "dlab",
+        "dlabel",
+        "fsaverage",
+        "kstest",
+        "sulc"
+    ]
 }
