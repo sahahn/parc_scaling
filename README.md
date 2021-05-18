@@ -24,7 +24,7 @@ We chose to use structural MRI surfaces. That said, the idea of parcellations ea
 
 A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance, was sourced from the second ABCD Study release. Variables were sourced directly from the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv). All collected variables, both target and brain, are from the baseline time point on the study. Best efforts were made to source a list of representative, diverse and predictive variables. Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000) to avoid including variables not at all predictive from sMRI measures. 
 
-See [setup_ML_Logs/Exp/](https://github.com/sahahn/Parcs_Project/tree/main/Setup/setup_ML_Logs/My_Exp) whichlists all target variables used and shows their distribution.
+See [setup_ML_Logs/Exp/](https://github.com/sahahn/Parcs_Project/tree/main/Setup/setup_ML_Logs/My_Exp) which lists all target variables used and shows their distribution.
 
 ----
 
