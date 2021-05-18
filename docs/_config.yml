@@ -9,3 +9,4 @@ baseurl: "/docs" # the subpath of your site, e.g. /blog/
 # Build settings
 markdown: kramdown
 permalink: /:year/:title:output_ext
+theme: jekyll-theme-cayman
