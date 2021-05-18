@@ -2,8 +2,7 @@ title: Surface Parcellation Scaling
 email: your-email@domain.com
 description: > 
   Parcellation project documentation.
-baseurl: "/docs"
-
+source: docs/
 # Build settings
 markdown: kramdown
 permalink: /:year/:title:output_ext
