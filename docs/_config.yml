@@ -1,9 +1,9 @@
-title: Surface Parcellation Scaling
-email: your-email@domain.com
+title: Performance Scaling for sMRI Surface Parcellations
+email: sahahn@uvm.edu
 description: > 
-  Parcellation project documentation.
+  The project documentation for "Performance Scaling for sMRI Surface Parcellations". This site includes extra
+  useful information / acts as supplementary material for the paper and broader research project.
 source: docs/
-# Build settings
 markdown: kramdown
 permalink: /:year/:title:output_ext
 theme: jekyll-theme-cayman
