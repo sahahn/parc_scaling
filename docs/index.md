@@ -16,5 +16,9 @@ Note: The above example, in contrast to the random parcellations generated in th
 Source code for generating random parcellations is implemented and available through the Brain Predictability toolbox (BPt) at https://github.com/sahahn/BPt/blob/master/BPt/extensions/random_parcellation.py. In this project, random parcels are generated within Setup/process_random_parcels.py script.
 
 
+[Full Plot](./interactive1.html)
 {% include interactive1.html %}
-[Full Plot](./_includes/interactive1.html)
+
+
+{% include interactive2.html %}
+[Full Plot](./interactive2.html)
