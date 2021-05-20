@@ -1,0 +1,19 @@
+Machine Learning for Neuroimaging
+
+Machine learning, and more broadly, prediction as a general framework, offers a number of inherent benefits, but it is not without its downsides. Importantly, it is difficult to assess if a specific machine learning workflow is optimal, as there exists a seemingly endless pool of choices for different classifiers, data pre-processing steps, ensemble strategies, and other choices. Likewise, due to the nature of predictive performance, it is difficult to claim that a proposed pipeline is optimal, as there is likely a better solution or set of steps which would yield better predictive performance. 
+
+To complicate matters, it is further not the case that maximum or optimal performance is always desired. A few of the reasons for this are: 
+
+1. The researcher may desire the end result to be easily interpretable. In many cases state of the art predictive models may require sophisticated ensembles over large numbers of different models, where the end result may be highly predictive, but difficult to interpret. Recent advances in deep learning based approaches have also seen high predictive performance across a wide range of domains, but can suffer from being difficult to interpret. That said, in both cases it is important to note that there is a great deal of work being done to develop new strategies for integrating the outputs of complex models (Samek 2020, Lundberg 2017)
+
+2. The researcher may not have sufficient subjects for a thorough pipeline exploration. With a relatively small number of subjects, evaluating machine learning methods with techniques like cross-validation can lead to noisy estimates of performance with large error bars (Varoquaux 2018). Due to this inherent instability, the act of “exploring” different pipeline configurations (e.g., across different choices of model or parcellation) can overfit to the dataset despite use of cross validation. So while pipeline exploration may be a reasonable choice to improve out of sample performance with sufficient subjects, it may serve to actually decrease generalizability when this condition is not met (Arbabshirani, 2017). 
+
+3. The researcher may not have access to the required computational resources. Especially in neuroimaging, the size of the raw data per subject can be immense with anywhere from hundreds of thousands of raw features (e.g., sMRI) to millions (e.g., fMRI time-series). As a number of ML methods either scale poorly with the number of features (e.g., support vector machines) or require a comparable number of subjects when the feature space is large (e.g., convolutional neural networks) data reduction may be necessary in order to reduce the computational burden to a practical level (Amari 1999, Goodfellow 2016). Ensembling methods, where typically large numbers of models are trained on the same data and then their predictions combined via averaging or a meta-model, can similarly serve to improve performance at the expense of increased computational resources (Dietterich, 2000).
+
+Arbabshirani, M. R., Plis, S., Sui, J., & Calhoun, V. D. (2017). Single subject prediction of brain disorders in neuroimaging: Promises and pitfalls. Neuroimage, 145, 137-165.
+
+Goodfellow, I., Bengio, Y., Courville, A., & Bengio, Y. (2016). Deep learning (Vol. 1, No. 2). Cambridge: MIT press.
+
+Samek, W., Montavon, G., Lapuschkin, S., Anders, C. J., & Müller, K. R. (2020). Toward Interpretable Machine Learning: Transparent Deep Neural Networks and Beyond. arXiv preprint arXiv:2003.07631.
+
+Varoquaux, G. (2018). Cross-validation failure: small sample sizes lead to large error bars. Neuroimage, 180, 68-77.
