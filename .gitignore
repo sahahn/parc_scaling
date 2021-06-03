@@ -23,3 +23,10 @@ results_done.pkl
 Old/
 cache/
 cache_fit/
+exp/All_Job_Logs/*
+exp/job_logs.save
+results/*
+exp/results/*
+exp/results
+temp-plot.html
+analyze/temp-plot.html

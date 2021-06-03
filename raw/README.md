@@ -136,7 +136,7 @@ https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellat
 
 ### maps_and_parcs
 
-Five different parcellations, economo, economo7, mesulam, oasis.chubs and shj were downloaded from
+Five different parcellations, economo, economo7, oasis.chubs and shj were downloaded from
 https://github.com/ucam-department-of-psychiatry/maps_and_parcs/tree/master/Parcellations/FSAverage
 These parcellations are downloaded in fsaverage space seperate for left and right hemispheres.
 
@@ -159,7 +159,6 @@ These have not been added to the git due to space, but the following files were 
 - raw/neuro_parc/CAPRSC_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/CPAC200_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/Hammersmith_space-MNI152NLin6_res-1x1x1.nii.gz
-- raw/neuro_parc/JHU_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/Juelich_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/MICCAI_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/Princetonvisual-top_space-MNI152NLin6_res-1x1x1.nii.gz

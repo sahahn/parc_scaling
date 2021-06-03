@@ -6,6 +6,8 @@ import sys
 sys.path.append("../exp/")
 from helpers import get_ensemble_options
 
+from datetime import timedelta
+
 def get_adj_size(parcel_str, grid=False):
 
     n_parcels = int(parcel_str.split('_')[3])
@@ -123,52 +125,113 @@ def get_parc_sizes(parc_dr='../parcels',
     return parc_sizes
 
 
-def extract_run_info(txt):
+def conv_t_delta(in_str):
     
-    run_ind = 'Running for:'
-
-    if run_ind in txt[1]:
-        run_info = txt[1]
-    elif run_ind in txt[2]:
-        run_info = txt[2]
-    elif run_ind in txt[3]:
-        run_info = txt[3]
+    in_str = in_str.replace('Time Elapsed: ', '').strip()
+    
+    s = in_str.split(':')
+    
+    if len(s) == 3:
+        return timedelta(hours=int(s[0]),
+                         minutes=int(s[1]),
+                         seconds=int(s[2]))
     else:
-        run_info = ''
+        print('Error with:', s)
         
-    return run_info.replace(run_ind, '').strip()
+def is_binary(target):
+    
+    target = target.rstrip()
+    
+    if target.endswith('_binary'):
+        return True
+    
+    # Otherwise check exceptions
+    binary = ['ksads_back_c_det_susp_p', 'married.bl',
+              'accult_phenx_q2_p', 'devhx_5_twin_p',
+              'sex_at_birth', 'devhx_6_pregnancy_planned_p',
+              'devhx_12a_born_premature_p',
+              'ksads_back_c_mh_sa_p']
 
+    return target in binary
 
-def get_n_jobs(file):
+def get_p_type(parcel):
+    
+    if parcel.startswith('stacked_'):
+        return 'stacked'
+    elif parcel.startswith('voted'):
+        return 'voted'
+    elif parcel.startswith('grid'):
+        return 'grid'
+    
+    return 'base'
 
-    # Determine how job was run
-    if file.startswith('test_') or file.startswith('8_'):
-        n_jobs = 8
-    elif file.startswith('2_'):
-        n_jobs = 2
-    elif file.startswith('4_'):
-        n_jobs = 4
-    elif file.startswith('12_'):
-        n_jobs = 12
-    elif file.startswith('16_'):
-        n_jobs = 16
-    elif file.startswith('24_'):
-        n_jobs = 24
-    elif file.startswith('20_'):
-        n_jobs = 20
-    elif file.startswith('32_'):
-        n_jobs = 32
-    elif file.startswith('elastic_'):
-        n_jobs = int(file.split('_')[2])
-    elif file.startswith('low_') or file.startswith('high_'):
-        if '_extra' in file:
-            n_jobs = 48
-        else:
-            n_jobs = 24
-    elif file.startswith('long_'):
-        n_jobs = 1
-
+def get_time_elapsed(txt, n_strip):
+    
+    te_ind = 'Time Elapsed: '
+    time_elapsed = [conv_t_delta(l) for l in txt if l.startswith(te_ind)]
+    
+    full = None
+    if len(n_strip) == 4:
+        if len(time_elapsed) == 1:
+            full = time_elapsed[0] * 5
     else:
-        print('error:', file)
+        if len(time_elapsed) == 5:
+            full = np.sum(time_elapsed)
+            
+    return full
 
-    return n_jobs
+def get_n_jobs(txt):
+    
+    n_jobs_line = txt[['n_jobs = ' in line for line in txt].index(True)]
+    n_jobs = n_jobs_line.replace('n_jobs = ', '').rstrip()
+
+    return int(n_jobs)
+
+def extract_run_info(txt):
+
+    run_ind = 'Running for:'
+    ind = [run_ind in line for line in txt].index(True)
+    return txt[ind].replace(run_ind, '').strip()
+
+def extract(txt, parc_sizes, skip_svm=False):
+    
+    # If not a finished run
+    if not 'Validation Scores\n' in txt:
+        return None
+    
+    # Get base run info
+    n_strip = extract_run_info(txt).split('---')
+    parcel, model = n_strip[0], n_strip[1]
+    is_b = is_binary(n_strip[2])
+    
+    # Skip SVM if skip SVM
+    if skip_svm and model == 'SVM':
+        return None
+
+    # Set p_type by if ensemble
+    p_type = get_p_type(parcel)
+    
+    # Get parcel size, if invalid skip
+    try:
+        size = parc_sizes[parcel]
+    except KeyError:
+        return None
+
+    # Get time elapsed
+    full = get_time_elapsed(txt, n_strip)
+    
+    # If not valid number of times
+    # means didn't fully finish and skip this run
+    if full is None:
+        return None
+    
+    # Convert to seconds
+    secs = full.total_seconds()
+    
+    # Extract n_jobs
+    n_jobs = get_n_jobs(txt)
+    
+    # Get number of load saved
+    n_load_saved = sum(['Loading from saved!' in line for line in txt])
+    
+    return model, size, is_b, secs, p_type, n_jobs, n_load_saved

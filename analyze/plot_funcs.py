@@ -316,7 +316,7 @@ def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050,
                    label=label, marker=marker, s=s*sm)
         
     ax.set_ylabel(ylabel, fontsize=16)
-    ax.set_xlabel('Num. Parcels', fontsize=16)
+    ax.set_xlabel('Size / Num. Parcels', fontsize=16)
 
     _finish_plot(ax, title, xlim, log)
     
@@ -356,7 +356,7 @@ def get_model_avg_ranks(df):
 
     means = ranks.groupby(['target', 'parcel']).apply(mean_rank)
     all_ranks_df = means.reset_index().set_index('parcel')
-    all_ranks_df = all_ranks_df.drop('target', axis=1)
+    # all_ranks_df = all_ranks_df.drop('target', axis=1)
 
     all_ranks_df = all_ranks_df.rename(columns={0: 'Mean_Rank'})
     return all_ranks_df
@@ -396,6 +396,7 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
                     log=False, threshold=False,
                     only_targets=None, add_raw=False,
                     models=['svm', 'elastic', 'lgbm'],
+                    keep_full_name=False,
                     **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
@@ -435,6 +436,9 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
 
     # Set another column to group
     r_df = pm_df.reset_index()
+
+    if keep_full_name:
+        r_df['full_name'] = r_df['parcel'].copy()
 
     groups = []
     for parcel in r_df['parcel']:

@@ -30,7 +30,7 @@ DEAP name: cbcl_scr_syn_rulebreak_r
 RuleBreak CBCL Syndrome Scale (raw score) from ABCD Parent Child Behavior Checklist Scores Aseba (CBCL).
 
 
-## Parent Age
+## Parent Age (yrs)
 --------------------------
 DEAP name: demo_prnt_age_p
 
@@ -56,7 +56,7 @@ in ABCD Developmental History Questionnaire / dhx01 [Med History]
 search term: devhx_2_birth_wt_lbs_p - matches alias [Alias: birth_weight_lbs]
 Birth weight pounds
 
-## Age
+## Age (months)
 ---------------------
 DEAP name: interview_age
 
