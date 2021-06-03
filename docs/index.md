@@ -2,23 +2,14 @@
 layout: default
 ---
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+It is common to analyze surface-based neuroimaging data, and likewise for a number of reasons to reduce surface data to a collection of representative regions of interest.
+What about when one is interested in performing machine learning? Is there a best pre-defined parcellation to use? This project seeks to answer that question and more.
 
+The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance.
 
-This project uses the idea of random surface parcellations extensively. Random parcellations are generated as follows: For a random parcellation of size N, N random points are first selected at random across both hemisphere’s 59,412 vertices (medial wall vertices excluded). Each selected point is then assigned as the seed of a new region and is randomly assigned a size probability between 0 and 1. Next, a region is randomly selected according to a weighted random choice between all regions (e.g., if a region was assigned an initial probability of .5 it would be picked on average twice as often as a region assigned .25). A random vertex is then added to the selected region from the list of valid neighboring unassigned vertices. This sequence, of selecting a region and adding one valid vertex, is repeated until all regions have no unassigned neighbors and therefore all non-medial wall vertices are assigned to a region. 
+![Base Exp Structure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
-Example generated random parcellation:
-
-![Random Parc Gif](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/rand_parc.gif)
-
-Note: The above example, in contrast to the random parcellations generated in this project, is in fsaverage5 space (vs. fs_LR_32k) and doesn't mask the medial wall (the medial wall is masked in this project).
-
-Source code for generating random parcellations is implemented and available through the Brain Predictability toolbox (BPt) at https://github.com/sahahn/BPt/blob/master/BPt/extensions/random_parcellation.py. In this project, random parcels are generated within Setup/process_random_parcels.py script.
-
-
-{% include interactive1.html %}
-[Full Plot](./interactive1.html)
-
-
-{% include interactive2.html %}
-[Full Plot](./interactive2.html)
+[Results](./results.html)
+[Neuro-Imaging for ML Background and Motivation](./ml_neuroimaging.html)
+[Random Parcellations](./random_parcellations.html)
+[Performance Trade-Offs](./trade_offs.html)

@@ -1,4 +1,4 @@
-Machine Learning for Neuroimaging
+# Machine Learning for Neuroimaging
 
 Machine learning, and more broadly, prediction as a general framework, offers a number of inherent benefits, but it is not without its downsides. Importantly, it is difficult to assess if a specific machine learning workflow is optimal, as there exists a seemingly endless pool of choices for different classifiers, data pre-processing steps, ensemble strategies, and other choices. Likewise, due to the nature of predictive performance, it is difficult to claim that a proposed pipeline is optimal, as there is likely a better solution or set of steps which would yield better predictive performance. 
 
@@ -9,6 +9,8 @@ To complicate matters, it is further not the case that maximum or optimal perfor
 2. The researcher may not have sufficient subjects for a thorough pipeline exploration. With a relatively small number of subjects, evaluating machine learning methods with techniques like cross-validation can lead to noisy estimates of performance with large error bars (Varoquaux 2018). Due to this inherent instability, the act of “exploring” different pipeline configurations (e.g., across different choices of model or parcellation) can overfit to the dataset despite use of cross validation. So while pipeline exploration may be a reasonable choice to improve out of sample performance with sufficient subjects, it may serve to actually decrease generalizability when this condition is not met (Arbabshirani, 2017). 
 
 3. The researcher may not have access to the required computational resources. Especially in neuroimaging, the size of the raw data per subject can be immense with anywhere from hundreds of thousands of raw features (e.g., sMRI) to millions (e.g., fMRI time-series). As a number of ML methods either scale poorly with the number of features (e.g., support vector machines) or require a comparable number of subjects when the feature space is large (e.g., convolutional neural networks) data reduction may be necessary in order to reduce the computational burden to a practical level (Amari 1999, Goodfellow 2016). Ensembling methods, where typically large numbers of models are trained on the same data and then their predictions combined via averaging or a meta-model, can similarly serve to improve performance at the expense of increased computational resources (Dietterich, 2000).
+
+### References
 
 Arbabshirani, M. R., Plis, S., Sui, J., & Calhoun, V. D. (2017). Single subject prediction of brain disorders in neuroimaging: Promises and pitfalls. Neuroimage, 145, 137-165.
 

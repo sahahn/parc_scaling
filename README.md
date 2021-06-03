@@ -1,14 +1,12 @@
-# Parcellation Project
+# Performance Scaling for Structural MRI Surface Parcellations: A Machine Learning Analysis in the ABCD Study
 
-It is common to analyze surface-based neuroimaging data, and likewise for a number of reasons to reduce surface data to a collection of representative regions of interest. What about when one is interested in performing machine learning? Is there a best pre-defined parcellation to use? This project seeks to answer that question.
-
-The base experiment conducted within this project is a systematic test of different pre-defined parcellations performance. There are some key decision though which greatly influence the experiment.
+This github repository contains READMEs dedicated primarily to explaining the actual usage and structure of this project's code - a separate dedicated project website can be found at https://sahahn.github.io/Parcs_Project/ which acts as an online supplementary materials for the paper.
 
 -----
 
 ### Directory structure
 
-This project is setup with a few different directories. In general those starting with capital letters, (Setup/, Exp/, Plots/) contain code used to run different steps, where lowercase directories are for data (data/, parcels/, ect...).
+This project is setup with a few different directories. In general those starting with capital letters, (setup/, exp/, analyze/) contain code used to run different steps, with other directories used to store data or parcellations, e.g. (data/, parcels/, ect...).
 
 -----
 
@@ -24,7 +22,7 @@ We chose to use structural MRI surfaces. That said, the idea of parcellations ea
 
 A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance, was sourced from the second ABCD Study release. Variables were sourced directly from the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv). All collected variables, both target and brain, are from the baseline time point on the study. Best efforts were made to source a list of representative, diverse and predictive variables. Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000) to avoid including variables not at all predictive from sMRI measures. 
 
-See [setup_ML_Logs/Exp/](https://github.com/sahahn/Parcs_Project/tree/main/Setup/setup_ML_Logs/My_Exp) which lists all target variables used and shows their distribution.
+See which lists all target variables used and shows their distribution.
 
 ----
 
