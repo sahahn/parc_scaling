@@ -1,3 +1,10 @@
+---
+layout: default
+title: Interactive Results
+description: This is just another page
+---
+
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 
