@@ -21,9 +21,35 @@ We chose to use structural MRI surfaces. That said, the idea of parcellations ea
 
 ## Target Variables
 
-A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance, was sourced from the second ABCD Study release. Variables were sourced directly from the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv). All collected variables, both target and brain, are from the baseline time point on the study. Best efforts were made to source a list of representative, diverse and predictive variables. Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000) to avoid including variables not at all predictive from sMRI measures. 
+A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance, was sourced from the second ABCD Study release. Variables were sourced directly from the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv). All collected variables, both target and brain, are from the baseline time point on the study. Best efforts were made to source a list of representative, diverse and predictive variables. Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000) to avoid including variables not at all predictive from sMRI measures.
 
-See [Target Descriptions](./target_variables.html) which lists all of the target variables in greater detail.
+
+| Variable Name                         |
+|:--------------------------------------|
+[Standing Height (inches)](./target_variables#standing-height-inches))|
+[Waist Circumference (inches)](./target_variables#waist-circumference-inches)|               
+[Measured Weight (lbs)](./target_variables#measured-weight-lbs)|
+[CBCL RuleBreak Syndrome Scale](./target_variables#)|                     
+[Parent Age (yrs)](./target_variables#)|                      
+[Motor Development](./target_variables#)|                      
+[Birth Weight (lbs)](./target_variables#)|                               
+[Age (months)](./target_variables#)|                                        
+[Little Man Test Score](./target_variables#)|                                
+[MACVS Religion Subscale](./target_variables#)|                             
+[Neighborhood Safety](./target_variables#)|                               
+[NeuroCog PCA1 (general ability)](./target_variables#)|                   
+[NeuroCog PCA2 (executive function)](./target_variables#)|
+[NeuroCog PCA3 (learning / memory)](./target_variables#)|
+[NIH Card Sort Test](./target_variables#)|
+[NIH List Sorting Working Memory Test](./target_variables#)|
+[NIH Comparison Processing Speed Test](./target_variables#)|
+[NIH Picture Vocabulary Test](./target_variables#)|
+[NIH Oral Reading Recognition Test](./target_variables#)|
+[WISC Matrix Reasoning Score](./target_variables#)|
+[Summed Performance Sports Activity](./target_variables#)|
+[Summed Team Sports Activity](./target_variables#)|
+
+
 
 ----
 
