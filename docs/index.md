@@ -26,12 +26,12 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 
 | Variable Name                         |
 |:--------------------------------------|
-[Standing Height (inches)](./target_variables#standing-height-inches))|
+[Standing Height (inches)](./target_variables#standing-height-inches)|
 [Waist Circumference (inches)](./target_variables#waist-circumference-inches)|               
 [Measured Weight (lbs)](./target_variables#measured-weight-lbs)|
-[CBCL RuleBreak Syndrome Scale](./target_variables#)|                     
-[Parent Age (yrs)](./target_variables#)|                      
-[Motor Development](./target_variables#)|                      
+[CBCL RuleBreak Syndrome Scale](./target_variables#CBCL RuleBreak Syndrome Scale)|                     
+[Parent Age (yrs)](./target_variables#Parent Age (yrs))|                      
+[Motor Development](./target_variables#Motor Development)|                      
 [Birth Weight (lbs)](./target_variables#)|                               
 [Age (months)](./target_variables#)|                                        
 [Little Man Test Score](./target_variables#)|                                
