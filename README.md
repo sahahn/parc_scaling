@@ -1,6 +1,6 @@
 # Performance Scaling for Structural MRI Surface Parcellations: A Machine Learning Analysis in the ABCD Study
 
-This github repository contains READMEs dedicated primarily to explaining the actual usage and structure of this project's code - a separate dedicated project website can be found at https://sahahn.github.io/Parcs_Project/ which acts as an online supplementary materials for the paper.
+This github repository contains READMEs dedicated primarily to explaining the actual usage and structure of this project's code - a separate dedicated project website can be found at https://sahahn.github.io/parc_scaling/ which acts as an online supplementary materials for the paper.
 
 ### Directory structure
 
