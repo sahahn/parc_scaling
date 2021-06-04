@@ -29,25 +29,25 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 [Standing Height (inches)](./target_variables#standing-height-inches)|
 [Waist Circumference (inches)](./target_variables#waist-circumference-inches)|               
 [Measured Weight (lbs)](./target_variables#measured-weight-lbs)|
-[CBCL RuleBreak Syndrome Scale](./target_variables#CBCL RuleBreak Syndrome Scale)|                     
-[Parent Age (yrs)](./target_variables#Parent Age (yrs))|                      
-[Motor Development](./target_variables#Motor Development)|                      
-[Birth Weight (lbs)](./target_variables#)|                               
-[Age (months)](./target_variables#)|                                        
-[Little Man Test Score](./target_variables#)|                                
-[MACVS Religion Subscale](./target_variables#)|                             
-[Neighborhood Safety](./target_variables#)|                               
-[NeuroCog PCA1 (general ability)](./target_variables#)|                   
-[NeuroCog PCA2 (executive function)](./target_variables#)|
-[NeuroCog PCA3 (learning / memory)](./target_variables#)|
-[NIH Card Sort Test](./target_variables#)|
-[NIH List Sorting Working Memory Test](./target_variables#)|
-[NIH Comparison Processing Speed Test](./target_variables#)|
-[NIH Picture Vocabulary Test](./target_variables#)|
-[NIH Oral Reading Recognition Test](./target_variables#)|
-[WISC Matrix Reasoning Score](./target_variables#)|
-[Summed Performance Sports Activity](./target_variables#)|
-[Summed Team Sports Activity](./target_variables#)|
+[CBCL RuleBreak Syndrome Scale](./target_variables#cbcl-rulebreak-syndrome-scale)|                     
+[Parent Age (yrs)](./target_variables#parent-age-yrs)|                      
+[Motor Development](./target_variables#motor-development)|                      
+[Birth Weight (lbs)](./target_variables#birth-weight-lbs)|                               
+[Age (months)](./target_variables#age-months)|                                        
+[Little Man Test Score](./target_variables#Little Man Test Score)|                                
+[MACVS Religion Subscale](./target_variables#MACVS Religion Subscale)|                             
+[Neighborhood Safety](./target_variables#Neighborhood Safety)|                               
+[NeuroCog PCA1 (general ability)](./target_variables#NeuroCog PCA1 (general ability))|                   
+[NeuroCog PCA2 (executive function)](./target_variables#NeuroCog PCA2 (executive function))|
+[NeuroCog PCA3 (learning / memory)](./target_variables#NeuroCog PCA3 (learning / memory))|
+[NIH Card Sort Test](./target_variables#NIH Card Sort Test)|
+[NIH List Sorting Working Memory Test](./target_variables#NIH List Sorting Working Memory Test)|
+[NIH Comparison Processing Speed Test](./target_variables#NIH Comparison Processing Speed Test)|
+[NIH Picture Vocabulary Test](./target_variables#NIH Picture Vocabulary Test)|
+[NIH Oral Reading Recognition Test](./target_variables#NIH Oral Reading Recognition Test)|
+[WISC Matrix Reasoning Score](./target_variables#WISC Matrix Reasoning Score)|
+[Summed Performance Sports Activity](./target_variables#Summed Performance Sports Activity)|
+[Summed Team Sports Activity](./target_variables#Summed Team Sports Activity)|
 
 
 
