@@ -8,12 +8,13 @@ Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging,
 
 [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)
 
-The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance. The structure of the test is shown below:
+The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance. The structure of the evaluation is shown below:
 
 ![Base Exp Structure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
 This study uses data from the ABCD Study release [NDA Collection 3165](https://collection3165.readthedocs.io/en/stable/).
-Specifically, we concatenate structural MRI measures to use as input features. See [Input Data](./input_data.html) for more information.
+Specifically, we concatenate structural MRI measures to use as input features (See [Input Data](./input_data.html) for more information).
+In total we employ 45 different phenotypic target variables (See [Variables Used](./variables.html)).
 
 
 ## Target Variables
