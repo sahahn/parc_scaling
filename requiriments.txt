@@ -1,1 +1,3 @@
 brain-pred-toolbox=2.0.1
+nilearn
+statsmodels

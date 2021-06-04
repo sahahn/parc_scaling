@@ -4,4 +4,16 @@ This github repository contains READMEs dedicated primarily to explaining the ac
 
 ### Directory structure
 
-This project is setup with a few different directories. In general those starting with capital letters, (setup/, exp/, analyze/) contain code used to run different steps, with other directories used to store data or parcellations, e.g. (data/, parcels/, ect...).
+This project is setup with a few different directories, which if necessary contain their own more detailed READMEs.
+
+- analyze/
+- data/
+- docs/
+- exp/
+- extra/
+- extra_random_parcels/
+- parcels/
+- raw/
+- setup/
+
+In general those starting with capital letters, (setup/, exp/, analyze/) contain code used to run different steps, with other directories used to store data or parcellations, e.g. (data/, parcels/, ect...).
