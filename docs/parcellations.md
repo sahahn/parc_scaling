@@ -9,6 +9,10 @@ description: All parcellations used
 Within this project we consider two main sources for surface parcellations, existing and random.
 Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
 
+[Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels) (excluded a few too large parcellations).
+These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
+saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
+
 ## Existing Parcellations
 
 All considered surface parcellations were converted, if necessary,
@@ -21,6 +25,9 @@ collection of others which could only be found in fsaverage space, were re-sampl
 for the Human Connectome Project Workbench (Marcus, 2011). See setup/process_parcs.py for the script to re-sample parcellations.
 
 {% include parcel_table.html %}
+
+See also the folder [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw) which contains the 'raw' existing parcellations,
+included information on how they can be downloaded. 
 
 ## Random Parcellations
 
