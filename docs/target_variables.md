@@ -1,3 +1,41 @@
+
+
+# Continuous Variables
+
+| Variable Name                                       | Internal Name |
+|:----------------------------------------------------|:--------------|
+[Standing Height (inches)](./index.html)              |               |
+Waist Circumference (inches)                          |               |
+[Measured Weight (lbs)](standing-height-inches)       |               |
+CBCL RuleBreak Syndrome Scale                         |               |
+Parent Age (yrs)                                      |               |
+Motor Development                                     |               |
+Birth Weight (lbs)                                    |               |
+Age (months)                                          |               |
+Little Man Test Score                                 |               |
+MACVS Religion Subscale                               |               |
+Neighborhood Safety                                   |               |
+NeuroCog PCA1 (general ability)                       |               |
+NeuroCog PCA2 (executive function)                    |               |
+
+
+
+
+
+NeuroCog PCA3 (learning / memory)
+NIH Card Sort Test
+NIH List Sorting Working Memory Test
+NIH Comparison Processing Speed Test
+NIH Picture Vocabulary Test
+NIH Oral Reading Recognition Test
+WISC Matrix Reasoning Score
+Summed Performance Sports Activity
+Summed Team Sports Activity
+
+
+
+
+
 # Continuous Variables
 
 ## Standing Height (inches)
