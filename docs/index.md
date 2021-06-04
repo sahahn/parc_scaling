@@ -12,11 +12,8 @@ The base experiment conducted within this project was a systematic test of diffe
 
 ![Base Exp Structure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
-## Input Data
-
-Data from the ABCD Study release 2, NDA Collection 3165 (See: https://collection3165.readthedocs.io/en/stable/). Data used within this study are the sMRI outputs of a modified HCP style pipeline. We downloaded for each available subject their left and right hemisphere curvature, sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard FS LR 32k vertex space. Likewise, we additionally downloaded each subject's automatically computed FreeSurfer ROI stats files. 
-
-We chose to use structural MRI surfaces. That said, the idea of parcellations easily extends to task-based fMRI and resting state fMRI just as easily as dMRI. The choice to use structural MRI surfaces was therefore somewhat arbitrary, but given its ubiquity and the amount of available studies which employ it, it may not be a bad choice. That said, future work may very well consider different modalities or explicitly multi-modal fusion.
+This study uses data from the ABCD Study release [NDA Collection 3165](https://collection3165.readthedocs.io/en/stable/).
+Specifically, we concatenate structural MRI measures to use as input features. See [Input Data](./input_data.html) for more information.
 
 
 ## Target Variables
@@ -24,12 +21,12 @@ We chose to use structural MRI surfaces. That said, the idea of parcellations ea
 A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance, was sourced from the second ABCD Study release. Variables were sourced directly from the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv). All collected variables, both target and brain, are from the baseline time point on the study. Best efforts were made to source a list of representative, diverse and predictive variables. Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000) to avoid including variables not at all predictive from sMRI measures.
 
 
-| Variable Name                         |
-|:--------------------------------------|
+| Continuous Variables                  | Binary Variables                            |
+|:--------------------------------------|:--------------------------------------------|
 [Standing Height (inches)](./target_variables#standing-height-inches)|
 [Waist Circumference (inches)](./target_variables#waist-circumference-inches)|               
 [Measured Weight (lbs)](./target_variables#measured-weight-lbs)|
-[CBCL RuleBreak Syndrome Scale](./target_variables#cbcl-rulebreak-syndrome-scale)|                     
+[CBCL RuleBreak Syndrome Scale](./target_variables#cbcl-rulebreak-syndrome-scale)|                   
 [Parent Age (yrs)](./target_variables#parent-age-yrs)|                      
 [Motor Development](./target_variables#motor-development)|                      
 [Birth Weight (lbs)](./target_variables#birth-weight-lbs)|                               
@@ -38,11 +35,11 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 [MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|                             
 [Neighborhood Safety](./target_variables#neighborhood-safety)|                               
 [NeuroCog PCA1 (general ability)](./target_variables#neurocog-pca1-general-ability)|                   
-[NeuroCog PCA2 (executive function)](./target_variables#NeuroCog PCA2-executive function)|
+[NeuroCog PCA2 (executive function)](./target_variables#neurocog-pca2-executive function)|
 [NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|
-[NIH Card Sort Test](./target_variables#nih Card Sort Test)|
-[NIH List Sorting Working Memory Test](./target_variables#nih-List Sorting Working Memory Test)|
-[NIH Comparison Processing Speed Test](./target_variables#nih-Comparison Processing Speed Test)|
+[NIH Card Sort Test](./target_variables#nih-card-sort-test)|
+[NIH List Sorting Working Memory Test](./target_variables#nih-list-sorting-working-memory-test)|
+[NIH Comparison Processing Speed Test](./target_variables#nih-comparison Processing Speed Test)|
 [NIH Picture Vocabulary Test](./target_variables#nih-Picture Vocabulary Test)|
 [NIH Oral Reading Recognition Test](./target_variables#nih-Oral Reading Recognition Test)|
 [WISC Matrix Reasoning Score](./target_variables#wisc-matrix-reasoning-score)|
@@ -53,7 +50,7 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 
 ### Parcellations
 
-Within this project we test a mix of 
+Within this project we test a mix of different existing and randomly generated parcellations.
 
 All considered surface parcellations were converted, if necessary, in the FS LR 32K standard left and right hemisphere standard vertex space. We consider two main sources for surface parcellations, existing and random. Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
 
