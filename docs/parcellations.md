@@ -1,6 +1,20 @@
 ---
 layout: default
+title: Parcellations
+description: All parcellations used
 ---
+
+# Parcellations
+
+Within this project we test a mix of different existing and randomly generated parcellations.
+
+All considered surface parcellations were converted, if necessary, in the FS LR 32K standard left and right hemisphere standard vertex space.
+We consider two main sources for surface parcellations, existing and random.
+Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
+
+## Existing Parcellations
+
+{% include parcel_table.html %}
 
 ## Random Parcellations
 
@@ -19,3 +33,13 @@ specifically [here](https://github.com/sahahn/BPt/blob/master/BPt/extensions/ran
 
 Random parcellations within this project are generated in the setup/process_random_parcels.py script. Random parcellations
 are used as a part of the base
+
+## Extra Parcellations
+
+We also tested 5 different downsampled icosahedron parcellations.
+These span in size from 42 to 1002 regions per hemisphere. Finally, we assessed the
+Desikan and Destrieux ROI values as extracted by FreeSurfer. These differ from the
+other tested parcellations both in how values are generated (FreeSurfer extracts values in
+an individual's native space whereas we extract values from data warped to a common space)
+in addition to the surface modalities used (only average thickness, surface area and mean curvature
+are employed, which differs from the features used in the base analyses). 

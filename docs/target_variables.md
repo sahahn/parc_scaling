@@ -23,7 +23,7 @@ Average Measured Weight (lbs):If three measurements were obtained, the two close
 Calculation: if([anthro_weight3_lb] <> '',mean([anthro_weight3_lb],[anthro_weight2_lb],[anthro_weight1_lb]), mean([anthro_weight1_lb],[anthro_weight2_lb]))
 
 
-## RuleBreak CBCL Syndrome Scale
+## CBCL RuleBreak Syndrome Scale
 -------------------------
 DEAP name: cbcl_scr_syn_rulebreak_r
 
@@ -276,7 +276,7 @@ in ABCD Parent Adult Self Report Scores Aseba (ASR) / abcd_asrs01 [Questionnaire
 search term: asr_scr_thought_r - matches element name
 Thought Problems ASR Syndrome Scale (raw score)
 
-## Aggressive CBCL Syndrome Scale
+## CBCL Aggressive Syndrome Scale
 ------------------------------------
 DEAP name: cbcl_scr_syn_aggressive_r
 

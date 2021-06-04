@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Variables Used
+title: Target Variables
 description: Information of the different target variables used.
 ---
 
