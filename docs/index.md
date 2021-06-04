@@ -37,17 +37,17 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 [Little Man Test Score](./target_variables#little-man-test-score)|                                
 [MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|                             
 [Neighborhood Safety](./target_variables#neighborhood-safety)|                               
-[NeuroCog PCA1 (general ability)](./target_variables#NeuroCog PCA1 (general ability))|                   
-[NeuroCog PCA2 (executive function)](./target_variables#NeuroCog PCA2 (executive function))|
-[NeuroCog PCA3 (learning / memory)](./target_variables#NeuroCog PCA3 (learning / memory))|
-[NIH Card Sort Test](./target_variables#NIH Card Sort Test)|
-[NIH List Sorting Working Memory Test](./target_variables#NIH List Sorting Working Memory Test)|
-[NIH Comparison Processing Speed Test](./target_variables#NIH Comparison Processing Speed Test)|
-[NIH Picture Vocabulary Test](./target_variables#NIH Picture Vocabulary Test)|
-[NIH Oral Reading Recognition Test](./target_variables#NIH Oral Reading Recognition Test)|
-[WISC Matrix Reasoning Score](./target_variables#WISC Matrix Reasoning Score)|
-[Summed Performance Sports Activity](./target_variables#Summed Performance Sports Activity)|
-[Summed Team Sports Activity](./target_variables#Summed Team Sports Activity)|
+[NeuroCog PCA1 (general ability)](./target_variables#neurocog-pca1-general-ability)|                   
+[NeuroCog PCA2 (executive function)](./target_variables#NeuroCog PCA2-executive function)|
+[NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|
+[NIH Card Sort Test](./target_variables#nih Card Sort Test)|
+[NIH List Sorting Working Memory Test](./target_variables#nih-List Sorting Working Memory Test)|
+[NIH Comparison Processing Speed Test](./target_variables#nih-Comparison Processing Speed Test)|
+[NIH Picture Vocabulary Test](./target_variables#nih-Picture Vocabulary Test)|
+[NIH Oral Reading Recognition Test](./target_variables#nih-Oral Reading Recognition Test)|
+[WISC Matrix Reasoning Score](./target_variables#wisc-matrix-reasoning-score)|
+[Summed Performance Sports Activity](./target_variables#summed-performance-sports-activity)|
+[Summed Team Sports Activity](./target_variables#summed-team-sports-activity)|
 
 ----
 
