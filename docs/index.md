@@ -34,9 +34,9 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 [Motor Development](./target_variables#motor-development)|                      
 [Birth Weight (lbs)](./target_variables#birth-weight-lbs)|                               
 [Age (months)](./target_variables#age-months)|                                        
-[Little Man Test Score](./target_variables#Little Man Test Score)|                                
-[MACVS Religion Subscale](./target_variables#MACVS Religion Subscale)|                             
-[Neighborhood Safety](./target_variables#Neighborhood Safety)|                               
+[Little Man Test Score](./target_variables#little-man-test-score)|                                
+[MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|                             
+[Neighborhood Safety](./target_variables#neighborhood-safety)|                               
 [NeuroCog PCA1 (general ability)](./target_variables#NeuroCog PCA1 (general ability))|                   
 [NeuroCog PCA2 (executive function)](./target_variables#NeuroCog PCA2 (executive function))|
 [NeuroCog PCA3 (learning / memory)](./target_variables#NeuroCog PCA3 (learning / memory))|
@@ -49,13 +49,422 @@ A collection of 45 target phenotypic variables (23 binary and 22 continuous), us
 [Summed Performance Sports Activity](./target_variables#Summed Performance Sports Activity)|
 [Summed Team Sports Activity](./target_variables#Summed Team Sports Activity)|
 
-
-
 ----
 
 ### Parcellations
 
+Within this project we test a mix of 
+
 All considered surface parcellations were converted, if necessary, in the FS LR 32K standard left and right hemisphere standard vertex space. We consider two main sources for surface parcellations, existing and random. Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
+
+<td>**<span style="text-decoration:underline;">Name</span>**
+
+   </td>
+   <td>**<span style="text-decoration:underline;"># of Parcellations</span>**
+
+   </td>
+   <td>**<span style="text-decoration:underline;">Type</span>**
+
+   </td>
+   <td>**<span style="text-decoration:underline;">Reference</span>**
+
+   </td>
+   <td>Schaefer Local-global parcellation
+
+   </td>
+   <td>10 (scales 100-1000)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Schaefer 2018
+
+   </td>
+   <td>Gordon
+
+   </td>
+   <td>3 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Gordon 2016
+
+   </td>
+   <td>Brodmann Areas
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Brodmann 1909
+
+   </td>
+   <td>VDG11b
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Van Essen 2012
+
+   </td>
+   <td>HCP-MMP
+
+   </td>
+   <td>3 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Glasser 2016
+
+   </td>
+   <td>Automatic Anatomical Labeling (AAL)
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Tzourio-Mazoyer 2002
+
+   </td>
+   <td>Baldassano
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Baldassano 2015
+
+   </td>
+   <td>Desikan
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Desikan 2006
+
+   </td>
+   <td>Destrieux
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Destrieux 2010
+
+   </td>
+   <td>Brainnetome
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Fan 2016
+
+   </td>
+   <td>Power
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard 
+
+   </td>
+   <td>Power 2011
+
+   </td>
+   <td>Shen 268 Parcels
+
+   </td>
+   <td>2 (different sources)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Shen 2013
+
+   </td>
+   <td>Shen 368 Parcels
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Salehi 2020
+
+   </td>
+   <td>Yeo
+
+   </td>
+   <td>3 (7 Networks, 17 Networks and parcel level version)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Yeo 2014
+
+   </td>
+   <td>DiFuMo
+
+   </td>
+   <td>5 (scales 64-1028)
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Dadi 2020
+
+   </td>
+   <td>MIST
+
+   </td>
+   <td>9 (scales 9-444)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Urchs 2019
+
+   </td>
+   <td>AICHA
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Joliot 2015
+
+   </td>
+   <td>Economo
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>von Economo 2915
+
+   </td>
+   <td>NSPN500
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Whitaker 2016
+
+   </td>
+   <td>Oasis
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Sabuncu 2011
+
+   </td>
+   <td>SJH
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Harrison 2015
+
+   </td>
+   <td>Allen
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Allen 2011
+
+   </td>
+   <td>BASC
+
+   </td>
+   <td>9 (scales 9-444)
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Bellec 2013
+
+   </td>
+   <td>MSDL
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Varoquaux 2011
+
+   </td>
+   <td>Harvard-Oxford
+
+   </td>
+   <td>4 (different versions)
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Jenkinson 2012
+
+   </td>
+   <td>Craddock
+
+   </td>
+   <td>4 (different versions)
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Craddock 2012
+
+   </td>
+   <td>Smith ICA
+
+   </td>
+   <td>2 (different versions)
+
+   </td>
+   <td>Soft
+
+   </td>
+   <td>Smith 2009
+
+   </td>
+   <td>CPAC
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Craddock 2013
+
+   </td>
+   <td>Hammersmith
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Hammers 2003
+
+   </td>
+   <td>JuBrain
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Eickhoff 2005
+
+   </td>
+   <td>MICCAI
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>http://www.neuromorphometrics.com/2012_MICCAI_Challenge_Data.html
+
+   </td>
+   <td>Slab
+
+   </td>
+   <td>2 (907 and 1068)
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Sripada 2014
+
+   </td>
+   <td>Princeton Visual
+
+   </td>
+   <td>1
+
+   </td>
+   <td>Hard
+
+   </td>
+   <td>Wang 2015
+
+   </td>
 
 
 ----
