@@ -57,6 +57,8 @@ Within this project we test a mix of
 
 All considered surface parcellations were converted, if necessary, in the FS LR 32K standard left and right hemisphere standard vertex space. We consider two main sources for surface parcellations, existing and random. Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
 
+{% include parcel_table.html %}
+
 <td><strong><span style="text-decoration:underline;">Name</span></strong>
 </p>
    </td>
