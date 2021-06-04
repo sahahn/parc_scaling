@@ -6,7 +6,7 @@
 |:----------------------------------------------------|:--------------|
 [Standing Height (inches)](./index.html)              |               |
 Waist Circumference (inches)                          |               |
-[Measured Weight (lbs)](standing-height-inches)       |               |
+[Measured Weight (lbs)](./target_variables#standing-height-inches)       |               |
 CBCL RuleBreak Syndrome Scale                         |               |
 Parent Age (yrs)                                      |               |
 Motor Development                                     |               |
