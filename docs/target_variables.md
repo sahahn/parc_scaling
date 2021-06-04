@@ -1,6 +1,6 @@
 
 
-# Continuous Variables
+
 
 | Variable Name                                       | Internal Name |
 |:----------------------------------------------------|:--------------|
@@ -31,8 +31,6 @@ NIH Oral Reading Recognition Test
 WISC Matrix Reasoning Score
 Summed Performance Sports Activity
 Summed Team Sports Activity
-
-
 
 
 
