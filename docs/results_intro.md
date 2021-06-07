@@ -21,12 +21,19 @@ score gets rank 2 and so on. Mean Rank can then be computed across in this case 
 two target variables. Or for example, Mean Rank could be computed both across different [Target Variables](./variables.html)
 and / or across different [ML Pipelines](./ml_pipelines.html), depending on the specific figure or subset of results.
 
-A key benefit of Mean Rank over employing metrics like R2 directly is that we can now compare across both
-different binary and regression metrics, as well as to address scaling issues between metrics
+A key benefit of Mean Rank over employing metrics like explained variance directly is that we can now compare across both
+different binary and regression metrics, as well as to address [scaling issues](./scaling_issues.html) between metrics
 (e.g., sex is more predictive than ADHD composite score). In some degenerative cases Mean Rank has the potential to hide
 information about magnitude of difference, but in general when computed over a sufficient number of comparisons (in this case
 different parcellations) then this will be less of an issue. For example consider that if two parcellations varied only by
 a very slight amount in performance, then their mean rank as computed across many target variables would end up being very close,
 as each each evaluated target will be noisy. On the other hand, if a parcellation outperforms another by a large amount across
 a large number of target variables, then this will be accurately reflected as the better parcellation obtaining a much better
-Mean Rank.
+Mean Rank. The core idea here is that if the difference in performance is two small between two parcellation, i.e., not actually better,
+then Mean Rank if computed across enough individual rankings will show the two parcellations to be equal.
+
+## Simple Example
+
+Next, we can consider a simple example plot showing real results from the core project experiment. In
+this example we will look at only results from the Elastic-Net based pipeline and from randomly generated parcellations
+(See [Parcellations](./parcellations.html) and/or [Elastic-Net](./ml_pipelines#elastic-net.html)

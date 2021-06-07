@@ -4,7 +4,10 @@ layout: default
 
 ## Project Introduction
 
-Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of choice of parcellation, in particular, how does choice of parcellation influence performance within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)).
+Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
+reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of
+choice of parcellation, in particular, how does choice of parcellation influence performance
+within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)).
 
 ## Base Experiment Setup
 
@@ -21,6 +24,21 @@ Specifically, we concatenate structural MRI measures to use as input features (S
 - c). Three different ML pipelines are used, each based on a different popular base estimator (See [ML Pipelines](./ml_pipelines.html)).
 
 - d). In total we employ 45 different phenotypic target variables (See [Target Variables](./variables.html)).
+
+In order to evaluate a given target variable, parcellation or machine learning strategy’s relative performance,
+we defined an explicit framework in which different combinations of methods could be compared.
+We evaluated each combination of target variable, parcellation and ML pipeline with five-fold
+cross validation using the full set of available participants.
+Each of the validation folds, including any nested parameter tuning folds,
+were conducted such that participants from the same family
+were preserved within the same training or testing fold. The 5-fold fold structure was kept
+constant and therefore comparable across
+all combinations of ML pipeline, target variable and parcellation. In the case of
+missing target variables, those participants with missing data were simply excluded from their respective
+training or validation fold. This strategy was used to generate different metrics of performance,
+[explained variance](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score) for regression predictors
+and [area under the receiver operator characteristic curve (ROC AUC)](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
+for binary predictors, for each of the proposed combinations.
 
 ## Base Experiment Results
 
