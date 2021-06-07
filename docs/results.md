@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Interactive Results
-description: This is just another page
+title: Base Results
 ---
 
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+Before diving into specific results, it may be useful to review [Intro to Results](./results_intro.md), which covers how
+the measure of mean rank is derived.
 
 
 [Full Plot](./interactive1.html)
