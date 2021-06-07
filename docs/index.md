@@ -4,7 +4,7 @@ layout: default
 
 ## Project Introduction
 
-Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of choice of parcellation, in particular, how does choice of parcellation influence performance within a machine learning context. [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html).
+Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of choice of parcellation, in particular, how does choice of parcellation influence performance within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)).
 
 ## Base Experiment Setup
 
@@ -22,7 +22,7 @@ Specifically, we concatenate structural MRI measures to use as input features (S
 
 - d). In total we employ 45 different phenotypic target variables (See [Target Variables](./variables.html)).
 
-## Results
+## Base Experiment Results
 
 [Results](./results.html)
 
