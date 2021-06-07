@@ -15,11 +15,11 @@ to avoid including variables not at all predictive from sMRI measures.
 
 | Continuous Variables                  | Binary Variables                            |
 |:--------------------------------------|:--------------------------------------------|
-[Standing Height (inches)](./target_variables#standing-height-inches)|
-[Waist Circumference (inches)](./target_variables#waist-circumference-inches)|               
-[Measured Weight (lbs)](./target_variables#measured-weight-lbs)|
+[Standing Height (inches)](./target_variables#standing-height-inches)|[Speaks Non-English Language](./target_variables#speaks-non-english-language)|
+[Waist Circumference (inches)](./target_variables#waist-circumference-inches)|[Thought Problems ASR Syndrome Scale](./target_variables#thought-problems-asr-syndrome-scale)| 
+[Measured Weight (lbs)](./target_variables#measured-weight-lbs)|[CBCL Aggressive Syndrome Scale](./target_variables#cbcl-aggressive-syndrome-scale)|
 [CBCL RuleBreak Syndrome Scale](./target_variables#cbcl-rulebreak-syndrome-scale)|                   
-[Parent Age (yrs)](./target_variables#parent-age-yrs)|                      
+[Parent Age (yrs)](./target_variables#parent-age-yrs)|[Born Premature](./target_variables#born-premature)|                      
 [Motor Development](./target_variables#motor-development)|                      
 [Birth Weight (lbs)](./target_variables#birth-weight-lbs)|                               
 [Age (months)](./target_variables#age-months)|                                        
@@ -27,7 +27,7 @@ to avoid including variables not at all predictive from sMRI measures.
 [MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|                             
 [Neighborhood Safety](./target_variables#neighborhood-safety)|                               
 [NeuroCog PCA1 (general ability)](./target_variables#neurocog-pca1-general-ability)|                   
-[NeuroCog PCA2 (executive function)](./target_variables#neurocog-pca2-executive function)|
+[NeuroCog PCA2 (executive function)](./target_variables#neurocog-pca2-executive-function)|
 [NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|
 [NIH Card Sort Test](./target_variables#nih-card-sort-test)|
 [NIH List Sorting Working Memory Test](./target_variables#nih-list-sorting-working-memory-test)|
@@ -37,6 +37,35 @@ to avoid including variables not at all predictive from sMRI measures.
 [WISC Matrix Reasoning Score](./target_variables#wisc-matrix-reasoning-score)|
 [Summed Performance Sports Activity](./target_variables#summed-performance-sports-activity)|
 [Summed Team Sports Activity](./target_variables#summed-team-sports-activity)|
+
+
+
+
+
+
+[Incubator Days](./target_variables#incubator-days)|
+[months-breast-fed](./target_variables#months-breast-fed)|
+[Has Twin](./target_variables#has-twin)|
+[Planned Pregnancy](./target_variables#planned-pregnancy)|
+[Distress At Birth](./target_variables#distress-at-birth)|
+[Mother Pregnancy Problems](./target_variables#mother-pregnancy-problems)|
+[Any Alcohol](./target_variables#any-alcohol)|
+[Any Marijuana](./target_variables#any-marijuana)|
+[KSADS OCD Composite](./target_variables#ksads-ocd-composite)|
+[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)|
+[Detentions / Suspensions](./target_variables#detentions-suspensions)|
+[Mental Health Services](./target_variables#mental-health-services)|
+[KSADS Bipolar Composite](./target_variables#ksads-bipolar-composite)|
+[Parents Married](./target_variables#parents-married)|
+[Prodromal Psychosis Score](./target_variables#prodromal-psychosis-score)|
+[Screen Time Week (hrs)](./target_variables#screen-time-week)|
+[Screen Time Weekend (hrs)](./target_variables#screen-time-weekend)|
+[Sex at Birth](./target_variables#sex-at-birth)|
+[Sleep Disturbance Scale](./target_variables#sleep-disturbance-scale)|
+
+
+
+
 
 Note: To see more information on a specific target variable click the name above.
 

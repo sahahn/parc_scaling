@@ -7,7 +7,16 @@ layout: default
 Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
 reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of
 choice of parcellation, in particular, how does choice of parcellation influence performance
-within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)).
+within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)). We
+perform a number of different experiments in order to probe this question in detail.
+
+## Docs Introduction
+
+This documentation leans heavily on hyper-links to different pages, so for more information on different
+pieces of the project or specific ideas / concepts, please follow the provided hyper-links. These will links
+to either other project documentation pages or in some cases key external references or specific code. Also note that the
+'back' button on your browser or opening links in new tabs may be useful strategies for navigating this page as there
+is no side navigation bar.
 
 ## Base Experiment Setup
 
@@ -45,3 +54,11 @@ for binary predictors, for each of the proposed combinations.
 [Results](./results.html)
 
 [Performance Trade-Offs](./trade_offs.html)
+
+## Authors
+
+Sage Hahn, ... 
+
+## Acknowledgments 
+
+... 

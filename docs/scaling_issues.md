@@ -26,4 +26,6 @@ more to this average score than CBCL RuleBreak Syndrome Scale,
 which introduces an unintended bias which says that performance
 predicting Waist Circumference (inches) is more important. Instead, we are more interested in that
 in this example the 1000 parcel solution does better than the 10 parcel solution in both cases (what we lose
-in order of magnitude when comparing between only 2 parcellations we re-gain by comparing 100+ parcellations).
+in order of magnitude when comparing between only 2 parcellations we re-gain by comparing 100+ parcellations). This
+issue of target variables having different scales of predictability is one of the main reasons we use
+[Mean Rank](./results_intro#mean-rank) as the metric of performance within this project.
