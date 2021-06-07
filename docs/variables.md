@@ -37,7 +37,7 @@ to avoid including variables not at all predictive from sMRI measures.
 [WISC Matrix Reasoning Score](./target_variables#wisc-matrix-reasoning-score)|[Screen Time Weekend (hrs)](./target_variables#screen-time-weekend)|
 [Summed Performance Sports Activity](./target_variables#summed-performance-sports-activity)|[Sex at Birth](./target_variables#sex-at-birth)|
 [Summed Team Sports Activity](./target_variables#summed-team-sports-activity)|[Sleep Disturbance Scale](./target_variables#sleep-disturbance-scale)|
-                                                                             ||[months-breast-fed](./target_variables#months-breast-fed)|
+||[Months Breast Fed](./target_variables#months-breast-fed)|
 
 
 
