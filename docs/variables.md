@@ -28,9 +28,9 @@ to avoid including variables not at all predictive from sMRI measures.
 [Neighborhood Safety](./target_variables#neighborhood-safety)|[Any Marijuana](./target_variables#any-marijuana)|                               
 [NeuroCog PCA1 (general ability)](./target_variables#neurocog-pca1-general-ability)|[KSADS OCD Composite](./target_variables#ksads-ocd-composite)|                   
 [NeuroCog PCA2 (executive function)](./target_variables#neurocog-pca2-executive-function)|[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)|
-[NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|[Detentions / Suspensions](./target_variables#detentions-suspensions)|
+[NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|[KSADS Bipolar Composite](./target_variables#ksads-bipolar-composite)|
 [NIH Card Sort Test](./target_variables#nih-card-sort-test)|[Mental Health Services](./target_variables#mental-health-services)|
-[NIH List Sorting Working Memory Test](./target_variables#nih-list-sorting-working-memory-test)|[KSADS Bipolar Composite](./target_variables#ksads-bipolar-composite)|
+[NIH List Sorting Working Memory Test](./target_variables#nih-list-sorting-working-memory-test)|[Detentions / Suspensions](./target_variables#detentions-suspensions)|
 [NIH Comparison Processing Speed Test](./target_variables#nih-comparison-processing-speed-test)|[Parents Married](./target_variables#parents-married)|
 [NIH Picture Vocabulary Test](./target_variables#nih-picture-vocabulary-test)|[Prodromal Psychosis Score](./target_variables#prodromal-psychosis-score)|
 [NIH Oral Reading Recognition Test](./target_variables#nih-oral-reading-recognition-test)|[Screen Time Week (hrs)](./target_variables#screen-time-week)|
