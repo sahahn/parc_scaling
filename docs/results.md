@@ -5,7 +5,7 @@ title: Base Results
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-Before diving into specific results, it may be useful to review [Intro to Results](./results_intro.md), which covers how
+Before diving into specific results, it may be useful to review [Intro to Results](./results_intro.html), which covers how
 the measure of mean rank is derived.
 
 
