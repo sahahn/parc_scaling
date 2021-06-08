@@ -15,19 +15,30 @@ saved with shape (64984, number of parcels), otherwise are saved as a flat array
 
 ## Existing Parcellations
 
-All considered surface parcellations were converted, if necessary,
-in the FS LR 32K standard left and right hemisphere standard vertex space.
-Existing parcellations were sourced from as many places as possible. “Soft” volumetric parcellations were re-sampled by projecting each map separately.
-To re-sample “hard” volumetric parcellations, we first converted them to “soft” parcellations and then once ultimately in fs LR 32k space,
-the “hard” parcellation was reconstructed by assigning each vertex to the parcel with the highest “soft” value.
-Once parcellations were projected into fsaverage space, these parcellations, in addition to a
-collection of others which could only be found in fsaverage space, were re-sampled to fs LR 32k space with tools available
-for the Human Connectome Project Workbench (Marcus, 2011). See setup/process_parcs.py for the script to re-sample parcellations.
+In total, we assessed 82 existing parcellations.
+Parcellations available at multiple scales were assessed at every scale;
+in some cases where multiple versions of the same parcellation were available
+(e.g., from different re-sampling procedures or with different post processing applied),
+both versions were tested. 68 of the 82 parcellations were static or “hard” parcellations,
+in which each vertex is labelled as a part of exactly one parcel.
+We additionally considered 14 probabilistic or “soft” parcellations, where each parcel
+is represented by a set of probabilities or weightings across the whole surface or volume.
+
+As we were interested in having the parcellations match the space of the data, all parcellations if
+not already is fs LR 32k space were re-sampled accordingly. For a detailed look at how re-sampling parcellations
+between different spaces see [re-sampling](./resample_parcellations)
+
+The existing parcellations used are listed below:
 
 {% include parcel_table.html %}
 
-See also the folder [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw) which contains the 'raw' existing parcellations,
-included information on how they can be downloaded. 
+See also the folder [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw)
+which contains the 'raw' existing parcellations, before any preprocessing or
+re-sampling conducted by this project, also included are information on how they can be downloaded.
+See also the script [setup/process_parcs.py](https://github.com/sahahn/parc_scaling/tree/main/setup/process_parcs.py)
+which includes the specific code used to process the data from the
+[raw/](https://github.com/sahahn/parc_scaling/tree/main/raw)
+folder into the [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels).
 
 ## Random Parcellations
 
