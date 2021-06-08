@@ -15,8 +15,7 @@ perform a number of different experiments in order to probe this question in det
 This documentation leans heavily on hyper-links to different pages, so for more information on different
 pieces of the project or specific ideas / concepts, please follow the provided hyper-links. These will links
 to either other project documentation pages or in some cases key external references or specific code. Also note that the
-'back' button on your browser or opening links in new tabs may be useful strategies for navigating this page as there
-is no side navigation bar.
+'back' button on your browser or opening links in new tabs may be useful strategies for navigating this site.
 
 ## Base Experiment Setup
 
@@ -25,8 +24,8 @@ The structure of the evaluation is shown below:
 
 ![Base Exp Structure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
-- a). This study uses data from the ABCD Study release [NDA Collection 3165](https://collection3165.readthedocs.io/en/stable/).
-Specifically, we concatenate structural MRI measures to use as input features (See [Input Data](./input_data.html) for more information).
+- a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release 1.1.0](https://collection3165.readthedocs.io/en/stable/).
+Specifically, we concatenate participants structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
 
 - b). We test a mix of mostly random and existing parcellations (See [Parcellations](./parcellations.html)).
 
@@ -34,20 +33,15 @@ Specifically, we concatenate structural MRI measures to use as input features (S
 
 - d). In total we employ 45 different phenotypic target variables (See [Target Variables](./variables.html)).
 
-In order to evaluate a given target variable, parcellation or machine learning strategy’s relative performance,
-we defined an explicit framework in which different combinations of methods could be compared.
 We evaluated each combination of target variable, parcellation and ML pipeline with five-fold
-cross validation using the full set of available participants.
-Each of the validation folds, including any nested parameter tuning folds,
-were conducted such that participants from the same family
-were preserved within the same training or testing fold. The 5-fold fold structure was kept
-constant and therefore comparable across
-all combinations of ML pipeline, target variable and parcellation. In the case of
-missing target variables, those participants with missing data were simply excluded from their respective
-training or validation fold. This strategy was used to generate different metrics of performance,
-[explained variance](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score) for regression predictors
-and [area under the receiver operator characteristic curve (ROC AUC)](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
-for binary predictors, for each of the proposed combinations.
+cross validation using the full set of available participants. The 5-fold fold structure was kept
+constant and therefore directly comparable across all combinations of ML pipeline, target variable and parcellation. 
+This evaluation procedure was used to generate different metrics of performance,
+[explained variance](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score)
+for regression predictors and
+[area under the receiver operator characteristic curve (ROC AUC)](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
+for binary predictors, for each of the combinations.
+Performance metrics are then converted in the results into a measure of [Mean Rank](./results_intro#mean-rank).
 
 ## Base Experiment Results
 

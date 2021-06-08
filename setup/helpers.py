@@ -179,7 +179,6 @@ def conv_to_gifti(lh_loc, rh_loc):
 
     setup_fs_loc = os.path.join(freesurfer_loc, 'SetUpFreeSurfer.sh')
 
-
     fs_cmd = 'source ' + setup_fs_loc
     
     lh_gifti = 'L.' + temp_name + '.gii'

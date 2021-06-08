@@ -25,8 +25,8 @@ We additionally considered 14 probabilistic or “soft” parcellations, where e
 is represented by a set of probabilities or weightings across the whole surface or volume.
 
 As we were interested in having the parcellations match the space of the data, all parcellations if
-not already is fs LR 32k space were re-sampled accordingly. For a detailed look at how re-sampling parcellations
-between different spaces see [re-sampling](./resample_parcellations)
+not already is fs LR 32k space were re-sampled accordingly. For a detailed look at how resampling parcellations
+between different spaces see [resampling](./resample_parcellations.html)
 
 The existing parcellations used are listed below:
 
