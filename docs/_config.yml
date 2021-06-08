@@ -1,5 +1,6 @@
 title: Performance Scaling for Structural MRI Surface Parcellations
 email: sahahn@uvm.edu
+description: A Machine Learning Analysis in the ABCD Study
 source: docs/
 markdown: kramdown
 permalink: /:year/:title:output_ext
