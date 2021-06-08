@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Re-sample
+title: Resampling Parcellations
+description: Information of on resampling of parcellations was performed.
 ---
 
 # Resampling Parcellations

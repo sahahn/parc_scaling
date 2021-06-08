@@ -6,7 +6,9 @@ description: Information of the different ML Pipelines used.
 
 # ML Pipelines
 
-We employ three base ML pipelines, each with classifier and regressor variants, as a representative sample of different popular and predictive ML strategies.
+The python library [BPt](https://github.com/sahahn/BPt) was used to implement the ML pipelines of interest.
+We employ three base ML pipelines, each with classifier and regressor variants,
+as a representative sample of different popular and predictive ML strategies.
 All machine learning experiments are conducted with the python library BPt.
 Each pipeline is first composed of a loading component responsible for extracting ROIs according to the specified surface parcellation.
 The output from the loading step concatenates the extracted ROI values across each of the different surface values, generating a feature

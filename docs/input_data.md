@@ -4,7 +4,7 @@ title: Input Data
 description: Information of the input data used.
 ---
 
-Data is sourced from the ABCD Study release [NDA Collection 3165](https://collection3165.readthedocs.io/en/stable/).
+Data is sourced from the baseline ABCD Study release [NDA Collection 3165 1.1.0](https://collection3165.readthedocs.io/en/stable/).
 Data used within this study are the sMRI outputs of a modified HCP style pipeline.
 We downloaded for each available subject their left and right hemisphere curvature,
 sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard FS LR 32k vertex space.

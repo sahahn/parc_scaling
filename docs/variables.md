@@ -4,14 +4,16 @@ title: Target Variables
 description: Information of the different target variables used.
 ---
 
+# Target Variables
+
 A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance,
 was sourced from the second ABCD Study release. Variables were sourced directly from
 the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv).
 All collected variables, both target and brain, are from the baseline time point on the study.
-Best efforts were made to source a list of representative, diverse and predictive variables.
-Towards this effort, a larger list of variables was originally screened on a subset of the data (n=2000)
-to avoid including variables not at all predictive from sMRI measures.
+Best efforts were made to source a list of representative, diverse and [predictive](./variables#is-predictive) variables.
+Extra pre-processing beyond done by the DEAP team, and the creation of the targets.csv is conducted in the script setup/process_targets.py
 
+All target variables used in the final project are listed below with clickable links to a more detailed description of each measure.
 
 | Continuous Variables                  | Binary Variables                            |
 |:--------------------------------------|:--------------------------------------------|
@@ -40,29 +42,28 @@ to avoid including variables not at all predictive from sMRI measures.
 ||[Months Breast Fed](./target_variables#months-breast-fed)|
 
 
+## Is Predictive
+
+In order to establish if potential target variables were predictive or not, we conducted a front-end test on a subset of data.
+First a larger list of possible representative variables was sourced from
+[Recalibrating expectations about effect size: A multi-method survey of effect sizes in the ABCD study](https://psyarxiv.com/tn9u4/).
+A subset of around 2000 participants was then identified as participants with no missing values across all possible target variables.
+Next, the Destrieux FreeSurfer extracted ROIs were used used as input features within a 5-fold cross validation framework to try and
+predict out of sample each potential variable. A ridge regression model with nested random choice over 32 values of regularization,
+along with front-end robust input scaling was used as the predictive ML pipeline (implemented and evaluated with [BPt](https://github.com/sahahn/BPt)).
+Regression models with R2 as the metrics of interest were used for continuous variables, ROC AUC for
+binary variables and matthews correlation coef. for categorical variables
+(these types were auto-detected by [BPt](https://github.com/sahahn/BPt)).
+Within this framework we then established variables as 'predictive' only if they had a
+performance metric > than the null for that metric + the standard deviation
+across five folds (e.g., for r2 needs an r2 > r2 std, but for ROC AUC needs ROC AUC > .5 + ROC AUC std). 
 
 
+## Why Threshold
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Note: To see more information on a specific target variable click the name above.
-
-Extra pre-processing beyond done by the DEAP team, and the creation of the targets.csv is conducted in the script setup/process_targets.py
+A number of the binary variables listed above were not originally binary variables, and instead were converted to binary
+variables through a static threshold. This is often considered a poor statistical practice, so why did we do it in this context?
+First, thresholding variables in this way while perhaps not best practice, does happen frequently in the literature, we therefore
+wanted to mimic actually used practices in this sense. Secondly, we wanted to try and ensure that the number of continuous variables and
+binary variables where roughly equal. Lastly, in a number of cases the continuous version of the variable was not at all predictive, but 
+the binarized version was (likely due to the highly skewed nature of these variables true underlying distribution).

@@ -24,7 +24,7 @@ The structure of the evaluation is shown below:
 
 ![Base Exp Structure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
-- a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release 1.1.0](https://collection3165.readthedocs.io/en/stable/).
+- a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
 Specifically, we concatenate participants structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
 
 - b). We test a mix of mostly random and existing parcellations (See [Parcellations](./parcellations.html)).
