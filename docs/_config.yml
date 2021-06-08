@@ -1,8 +1,5 @@
 title: Performance Scaling for Structural MRI Surface Parcellations
 email: sahahn@uvm.edu
-description: > 
-  This includes the project documentation and is designed
-  to act as supplementary material for the paper and broader research project.
 source: docs/
 markdown: kramdown
 permalink: /:year/:title:output_ext
