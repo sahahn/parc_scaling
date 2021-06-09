@@ -15,12 +15,7 @@ perform a number of different experiments in order to probe this and related que
 The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance.
 The structure of the evaluation is shown below:
 
-<img src="https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png" usemap="#image-map">
-
-<map name="image-map">
-    <area target="" alt="Input Data" title="Input Data" href="./input_data.html" coords="0,0,976,146" shape="rect">
-    <area target="" alt="Parcellations" title="Parcellations" href="./parcellations.html" coords="370,37,225,16" shape="rect">
-</map>
+![Outline](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
 - a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
 Specifically, we concatenate participants structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
