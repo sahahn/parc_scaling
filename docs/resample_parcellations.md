@@ -64,6 +64,8 @@ source code for functions called to process specific parcellations in script
 [setup/process_parcs.py](https://github.com/sahahn/parc_scaling/tree/main/setup/process_parcs.py). The
 functions contained here are for the most part python wrappers around different command line tools. For example:
 
+~~~ python
+
     def conv_to_gifti(lh_loc, rh_loc):
 
         temp_name = 'temp'
@@ -87,6 +89,8 @@ functions contained here are for the most part python wrappers around different 
         os.remove(rh_loc)
 
         return lh_gifti, rh_gifti
+
+~~~
 
 Which is used to convert surface files from freesurfer format to gifti via the freesurfer command
 [mri_convert)(https://surfer.nmr.mgh.harvard.edu/fswiki/mri_convert).

@@ -46,7 +46,7 @@ provides a gentle introduction to the format plotted below.
 
 [![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)](./interactive1.html)
 
-Click the image above to open an interactive version of the plot
+*Click the image above to open an interactive version of the plot*
 {: style="font-size: 80%; text-align: center;"}
 
 - There is a relationship between performance, as estimated by [mean rank](./results_intro#mean-rank), and parcellation size.
