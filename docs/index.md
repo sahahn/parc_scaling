@@ -46,8 +46,8 @@ provides a gentle introduction to the format plotted below.
 
 [![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)](./interactive1.html)
 
-*Click the image above to open an interactive version of the plot*
-{: style="font-size: 80%; text-align: center;"}
+*Click the figure above to open an interactive version of the plot*
+{: style="font-size: 805; text-align: center;"}
 
 - There is a relationship between performance, as estimated by [mean rank](./results_intro#mean-rank), and parcellation size.
   Up to ~Size 4000 a [power law](./estimate_powerlaw.html) relationship appears to hold, with scaling exponent .-2753.
