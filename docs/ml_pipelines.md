@@ -74,6 +74,8 @@ front-end feature selector. All three hyper-parameters are optimized at the same
 #### LGBM
 The base model optimized is an extreme gradient boosted tree based classifier and regressor from the Light Gradient Boosting Machine (LGBM) package. The tuned hyper-parameters for this model included the type of boosting, the number of estimators, different tree sampling parameters, and regularization parameters. Given the high number of hyper-parameters to tune, 9, in contrast to the other base models, we employed a two point differential evolution based hyper-parameter search strategy implemented through the python library Nevergrad. The search was run for 180 iterations, where each set of parameters is evaluated with a single 25% nested validation split.
 
+~~~ python
+
     from BPt import CVStrategy, CV, ParamSearch, Model
 
     cv_strat = CVStrategy(groups='rel_family_id')
@@ -86,6 +88,8 @@ The base model optimized is an extreme gradient boosted tree based classifier an
     model = Model('light gbm',
                   params=1,
                   param_search=lgbm_param_search)
+
+~~~
 
 
 ### Source code
