@@ -18,8 +18,8 @@ The structure of the evaluation is shown below:
 <img src="https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png" usemap="#image-map">
 
 <map name="image-map">
-    <area target="" alt="Input Data" title="Input Data" href="./parc_scaling/input_data.html" coords="0,0,976,2885" shape="rect">
-    <area target="" alt="Parcellations" title="Parcellations" href="./parc_scaling/parcellations.html" coords="2471,251,1503,16" shape="rect">
+    <area target="" alt="Input Data" title="Input Data" href="./input_data.html" coords="0,0,976,146" shape="rect">
+    <area target="" alt="Parcellations" title="Parcellations" href="./parcellations.html" coords="370,37,225,16" shape="rect">
 </map>
 
 - a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
