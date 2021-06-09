@@ -53,8 +53,8 @@ provides a gentle introduction to the format plotted below.
   when controlling for the influence of size, however [Existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
   than our results suggest to be most predictive.
 
-- The general pattern is stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
-  the SVM based pipeline is most competitive (See [By Pipeline](./by_pipeline.html)).
+- The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
+  the SVM based pipeline was most competitive (See [By Pipeline](./by_pipeline.html)).
 
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
@@ -66,7 +66,10 @@ provides a gentle introduction to the format plotted below.
 
 ## Authors
 
-Sage Hahn, ... 
+Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter, Hugh Garavan, Nicholas Allgaier
+
+Departments of Complex Systems and Psychiatry, University of Vermont, Burlington, VT 05401
+ 
 
 ## Acknowledgments 
 
