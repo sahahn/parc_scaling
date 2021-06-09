@@ -10,9 +10,6 @@ choice of parcellation, in particular, how does choice of parcellation influence
 within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)). We
 perform a number of different experiments in order to probe this and related questions in detail.
 
-This page is designed to act as both a project documentation and / or supplementary material 
-(Note: there are a number of hyper-links to different internal and external pages of interest).
-
 ## Base Experiment Setup
 
 The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance.
@@ -41,15 +38,23 @@ Performance metrics are then converted in the results into a measure of [Mean Ra
 
 ## Base Experiment Results
 
+The below figure plots performance, as represented by [mean relative ranking](./results_intro#mean-rank)
+between all 220 parcellations, against the number of parcels / size in each parcellation.
+Results are further colored by type of parcellation and a log10-log10 inset
+of the same plot provided. It may be useful to also review [Intro to Results](./results_intro.html) first, which
+provides a gentle introduction to the format plotted below.
+
 ![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)
 
-- There is a relationship between performance, as estimated by [Mean Rank](./results_intro#mean-rank), and parcellation size.
+- There is a relationship between performance, as estimated by [mean rank](./results_intro#mean-rank), and parcellation size.
   Up to ~Size 4000 a [power law](./estimate_powerlaw.html) relationship appears to hold, with scaling exponent .-2753.
   
-- [Existing Parcellations](./parcellations#existing-parcellations) outperform [Random Parcellations](./parcellations#random-parcellations) at the same sizes, however
-  pre-existing parcellations tended to have fewer parcels than our results suggest to be most predictive.
+- [Existing parcellations](./parcellations#existing-parcellations) outperformed [randomly generated parcellations](./parcellations#random-parcellations)
+  when controlling for the influence of size, however [Existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
+  than our results suggest to be most predictive.
 
-- The general pattern is stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline, the SVM based pipeline is most competitive (See [By Pipeline](./by_pipeline.html)).
+- The general pattern is stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
+  the SVM based pipeline is most competitive (See [By Pipeline](./by_pipeline.html)).
 
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,

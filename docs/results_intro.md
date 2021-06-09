@@ -37,3 +37,5 @@ then Mean Rank if computed across enough individual rankings will show the two p
 Next, we can consider a simple example plot showing real results from the core project experiment. In
 this example we will look at only results from the [Elastic-Net](./ml_pipelines#elastic-net.html) based pipeline
 and from [randomly generated parcellations](./parcellations#random-parcellations).
+
+![Simple Example](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example.png)
