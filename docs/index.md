@@ -41,9 +41,23 @@ Performance metrics are then converted in the results into a measure of [Mean Ra
 
 ## Base Experiment Results
 
-[Results](./results.html)
+![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)
 
-[Performance Trade-Offs](./trade_offs.html)
+- There is a relationship between performance, as estimated by [Mean Rank](./results_intro#mean-rank), and parcellation size.
+  Up to ~Size 4000 a [power law](./estimate_powerlaw.html) relationship appears to hold, with scaling exponent .-2753.
+  
+- [Existing Parcellations](./parcellations#existing-parcellations) outperform [Random Parcellations](./parcellations#random-parcellations) at the same sizes, however
+  pre-existing parcellations tended to have fewer parcels than our results suggest to be most predictive.
+
+- The general pattern is stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline, the SVM based pipeline is most competitive (See [By Pipeline](./by_pipeline.html)).
+
+- Notably, performance may not in practice be the only metric of interest,
+  instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
+  runtime and downstream interpretation complexity.
+
+- See also [Interactive Results](./results.html).
+
+
 
 ## Authors
 
