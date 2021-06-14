@@ -4,21 +4,21 @@ layout: default
 
 ## Project Introduction
 
-Different parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
-reduction of features (which has its own sleuth of benefits). This project focuses in particular on the question of
+Parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
+reduction of features. This project focuses in particular on the question of
 choice of parcellation, in particular, how does choice of parcellation influence performance
 within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)). We
 perform a number of different experiments in order to probe this and related questions in detail.
 
 ## Base Experiment Setup
 
-The base experiment conducted within this project was a systematic test of different pre-defined parcellations performance.
+The base experiment conducted within this project was a systematic test of performance of different pre-defined parcellations.
 The structure of the evaluation is shown below:
 
 ![Outline](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
 
 - a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
-Specifically, we concatenate participants structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
+Specifically, we concatenate participant's structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
 
 - b). We test a mix of mostly random and existing parcellations (See [Parcellations](./parcellations.html)).
 
@@ -27,7 +27,7 @@ Specifically, we concatenate participants structural MRI measures to use as inpu
 - d). In total we employ 45 different phenotypic target variables (See [Target Variables](./variables.html)).
 
 We evaluated each combination of target variable, parcellation and ML pipeline with five-fold
-cross validation using the full set of available participants. The 5-fold fold structure was kept
+cross validation using the full set of available participants. The CV fold structure was kept
 constant and therefore directly comparable across all combinations of ML pipeline, target variable and parcellation. 
 This evaluation procedure was used to generate different metrics of performance,
 [explained variance](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score)
@@ -41,7 +41,7 @@ Performance metrics are then converted in the results into a measure of [Mean Ra
 The below figure plots performance, as represented by [mean relative ranking](./results_intro#mean-rank)
 between all 220 parcellations, against the number of parcels / size in each parcellation.
 Results are further colored by type of parcellation and a log10-log10 inset
-of the same plot provided. It may be useful to also review [Intro to Results](./results_intro.html) first, which
+of the same plot is provided. It may be useful to also review [Intro to Results](./results_intro.html) first, which
 provides a gentle introduction to the format plotted below.
 
 [![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)](./interactive1.html)
