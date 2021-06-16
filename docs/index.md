@@ -9,9 +9,8 @@ reduction of features. This project focuses in particular on the question of
 choice of parcellation, in particular, how does choice of parcellation influence performance
 within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)). We
 perform a number of different experiments in order to probe this and related questions in detail.
-
 [*Why a website?*](./website_info.html)
-{: style="font-size: 85%; text-align: center;"}
+{: style="font-size: 85%;}
 
 ## Base Experiment Setup
 
