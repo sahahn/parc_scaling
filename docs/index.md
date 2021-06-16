@@ -11,7 +11,7 @@ within a machine learning context (See [Background on Machine Learning for Neuro
 perform a number of different experiments in order to probe this and related questions in detail.
 
 This website acts as both a standalone project site and as online supplementary materials for
-the corresponding project paper ([*Why a website?*](./website_info.html)).
+the corresponding project paper - [*Why a website?*](./website_info.html).
 
 ## Base Experiment Setup
 
