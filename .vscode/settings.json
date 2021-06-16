@@ -9,6 +9,7 @@
         "dlabel",
         "fsaverage",
         "kstest",
+        "statsmodel",
         "sulc"
     ],
     "python.pythonPath": "/home/sage/anaconda3/envs/bpt/bin/python"

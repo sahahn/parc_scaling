@@ -29,3 +29,4 @@ exp/results
 temp-plot.html
 analyze/temp-plot.html
 .vscode
+.vscode/settings.json

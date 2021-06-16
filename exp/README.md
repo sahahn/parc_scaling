@@ -27,6 +27,8 @@ This folder contains all of the code used in the main experiments of the paper. 
 
 ### Computation
 
-As these experiments are tremendously computationally expensive, they were run on the University of Vermont's bluemoon super computing cluster (https://www.uvm.edu/vacc).
-This cluster use's a SLURM submission system. Scripts dedicated to submitting SLURM jobs are saved with the '.sh' suffix. Job's can also be run locally via running submission script 'submit.py'.
+As these experiments are tremendously computationally expensive, they were run on the
+University of Vermont's bluemoon super computing cluster (https://www.uvm.edu/vacc).
+This cluster use's a SLURM submission system. Scripts dedicated to
+submitting SLURM jobs are saved with the '.sh' suffix. Job's can also be run locally via running submission script 'submit.py'.
 
