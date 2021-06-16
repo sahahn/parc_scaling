@@ -39,3 +39,16 @@ this example we will look at only results from the [Elastic-Net](./ml_pipelines#
 and from [randomly generated parcellations](./parcellations#random-parcellations).
 
 ![Simple Example](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example.png)
+
+![Simple Example Log](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example_log.png)
+
+
+## Modelling Results
+
+We employ ordinary least squares regression (OLS), as implemented in the python package statsmodel (Seabold 2010),
+to model results from the base experiments. Base notation for OLS equations are written as A ~ B + C
+where A is the dependent variable and B + C are independent fixed effects.
+Alternatively if written as A ~ B * D then D will be added as a fixed effect
+along with an interaction term between B and D (equivalent to alternate notation A ~ B + D + B * D).
+If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect.
+Lastly, if a variable is wrapped in log10(), then the logarithm of the variable with base 10 has been used.
