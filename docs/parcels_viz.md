@@ -21,41 +21,92 @@ description: All static parcellations
 
 # Gordon
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/gordon.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-CAPRSC.png)
+
 # Brodmann Areas
 
-extra/Figures/parcels/brodmann.png
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/brodmann.png)
 
 # VDG11b
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vdg11b.png)
+
 # HCP-MMP
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/glasser_2016_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/glasser_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/hcp_mmp.png)
 
 # AAL
 
-extra/Figures/parcels/aal_abox.png
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/aal_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-aal.png)
 
 # Baldassano
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/baldassano_abox.png)
+
 # Desikan
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/desikan_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/desikan_dlab.png)
+
 
 # Destrieux
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/dextrieux_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/dextrieux_dlab.png)
+
+
 # Brainnetome
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/fan_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-brainnetome.png)
 
 # Power
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/power_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/power2011_dlab.png)
+
 # Shen 268
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/shen_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-shen-268.png)
 
 # Shen 368
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-shen-368.png)
+
 # Yeo
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/yeo_7networks.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/yeo_17networks.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/yeo_abox.png)
 
 # MIST
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-7.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-12.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-20.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-36.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-64.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-122.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-197.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-325.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-444.png)
+
 # AICHA
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/aicha.png)
 
 # Economo
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/economo.png)
+
 # NSPN500
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/nspn500.png)
 
 # Oasis
 
@@ -63,24 +114,60 @@ extra/Figures/parcels/aal_abox.png
 
 # SJH
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master//home/sage/parc_scaling/extra/Figures/parcels/sjh.png)
+
 # BASC
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale007.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale012.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale020.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale036.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale064.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale122.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale197.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale325.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale444.png)
+
+# Harvard Oxford
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr0-1mm.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr25-1mm.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr50-1mm.png)
 
 # CPAC
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-CPAC200.png)
+
+
 # Hammersmith
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-Hammersmith.png)
 
 # JuBrain
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-Juelich.png)
+
 # MICCAI
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-MICCAI.png)
 
 # Slab
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-Slab907.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-Slab1068.png)
+
 # Princeton
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-Princetonvisual-top.png)
 
 # Icosahedron
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-42_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-162_dlab.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-362_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-642_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-1002_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-1442_dlab.png)
 
 # Random
 
