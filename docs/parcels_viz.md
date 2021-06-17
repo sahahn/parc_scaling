@@ -23,11 +23,15 @@ description: All static parcellations
 
 # Brodmann Areas
 
+extra/Figures/parcels/brodmann.png
+
 # VDG11b
 
 # HCP-MMP
 
 # AAL
+
+extra/Figures/parcels/aal_abox.png
 
 # Baldassano
 
@@ -55,6 +59,8 @@ description: All static parcellations
 
 # Oasis
 
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/oasis.chubs.png)
+
 # SJH
 
 # CPAC
@@ -68,6 +74,11 @@ description: All static parcellations
 # Slab
 
 # Princeton
+
+# Icosahedron
+
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-42_dlab.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/icosahedron-362_dlab.png)
 
 # Random
 
