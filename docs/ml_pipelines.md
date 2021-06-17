@@ -24,8 +24,9 @@ The base model within the pipeline under this configuration is a logistic or lin
 [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html).
 A nested [random](https://sahahn.github.io/BPt/options/search_type_options/random_search.html)
 [hyper-parameter search](https://sahahn.github.io/BPt/reference/api/BPt.ParamSearch.html) over 60 combinations is evaluated through
-nested 3-fold CV to select the strength of regularization applied
-as well as the ratio between l1 and l2 regularization.
+nested 3-fold [CV](https://sahahn.github.io/BPt/reference/api/BPt.CV.html#BPt.CV) to select the strength
+of regularization applied as well as the ratio between
+[l1 and l2 regularization](https://medium.com/analytics-vidhya/l1-vs-l2-regularization-which-is-better-d01068e6658c).
 
 BPt Code:
 
@@ -36,7 +37,7 @@ BPt Code:
     cv_strat = CVStrategy(groups='rel_family_id')
 
     base_param_search =\
-        [ParamSearch](https://sahahn.github.io/BPt/reference/api/BPt.ParamSearch.html)(search_type='RandomSearch',
+        ParamSearch(search_type='RandomSearch',
                     n_iter=60,
                     cv=CV(splits=3, n_repeats=1, cv_strategy=cv_strat))
 
@@ -53,10 +54,14 @@ the [binary option](https://sahahn.github.io/BPt/options/pipeline_options/models
 [regression option](https://sahahn.github.io/BPt/options/pipeline_options/models.html#elastic-net-regressor).
 
 #### SVM
-The base model within the pipeline under this configuration is a Support Vector Machine (SVM) classifier or regressor with radial basis function kernel available from scikit-learn. A front end univariate feature selection procedure was further added to this pipeline configuration (based on the
-ANOVA f-value between a feature and the target variable). A nested random hyper-parameter search over
-60 combinations is then evaluated through nested 3-fold CV in order to select the SVM’s strength
-of regularization and kernel coefficient as well as the percent of features to keep in the
+The base model within the pipeline under this configuration is a [Support Vector Machine (SVM)](https://scikit-learn.org/stable/modules/svm.html)
+classifier or regressor with [radial basis function kernel](https://scikit-learn.org/stable/modules/svm.html#svm-kernels).
+A front end [univariate feature selection](https://scikit-learn.org/stable/modules/feature_selection.html#univariate-feature-selection)
+procedure was further added to this pipeline configuration (based on the
+ANOVA f-value between a feature and the target variable). A nested [random](https://sahahn.github.io/BPt/options/search_type_options/random_search.html)
+[hyper-parameter search](https://sahahn.github.io/BPt/reference/api/BPt.ParamSearch.html) over
+60 combinations is then evaluated through nested 3-fold [CV](https://sahahn.github.io/BPt/reference/api/BPt.CV.html#BPt.CV)
+in order to select the SVM’s strength of regularization and kernel coefficient as well as the percent of features to keep in the
 front-end feature selector. All three hyper-parameters are optimized at the same time.
 
 BPt Code:
@@ -75,7 +80,7 @@ BPt Code:
 
     feat_selectors =\
         [FeatSelector('variance threshold'),
-            FeatSelector('univariate selection', params=2)]
+         FeatSelector('univariate selection', params=2)]
 
         
     base_model = Model('svm',
@@ -89,10 +94,21 @@ BPt Code:
 
 ~~~
 
-#### LGBM
-The base model optimized is an extreme gradient boosted tree based classifier and regressor from the Light Gradient Boosting Machine (LGBM) package. The tuned hyper-parameters for this model included the type of boosting, the number of estimators, different tree sampling parameters, and regularization parameters. Given the high number of hyper-parameters to tune, 9, in contrast to the other base models, we employed a two point differential evolution based hyper-parameter search strategy implemented through the python library Nevergrad. The search was run for 180 iterations, where each set of parameters is evaluated with a single 25% nested validation split.
 
-BPt Code:
+In the code above, params=1 within the svm model selects a default distribution of hyper-parameters from [BPt](https://github.com/sahahn/BPt), specifically
+the [binary option](https://sahahn.github.io/BPt/options/pipeline_options/models.html#svm-classifier) and
+[regression option](https://sahahn.github.io/BPt/options/pipeline_options/models.html#svm-regressor). Likewise params=2 for the univariate
+feature selector selects both a [binary option](https://sahahn.github.io/BPt/options/pipeline_options/selectors.html#univariate-selection-c) and
+[regression option](https://sahahn.github.io/BPt/options/pipeline_options/selectors.html#univariate-selection-r) as well.
+
+#### LGBM
+The base model optimized is an [extreme gradient boosted tree](https://blog.exploratory.io/introduction-to-extreme-gradient-boosting-in-exploratory-7bbec554ac7)
+based classifier and regressor from the [Light Gradient Boosting Machine (LGBM)](https://lightgbm.readthedocs.io/en/latest/) package.
+The tuned hyper-parameters for this model included the type of boosting, the number of estimators, different tree sampling parameters, and regularization parameters. Given the high number of hyper-parameters to tune, 9, in contrast to the other base models, we employed a two point [differential evolution](https://en.wikipedia.org/wiki/Differential_evolution)
+based [hyper-parameter search](https://sahahn.github.io/BPt/reference/api/BPt.ParamSearch.html) strategy implemented through the python library 
+[Nevergrad](https://facebookresearch.github.io/nevergrad/). The search was run for 180 iterations, where each set of parameters is evaluated with a single 25% nested validation split.
+
+BPt Code
 
 ~~~ python
 
@@ -111,6 +127,10 @@ BPt Code:
 
 ~~~
 
+In the code above, params=1 selects a default distribution of hyper-parameters from [BPt](https://github.com/sahahn/BPt), specifically
+the [binary option](https://sahahn.github.io/BPt/options/pipeline_options/models.html#light-gbm-classifier) and
+[regression option](https://sahahn.github.io/BPt/options/pipeline_options/models.html#light-gbm-regressor).
 
 ### Source code
-These pipelines are referenced in [exp/models.py](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py)
+
+These pipelines are implemented in [exp/models.py](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py)
