@@ -46,7 +46,7 @@ This project uses the idea of random surface parcellations extensively. Random p
 
 Example generated random parcellation:
 
-![Random Parc Gif](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/rand_parc.gif)
+![Random Parc Gif](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/rand_parc.gif)
 
 Note: The above example, in contrast to the random parcellations generated in this project,
 is in fsaverage5 space (vs. fs_LR_32k) and doesn't mask the medial wall (the medial wall is masked in this project).

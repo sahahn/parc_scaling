@@ -18,7 +18,7 @@ the corresponding project paper - [*Why a website?*](./website_info.html)
 The base experiment conducted within this project was a systematic test of performance of different pre-defined parcellations.
 The structure of the evaluation is shown below:
 
-![Outline](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure1.png)
+![Outline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure1.png)
 
 - a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
 Specifically, we concatenate participant's structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
@@ -47,7 +47,7 @@ Results are further colored by type of parcellation and a log10-log10 inset
 of the same plot is provided. It may be useful to also review [Intro to Results](./results_intro.html) first, which
 provides a gentle introduction to the format plotted below.
 
-[![Base Results](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure2.png)](./interactive1.html)
+[![Base Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2.png)](./interactive1.html)
 
 *Click the figure above to open an interactive version of the plot*
 {: style="font-size: 85%; text-align: center;"}
@@ -90,4 +90,4 @@ Departments of Complex Systems and Psychiatry, University of Vermont, Burlington
 
 - We would also like to thank the other members of the Hugh Garavan lab for their support throughout this project.
 
-![t32 logo](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/t32_logo.png){: width="250" } ![abcd logo](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/abcd-study-logo.png){: width="250" } ![vacc logo](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/vacc_logo.jpg){: width="250" }
+![t32 logo](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/t32_logo.png){: width="250" } ![abcd logo](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/abcd-study-logo.png){: width="250" } ![vacc logo](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/vacc_logo.jpg){: width="250" }

@@ -6,4 +6,4 @@ description: Results broken down by pipeline
 
 # By Pipeline
 
-![By Pipeline](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/Figure3.png)
+![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)

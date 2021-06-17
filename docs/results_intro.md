@@ -11,7 +11,7 @@ as the name suggests, just an average of a parcellations 'ranks', where a parcel
 performance to other parcellations (when evaluated with the same ML Pipeline and for the same target variable). For example
 consider the highly simplified example below:
 
-![simple intro figure](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/data/intro_figure1.png)
+![simple intro figure](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/intro_figure1.png)
 
 In this case, rankings are computed across three different parcellations, each which have just a generic "score"
 (which in the rest of the project depends on if the target variable is binary or regression,
@@ -38,9 +38,9 @@ Next, we can consider a simple example plot showing real results from the core p
 this example we will look at only results from the [Elastic-Net](./ml_pipelines#elastic-net.html) based pipeline
 and from [randomly generated parcellations](./parcellations#random-parcellations).
 
-![Simple Example](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example.png)
+![Simple Example](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example.png)
 
-![Simple Example Log](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example_log.png)
+![Simple Example Log](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log.png)
 
 
 ## Modelling Results

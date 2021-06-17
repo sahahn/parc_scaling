@@ -17,7 +17,7 @@ and [randomly generated parcellations](./parcellations#random-parcellations). A 
 is included according to an [ordinary least squares (OLS) regression](./results_intro#modelling-results),
 formula log10(Mean Rank) ~ log10(Size).
 
-![Simple Example Log](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example_log_with_fit.png)
+![Simple Example Log](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit.png)
 
 The first thing that stands out from this figure just visually is that the initial linear pattern continues until about 10^3 and then
 plateaus, followed by spiking upward. The idea here is that the spike at the end represents sizes where the powerlaw distribution fails to
@@ -58,7 +58,7 @@ the expected powerlaw distribution.
 
 Returning to the example from earlier, if we run the described procedure, we can then plot just the OLS fit from between the two automatically computed thresholds:
 
-![Simple Example Log](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/analyze/Figures/simple_example_log_with_fit2.png)
+![Simple Example Log](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
 
 We can now see that the line matches much closer to the data-points (R2=.926) as well as matches roughly to the visually / intuitively defined threshold.
 Correctly identifying this region is important because it greatly influences the estimated slope or exponent of power-law scaling, and also practically it helps to

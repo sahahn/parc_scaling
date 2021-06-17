@@ -28,33 +28,33 @@ medial wall in fs LR 32k space.
 The Brainnetome parcellation is used here as an example of a static parcellation originally in volumetric space
 that must be resampled to fs LR 32k surface space.
 
-![Full Volume](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/full_volume.png)
+![Full Volume](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/full_volume.png)
 
 To re-sample static / “hard” volumetric parcellations, we first converted them
 to “soft” parcellations, in practice treating each region of interest as a separate volume
 (where that region is labelled with 1 and everywhere else 0).
 
-![First ROI](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/volume_one_roi.png)
+![First ROI](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/volume_one_roi.png)
 
 These separate volumes are then individually
 resampled using [Registration Fusion](https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/registration/Wu2017_RegistrationFusion)
 a technique from Wu et al. 2018. The result of this resampling is that ROI as projected to fsaverage space.
 
-![FreeSurfer](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/freesurfer_surface_one_roi.png)
+![FreeSurfer](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/freesurfer_surface_one_roi.png)
 
 Next, each ROI is resampled from fsaverage space to fs LR 32k space in the same manner as with surfaces
 [originally in fsaverage space](./resample_parcellations#resampling-from-freesurfer-standard-space).
 
-![FS_LR_32](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/fs_lr_surface_one_roi.png)
+![FS_LR_32](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/fs_lr_surface_one_roi.png)
 
 The above process is repeated for all ROIs separately, then in order to re-combine them, a simple argmax operation is carried
 out across all separate ROI's surfaces, where each vertex is assigned to the ROI with the highest value.
 
-![all rois](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/full_resample.png)
+![all rois](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/full_resample.png)
 
 Lastly, the medial wall is masked out, according to the medial mall defined by FS LR 32k space.
 
-![final](https://raw.githubusercontent.com/sahahn/Parcs_Project/master/extra/Figures/final_no_medial_wall.png)
+![final](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/final_no_medial_wall.png)
 
 
 ## Code
