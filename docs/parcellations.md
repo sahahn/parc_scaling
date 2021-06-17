@@ -9,7 +9,7 @@ description: All parcellations used
 Within this project we consider two main sources for surface parcellations, existing and random.
 Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
 
-[Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels) (excluded a few too large parcellations).
+See [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels) (excluded a few too large parcellations).
 These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
 saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
 
@@ -67,3 +67,22 @@ other tested parcellations both in how values are generated (FreeSurfer extracts
 an individual's native space whereas we extract values from data warped to a common space)
 in addition to the surface modalities used (only average thickness, surface area and mean curvature
 are employed, which differs from the features used in the base analyses). 
+
+
+## References
+
+- Baldassano, C., Beck, D. M., & Fei-Fei, L. (2015). Parcellating connectivity in spatial maps. PeerJ, 3, e784.
+
+- Brodmann, K. (1909). Vergleichende Lokalisationslehre der Grosshirnrinde in ihren Prinzipien dargestellt auf Grund des Zellenbaues. Barth.
+Challenges.”NeuroImage, vol. 197, 2019, pp. 652–656., doi:10.1016/j.neuroimage.2018.10.003.
+
+- Glasser, M. F., Coalson, T. S., Robinson, E. C., Hacker, C. D., Harwell, J., Yacoub, E., ... & Van Essen, D. C. (2016). A multi-modal parcellation of human cerebral cortex. Nature, 536(7615), 171-178.
+
+- Gordon, E. M., Laumann, T. O., Adeyemo, B., Huckins, J. F., Kelley, W. M., & Petersen, S. E. (2016). Generation and evaluation of a cortical area parcellation from resting-state correlations. Cerebral cortex, 26(1), 288-303.
+
+- Schaefer, A., Kong, R., Gordon, E. M., Laumann, T. O., Zuo, X. N., Holmes, A. J., ... & Yeo, B. T. (2018). Local-global parcellation of the human cerebral cortex from intrinsic functional connectivity MRI. Cerebral cortex, 28(9), 3095-3114.
+
+- Tzourio-Mazoyer, N., Landeau, B., Papathanassiou, D., Crivello, F., Etard, O., Delcroix, N., ... & 
+Joliot, M. (2002). Automated anatomical labeling of activations in SPM using a macroscopic anatomical parcellation of the MNI MRI single-subject brain. Neuroimage, 15(1), 273-289.
+
+- Van Essen, D. C., Glasser, M. F., Dierker, D. L., Harwell, J., & Coalson, T. (2012). Parcellations and hemispheric asymmetries of human cerebral cortex analyzed on surface-based atlases. Cerebral cortex, 22(10), 2241-2262.
