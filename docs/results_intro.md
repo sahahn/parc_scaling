@@ -63,8 +63,7 @@ In this case we start to see a more clear traditional linear pattern emerge.
 In order to more formally [model](./results_intro#modelling-results) these results, we will first [estimate the region where
 a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500), fit a linear model as `Mean_Rank ~ Size`.
 
-<table class="simpletable">\n<caption>OLS Regression Results</caption>\n<tr>\n  <th>Dep. Variable:</th>        <td>Mean_Rank</td>    <th>  R-squared:         </th> <td>   0.926</td>\n</tr>\n<tr>\n  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.925</td>\n</tr>\n<tr>\n  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1288.</td>\n</tr>\n<tr>\n  <th>Date:</th>             <td>Fri, 18 Jun 2021</td> <th>  Prob (F-statistic):</th> <td>4.98e-60</td>\n</tr>\n<tr>\n  <th>Time:</th>                 <td>12:08:43</td>     <th>  Log-Likelihood:    </th> <td>  176.27</td>\n</tr>\n<tr>\n  <th>No. Observations:</th>      <td>   105</td>      <th>  AIC:               </th> <td>  -348.5</td>\n</tr>\n<tr>\n  <th>Df Residuals:</th>          <td>   103</td>      <th>  BIC:               </th> <td>  -343.2</td>\n</tr>\n<tr>\n  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   \n</tr>\n<tr>\n  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   \n</tr>\n</table>
-
+{% include stats_example.html %}
 
 ![With fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
 
