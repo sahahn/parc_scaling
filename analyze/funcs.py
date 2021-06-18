@@ -240,8 +240,7 @@ def save_stats_summary(model, name):
 
     # Save html stats table
     html = '<html><body>' + model.summary().tables[0].as_html() + '<br>'
-    html += model.summary().tables[1].as_html() + '<br>'
-    html += model.summary().tables[2].as_html() + '</body></html>'
+    html += model.summary().tables[1].as_html() + '</body></html>'
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
