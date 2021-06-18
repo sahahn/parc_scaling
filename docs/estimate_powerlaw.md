@@ -7,11 +7,12 @@ description: Information on how region of powerlaw was determined.
 # Estimate Powerlaw 
 
 The power law relationship that we
-are interested in studying within this work is one between [mean rank](./results_intro#mean-rank) and parcellation size.
+are interested in studying within this work is one between [mean rank](./results_intro#mean-rank)and parcellation size.
 A key trait of [powerlaw distributions](https://en.wikipedia.org/wiki/Power_law), especially those noted within this work,
 are that they only exist or are observed within a certain range.
 That is to say, their exists a region of parcellation sizes in which
-a relationship might hold, but this will not extend infinitely. For example let's consider the figure from [Intro to Results](./results_intro.html)
+a relationship might hold, but this will not extend infinitely.
+For example let's consider the figure from [Intro to Results](./results_intro.html)
 which shows the log10-log10 results from the [Elastic-Net](./ml_pipelines#elastic-net.html)
 and [randomly generated parcellations](./parcellations#random-parcellations). A line of best fit
 is included according to an [ordinary least squares (OLS) regression](./results_intro#modelling-results),

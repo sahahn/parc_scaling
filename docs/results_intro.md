@@ -44,9 +44,9 @@ If a fixed effect is categorical, then it is dummy coded and each dummy variable
 Lastly, if a variable is wrapped in `log10()`, then the logarithm of the variable with base 10 has been used.
 
 
-## Simple Example
+## Example
 
-Next, we can consider a simple example plot showing real results from the core project experiment. In
+Next, we can consider an example plot showing real results from the core project experiment. In
 this example we will look at only results from the [Elastic-Net](./ml_pipelines#elastic-net.html) based pipeline
 and from [randomly generated parcellations](./parcellations#random-parcellations).
 
@@ -78,3 +78,6 @@ Each plotted point below is now averaged from 135 different individually compute
 
 We can see here that by averaging now over pipeline too the linear pattern on the log-log plot becomes cleaner, and extends furthers.
 This is due to [differences in performance across choice of pipeline](./by_pipeline.html).
+
+We can also add another layer of complexity, that is looking at more than one type of parcellation. We add in addition to
+[random parcellations](./parcellations#random-parcellations), [existing parcellations](./parcellations#existing-parcellations).
