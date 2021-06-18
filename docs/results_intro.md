@@ -23,7 +23,8 @@ and / or across different [ML Pipelines](./ml_pipelines.html), depending on the 
 
 A key benefit of Mean Rank over employing metrics like explained variance directly is that we can now compare across both
 different binary and regression metrics, as well as to address [scaling issues](./scaling_issues.html) between metrics
-(e.g., sex is more predictive than ADHD composite score). In some degenerative cases Mean Rank has the potential to hide
+(e.g., [Sex at Birth](./target_variables#sex-at-birth) is more predictive than
+[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)). In some degenerative cases Mean Rank has the potential to hide
 information about magnitude of difference, but in general when computed over a sufficient number of comparisons (in this case
 different parcellations) then this will be less of an issue. For example consider that if two parcellations varied only by
 a very slight amount in performance, then their mean rank as computed across many target variables would end up being very close,
@@ -31,6 +32,17 @@ as each each evaluated target will be noisy. On the other hand, if a parcellatio
 a large number of target variables, then this will be accurately reflected as the better parcellation obtaining a much better
 Mean Rank. The core idea here is that if the difference in performance is two small between two parcellation, i.e., not actually better,
 then Mean Rank if computed across enough individual rankings will show the two parcellations to be equal.
+
+## Modelling Results
+
+We employ ordinary least squares regression (OLS), as implemented in the python package [statsmodel](https://www.statsmodels.org/stable/index.html)
+to model results from the base experiments. Base notation for OLS equations are written in the R formula style as `A ~ B + C`
+where `A` is the dependent variable and `B + C` are independent fixed effects.
+Alternatively, if written as `A ~ B * D` then `D` will be added as a fixed effect
+along with an interaction term between `B` and `D` (equivalent to alternate notation `A ~ B + D + B * D`).
+If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect.
+Lastly, if a variable is wrapped in `log10()`, then the logarithm of the variable with base 10 has been used.
+
 
 ## Simple Example
 
@@ -40,15 +52,30 @@ and from [randomly generated parcellations](./parcellations#random-parcellations
 
 ![Simple Example](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example.png)
 
+The x-axis here represents the number of parcels that each parcellation has, and the y-axis, the [Mean Rank](./results_intro#mean-rank) as
+computed by ranking each parcellation relative to all others plotted here for all 45 [Target Variables](./variables.html).
+
+Another useful way to view results is to re-create the same plot, but on a log-log scale.
+
 ![Simple Example Log](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log.png)
 
+In this case we start to see a more clear traditional linear pattern emerge.
+In order to more formally [model](./results_intro#modelling-results) these results, we will first [estimate the region where
+a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500), fit a linear model as `Mean_Rank ~ Size`.
 
-## Modelling Results
+<table class="simpletable">\n<caption>OLS Regression Results</caption>\n<tr>\n  <th>Dep. Variable:</th>        <td>Mean_Rank</td>    <th>  R-squared:         </th> <td>   0.926</td>\n</tr>\n<tr>\n  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.925</td>\n</tr>\n<tr>\n  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1288.</td>\n</tr>\n<tr>\n  <th>Date:</th>             <td>Fri, 18 Jun 2021</td> <th>  Prob (F-statistic):</th> <td>4.98e-60</td>\n</tr>\n<tr>\n  <th>Time:</th>                 <td>12:08:43</td>     <th>  Log-Likelihood:    </th> <td>  176.27</td>\n</tr>\n<tr>\n  <th>No. Observations:</th>      <td>   105</td>      <th>  AIC:               </th> <td>  -348.5</td>\n</tr>\n<tr>\n  <th>Df Residuals:</th>          <td>   103</td>      <th>  BIC:               </th> <td>  -343.2</td>\n</tr>\n<tr>\n  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   \n</tr>\n<tr>\n  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   \n</tr>\n</table>
 
-We employ ordinary least squares regression (OLS), as implemented in the python package [statsmodel](https://www.statsmodels.org/stable/index.html)
-to model results from the base experiments. Base notation for OLS equations are written in the R formula style as A ~ B + C
-where A is the dependent variable and B + C are independent fixed effects.
-Alternatively, if written as A ~ B * D then D will be added as a fixed effect
-along with an interaction term between B and D (equivalent to alternate notation A ~ B + D + B * D).
-If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect.
-Lastly, if a variable is wrapped in log10(), then the logarithm of the variable with base 10 has been used.
+
+![With fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
+
+
+
+
+Lastly, we will update our definition of mean rank by now averaging across not just the 45 [Target Variables](./variables.html), but also
+now across all three choices of [ML Pipelines](./ml_pipelines.html).
+Each plotted point below is now averaged from 135 different individually computed ranks.
+
+![All Example Log](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_example_log.png)
+
+We can see here that by averaging now over pipeline too the linear pattern on the log-log plot becomes cleaner, and extends furthers.
+This is due to [differences in performance across choice of pipeline](./by_pipeline.html).

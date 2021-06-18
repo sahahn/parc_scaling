@@ -7,8 +7,9 @@ description: Information of the different target variables used.
 # Target Variables
 
 A collection of 45 target phenotypic variables (23 binary and 22 continuous), used to gauge predictive performance,
-was sourced from the second ABCD Study release. Variables were sourced directly from
-the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv).
+was sourced from the second [ABCD Study](https://abcdstudy.org/) release. Variables were sourced directly from
+the rds file made available by the DAIRC (specifically on a version of the rds file saved as a csv,
+see: [github](https://github.com/ABCD-STUDY/analysis-nda) and [data repo](https://nda.nih.gov/abcd).
 All collected variables, both target and brain, are from the baseline time point on the study.
 Best efforts were made to source a list of representative, diverse and [predictive](./variables#is-predictive) variables.
 Extra pre-processing beyond done by the DEAP team, and the creation of the targets.csv is conducted in the script setup/process_targets.py

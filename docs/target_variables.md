@@ -1,3 +1,9 @@
+---
+layout: default
+title: All Targets
+description: Full target descriptions
+---
+
 # Continuous Variables
 
 ## Standing Height (inches)
