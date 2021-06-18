@@ -81,3 +81,12 @@ This is due to [differences in performance across choice of pipeline](./by_pipel
 
 We can also add another layer of complexity, that is looking at more than one type of parcellation. We add in addition to
 [random parcellations](./parcellations#random-parcellations), [existing parcellations](./parcellations#existing-parcellations).
+
+![2 Types](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_example_log_2parcs.png)
+
+This also opens up another chance for modelling our results, where this time we can try and account for type of parcellation. First
+let's model the results with type of parcellation as fixed effect, specifically: `log10(Mean_Rank) ~ log10(Size) + Parcellation_Type`
+
+{% include stats_example2.html %}
+
+![All with fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_with_fit_example.png)
