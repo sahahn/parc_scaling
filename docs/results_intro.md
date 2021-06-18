@@ -44,7 +44,7 @@ If a fixed effect is categorical, then it is dummy coded and each dummy variable
 Lastly, if a variable is wrapped in `log10()`, then the logarithm of the variable with base 10 has been used.
 
 
-## Example
+## Elastic-Net Example
 
 Next, we can consider an example plot showing real results from the core project experiment. In
 this example we will look at only results from the [Elastic-Net](./ml_pipelines#elastic-net.html) based pipeline
@@ -70,6 +70,8 @@ We can also easily visualize the OLS fit onto the plot from before:
 
 ![With fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
 
+## ML Pipeline Average Example
+
 Lastly, we will update our definition of mean rank by now averaging across not just the 45 [Target Variables](./variables.html), but also
 now across all three choices of [ML Pipelines](./ml_pipelines.html).
 Each plotted point below is now averaged from 135 different individually computed ranks.
@@ -78,6 +80,8 @@ Each plotted point below is now averaged from 135 different individually compute
 
 We can see here that by averaging now over pipeline too the linear pattern on the log-log plot becomes cleaner, and extends furthers.
 This is due to [differences in performance across choice of pipeline](./by_pipeline.html).
+
+## Model Choice of Parcellation Example
 
 We can also add another layer of complexity, that is looking at more than one type of parcellation. We add in addition to
 [random parcellations](./parcellations#random-parcellations), [existing parcellations](./parcellations#existing-parcellations).
