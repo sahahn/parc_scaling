@@ -62,7 +62,7 @@ Another useful way to view results is to re-create the same plot, but on a log-l
 In this case we start to see a more clear traditional linear pattern emerge.
 In order to more formally [model](./results_intro#modelling-results) these results, we will first [estimate the region where
 a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500),
-fit a linear model as `log10(Mean_Rank) ~ log10(Size)`. See OLS fit summary:
+fit a linear model as `log10(Mean_Rank) ~ log10(Size)`:
 
 {% include stats_example.html %}
 
@@ -84,7 +84,7 @@ This is due to [differences in performance across choice of pipeline](./by_pipel
 ## Model Choice of Parcellation Example
 
 We can also add another layer of complexity, that is looking at more than one type of parcellation. We add in addition to
-[random parcellations](./parcellations#random-parcellations), [existing parcellations](./parcellations#existing-parcellations).
+[random parcellations](./parcellations#random-parcellations), [existing parcellations](./parcellations#existing-parcellations):
 
 ![2 Types](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_example_log_2parcs.png)
 
@@ -100,8 +100,9 @@ relative to their size.
 
 Alternatively, we can choose to model Parcellation Type with a possible interaction as: `log10(Mean_Rank) ~ log10(Size) * C(Parcellation_Type)`
 
+{% include stats_example3.html %}
+
 We find no significant interaction with Size here, and can see in the plot below that the resulting fit is quite simmilar.
 
-{% include stats_example3.html %}
 ![All with fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_with_fit_example_interaction.png)
 
