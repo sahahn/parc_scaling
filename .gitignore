@@ -27,3 +27,15 @@ temp-plot.html
 analyze/temp-plot.html
 .vscode
 .vscode/settings.json
+
+parcels/vol-resamp-allen_prob.npy
+parcels/vol-resamp-craddock-scorr_2level_prob.npy
+parcels/vol-resamp-craddock-scorr_mean_prob.npy
+parcels/vol-resamp-craddock-tcorr_2level_prob.npy
+parcels/vol-resamp-craddock-tcorr_mean_prob.npy
+parcels/vol-resamp-difumo-64_prob.npy
+parcels/vol-resamp-difumo-128_prob.npy
+parcels/vol-resamp-harvard-oxford-cort-prob-1mm_prob.npy
+parcels/vol-resamp-msdl_prob.npy
+parcels/vol-resamp-smith-bm70_prob.npy
+parcels/vol-resamp-smith-rsn70_prob.npy
