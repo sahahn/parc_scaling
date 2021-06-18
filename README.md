@@ -11,12 +11,26 @@ This github repository contains READMEs dedicated primarily to explaining the ac
 This project is setup with a few different directories, which if necessary contain their own more detailed READMEs.
 
 - analyze/
+This folder contains the code for processing, analyzing and plotting the results.
+
 - data/
+This folder stores the processed data as generated from setup.
+
 - docs/
+This include the markdown pages for the [project website](https://sahahn.github.io/parc_scaling/).
+
 - exp/
+This folder includes all of the code used to perform the ML expiriments.
+
 - extra/
+This folder contains various misc. notebooks for making brain figures and other random side-analyses. 
+
 - extra_random_parcels/
+This folder is where the random parcellations used for the multiple parcellation strategies are stored.
+
 - parcels/
+This folder contains all of the pre-processed
+
 - raw/
 - setup/
 
