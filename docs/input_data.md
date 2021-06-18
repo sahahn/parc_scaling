@@ -20,7 +20,8 @@ well consider different modalities or explicitly multi-modal fusion.
 
 ## Downloading
 
-In order to download the used data, we employed the following download tool: https://github.com/DCAN-Labs/nda-abcd-s3-downloader.
+In order to download the used data, we employed the following download tool:
+[NDA ABCD Downloader](https://github.com/DCAN-Labs/nda-abcd-s3-downloader).
 The following subjects of data were specified when downloading for all available subjects:
 
 - derivatives.anat.space-fsLR32k_curv
@@ -32,4 +33,4 @@ The following subjects of data were specified when downloading for all available
 
 The data is then moved to the [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw) folder upon successful download.
 Unfortunately, due to data privacy issues, this data cannot be shared directly. If interested in working with ABCD Study data, please
-find more information on their website https://abcdstudy.org/. 
+find more information on their website [https://abcdstudy.org/](https://abcdstudy.org/). 

@@ -9,7 +9,7 @@ description: All parcellations used
 Within this project we consider two main sources for surface parcellations, existing and random.
 Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
 
-See [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels) (excluded a few too large parcellations).
+See [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels).
 These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
 saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
 
