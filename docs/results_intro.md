@@ -62,9 +62,11 @@ Another useful way to view results is to re-create the same plot, but on a log-l
 In this case we start to see a more clear traditional linear pattern emerge.
 In order to more formally [model](./results_intro#modelling-results) these results, we will first [estimate the region where
 a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500),
-fit a linear model as `log10(Mean_Rank) ~ log10(Size)`.
+fit a linear model as `log10(Mean_Rank) ~ log10(Size)`. See OLS fit summary:
 
 {% include stats_example.html %}
+
+We can also easily visualize the OLS fit onto the plot from before:
 
 ![With fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
 
