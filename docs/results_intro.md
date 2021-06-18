@@ -89,8 +89,19 @@ We can also add another layer of complexity, that is looking at more than one ty
 ![2 Types](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_example_log_2parcs.png)
 
 This also opens up another chance for modelling our results, where this time we can try and account for type of parcellation. First
-let's model the results with type of parcellation as fixed effect, specifically: `log10(Mean_Rank) ~ log10(Size) + Parcellation_Type`
+let's model the results with type of parcellation as fixed effect, specifically: `log10(Mean_Rank) ~ log10(Size) + C(Parcellation_Type)`
 
 {% include stats_example2.html %}
 
 ![All with fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_with_fit_example.png)
+
+Noting above that the estimated range in which the distribution holds is up to size 2000, and that the the Existing parcellations get a boost to performance
+relative to their size.
+
+Alternatively, we can choose to model Parcellation Type with a possible interaction as: `log10(Mean_Rank) ~ log10(Size) * C(Parcellation_Type)`
+
+We find no significant interaction with Size here, and can see in the plot below that the resulting fit is quite simmilar.
+
+{% include stats_example3.html %}
+![All with fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/all_with_fit_example_interaction.png)
+
