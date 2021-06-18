@@ -100,9 +100,9 @@ The parcellations are then re-sampled from this original volumetric space.
 ### difumo
 
 The following folder was downloaded from https://parietal-inria.github.io/DiFuMo/
-Note: this folder was rather large so it was not uploaded to this git, but the following files were downloaded (and renamed!)
-They represent the highest resolution avaliable for each of the scales of parcellations.
+They represent the highest resolution available for each of the scales of parcellations.
 The parcellations are then re-sampled from this original volumetric space.
+These have have in some cases been added with git lfs due to file size.
 
 -raw/difumo/64.nii.gz
 -raw/difumo/128.nii.gz
@@ -138,7 +138,7 @@ https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellat
 
 Five different parcellations, economo, economo7, oasis.chubs and shj were downloaded from
 https://github.com/ucam-department-of-psychiatry/maps_and_parcs/tree/master/Parcellations/FSAverage
-These parcellations are downloaded in fsaverage space seperate for left and right hemispheres.
+These parcellations are downloaded in fsaverage space separate for left and right hemispheres.
 
 -------------------
 
@@ -146,7 +146,7 @@ These parcellations are downloaded in fsaverage space seperate for left and righ
 
 Two parcellations, aicha and spn500, were downloaded from https://github.com/faskowit/multiAtlasTT/tree/master/atlas_data
 with each parcellation within its own folders, but extracted here.
-These parcellations were downloaded in fsaverage space seperate for left and right hemispheres.
+These parcellations were downloaded in fsaverage space separate for left and right hemispheres.
 
 -------------------
 
@@ -154,7 +154,7 @@ These parcellations were downloaded in fsaverage space seperate for left and rig
 
 Eight volumetric parcellations were downloaded from https://github.com/neurodata/neuroparc/tree/master/atlases/label/Human
 
-These have not been added to the git due to space, but the following files were downloaded:
+These have have in some cases been added with git lfs due to file size.
 
 - raw/neuro_parc/CAPRSC_space-MNI152NLin6_res-1x1x1.nii.gz
 - raw/neuro_parc/CPAC200_space-MNI152NLin6_res-1x1x1.nii.gz
