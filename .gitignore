@@ -6,12 +6,10 @@ raw/derivatives/*
 Job_Logs
 *.pyc
 
-raw/difumo/*
 train_subjects.txt
 test_subjects.txt
 core.*
 AutogluonModels
-neuro_parc
 extra_random_parcels
 Test_Notebooks/
 Plots/Figures/*

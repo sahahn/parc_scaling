@@ -1,4 +1,9 @@
 parcels/vol-resamp-difumo-256_prob.npy filter=lfs diff=lfs merge=lfs -text
 parcels/vol-resamp-difumo-512_prob.npy filter=lfs diff=lfs merge=lfs -text
 parcels/vol-resamp-difumo-1024_prob.npy filter=lfs diff=lfs merge=lfs -text
+raw/difumo/64.nii.gz filter=lfs diff=lfs merge=lfs -text
+raw/difumo/1024.nii.gz filter=lfs diff=lfs merge=lfs -text
+raw/difumo/128.nii.gz filter=lfs diff=lfs merge=lfs -text
+raw/difumo/256.nii.gz filter=lfs diff=lfs merge=lfs -text
+raw/difumo/512.nii.gz filter=lfs diff=lfs merge=lfs -text
 *.nii.gz filter=lfs diff=lfs merge=lfs -text
