@@ -6,7 +6,7 @@ description: Why a website?
 
 ## Why a project website?
 
-While in practice it may not have succeeded, one of the core ideas around a project website was to gradually release complexity.
+One of the core ideas around a project website was to gradually expose complexity to the reader (if that succeeded... I'm less sure).
 That is to say, the front-page should contain ideally roughly the information / information density as found on a project poster. Casual readers
 will then go no further than this page and should be left with enough information to get a full idea of the project. The next layer of complexity
 is then the hyper-links present on the index page. These allow for ideally limitless if needed more detailed / nuanced discussions about certain details.
