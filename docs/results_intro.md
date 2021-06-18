@@ -52,8 +52,8 @@ and from [randomly generated parcellations](./parcellations#random-parcellations
 
 ![Simple Example](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example.png)
 
-The x-axis here represents the number of parcels that each parcellation has, and the y-axis, the [Mean Rank](./results_intro#mean-rank) as
-computed by ranking each parcellation relative to all others plotted here for all 45 [Target Variables](./variables.html).
+The x-axis here represents the number of parcels that each parcellation has, and the y-axis, the [mean rank](./results_intro#mean-rank) as
+computed by ranking each parcellation relative to all others plotted here for all 45 [target variables](./variables.html).
 
 Another useful way to view results is to re-create the same plot, but on a log-log scale.
 
@@ -61,14 +61,12 @@ Another useful way to view results is to re-create the same plot, but on a log-l
 
 In this case we start to see a more clear traditional linear pattern emerge.
 In order to more formally [model](./results_intro#modelling-results) these results, we will first [estimate the region where
-a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500), fit a linear model as `Mean_Rank ~ Size`.
+a powerlaw holds](./estimate_powerlaw.html), then on this subset of data points (sizes 10-1500),
+fit a linear model as `log10(Mean_Rank) ~ log10(Size)`.
 
 {% include stats_example.html %}
 
 ![With fit](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/simple_example_log_with_fit2.png)
-
-
-
 
 Lastly, we will update our definition of mean rank by now averaging across not just the 45 [Target Variables](./variables.html), but also
 now across all three choices of [ML Pipelines](./ml_pipelines.html).
