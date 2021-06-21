@@ -102,4 +102,4 @@ That's about it, as page content can be written just in markup. I will share a f
 
   \{% include stats_example.html %}
 
-  That table can be inserted directly into the current page
+  That table can be inserted directly into the current page.
