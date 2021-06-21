@@ -4,9 +4,7 @@ title: Parcellations Viz
 description: All static parcellations
 ---
 
-![parc](https://giphy.com/embed/GieVOEw7ynkLs1XKTQ)
-
-<iframe src="https://giphy.com/embed/GieVOEw7ynkLs1XKTQ" width="480" height="332" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/GieVOEw7ynkLs1XKTQ">via GIPHY</a></p>
+![parc](https://media.giphy.com/media/GieVOEw7ynkLs1XKTQ/source.gif)
 
 # Schaefer
 
