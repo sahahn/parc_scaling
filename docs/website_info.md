@@ -100,7 +100,9 @@ That's about it, as page content can be written just in markup. I will share a f
   [docs/_includes/stats_example.html](https://github.com/sahahn/parc_scaling/tree/main/docs/_includes/stats_example.html).
   Then just add
 
-  {{ "{% include stats_example.html " }}%}  
+  ```
+  {{ "{% include stats_example.html " }}%}
+  ```
   
   To a markdown page and that table will be inserted directly into the current page.
   See [jekyll includes docs](https://jekyllrb.com/docs/includes/) for more information.
