@@ -4,8 +4,6 @@ title: Parcellations Viz
 description: All static parcellations
 ---
 
-![parc](https://media.giphy.com/media/GieVOEw7ynkLs1XKTQ/source.gif)
-
 # Schaefer
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/schaefer_100.png)
@@ -83,6 +81,8 @@ description: All static parcellations
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/yeo_17networks.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/yeo_abox.png)
 
+# DiFuMo
+
 # MIST
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-7.png)
@@ -115,6 +115,8 @@ description: All static parcellations
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master//home/sage/parc_scaling/extra/Figures/parcels/sjh.png)
 
+# Allen
+
 # BASC
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale007.png)
@@ -127,11 +129,19 @@ description: All static parcellations
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale325.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale444.png)
 
+# MSDL
+
 # Harvard Oxford
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr0-1mm.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr25-1mm.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr50-1mm.png)
+
+# Craddock
+
+![parc](https://media.giphy.com/media/ZwDSeyqNzOJkuQ3TLL/source.gif)
+
+# Smith ICA
 
 # CPAC
 
