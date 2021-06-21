@@ -98,11 +98,11 @@ That's about it, as page content can be written just in markup. I will share a f
    
   For example I auto-generate an html table of statistics and save it to
   [docs/_includes/stats_example.html](https://github.com/sahahn/parc_scaling/tree/main/docs/_includes/stats_example.html).
-  Then just add
+  Then just add the following code snippet to a markdown page:
 
   ```
   {{ "{% include stats_example.html " }}%}
   ```
   
-  To a markdown page and that table will be inserted directly into the current page.
-  See [jekyll includes docs](https://jekyllrb.com/docs/includes/) for more information.
+  That table will be then inserted directly into the current page.
+  See [Jekyll includes docs](https://jekyllrb.com/docs/includes/) for more information.
