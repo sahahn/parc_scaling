@@ -263,10 +263,12 @@ def main():
     proc_yeo(save_dr, mw_mask)
 
     # Resample from fs-average to FS_lr_32k
+    print('fsaverage to FS lr 32k')
     proc_maps_and_parcs(save_dr, mw_mask)
     proc_multi_atlas(save_dr, mw_mask)
 
     # Proc sampling dif MNI volumes to surf
+    print('MNI to surf parcels')
     proc_harvard_oxford(save_dr, mw_mask)
     proc_smith(save_dr, mw_mask)
     proc_craddock(save_dr, mw_mask)
