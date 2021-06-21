@@ -1,3 +1,4 @@
+from re import M
 import numpy as np
 import nibabel as nib
 import os
@@ -8,30 +9,34 @@ from helpers import (conv_to_array_32k_space, conv_matlab,
                      prob_vol_labels_to_surf, load_medial_wall,
                      fsaverage_label_to_fs_lr)
 
-def proc_balsa(save_dr):
+def proc_balsa(save_dr, mw_mask):
     
     gordon = conv_to_array_32k_space('../raw/gordon_balsa/Gordon333_FreesurferSubcortical.32k_fs_LR.dlabel.nii')
+    gordon[mw_mask] = 0
     save_loc = os.path.join(save_dr, 'gordon.npy')
     np.save(save_loc, gordon)
     
     brodmann = conv_to_array_32k_space('../raw/gordon_balsa/Human.Brodmann09.32k_fs_LR.dlabel.nii')
+    brodmann[mw_mask] = 0
     save_loc = os.path.join(save_dr, 'brodmann.npy')
     np.save(save_loc, brodmann)
     
     vdg11b = conv_to_array_32k_space('../raw/gordon_balsa/Human.Composite_VDG11.32k_fs_LR.dlabel.nii')
+    vdg11b[mw_mask] = 0
     save_loc = os.path.join(save_dr, 'vdg11b.npy')
     np.save(save_loc, vdg11b)
 
-def proc_hcp(save_dr):
+def proc_hcp(save_dr, mw_mask):
     
     lh = conv_to_array_32k_space('../raw/hcp_mmp_balsa/Q1-Q6_RelatedParcellation210.L.CorticalAreas_dil_Colors.32k_fs_LR.dlabel.nii')
     rh = conv_to_array_32k_space('../raw/hcp_mmp_balsa/Q1-Q6_RelatedParcellation210.R.CorticalAreas_dil_Colors.32k_fs_LR.dlabel.nii')
     hcp_mmp = merge(lh, rh)
+    hcp_mmp[mw_mask] = 0
     
     save_loc = os.path.join(save_dr, 'hcp_mmp.npy')
     np.save(save_loc, hcp_mmp)
 
-def proc_abox(save_dr):
+def proc_abox(save_dr, mw_mask):
 
     lh_map = nib.load('../raw/hcp_mmp_balsa/Q1-Q6_RelatedParcellation210.L.CorticalAreas_dil_Colors.32k_fs_LR.dlabel.nii').header.get_index_map(1)[0]
     rh_map = nib.load('../raw/hcp_mmp_balsa/Q1-Q6_RelatedParcellation210.R.CorticalAreas_dil_Colors.32k_fs_LR.dlabel.nii').header.get_index_map(1)[0]
@@ -42,10 +47,11 @@ def proc_abox(save_dr):
         base = os.path.join(a_dr, parc, parc)
         lh_loc, rh_loc = base + '_L.mat', base + '_R.mat'
         data = conv_matlab(lh_loc, rh_loc, lh_map, rh_map)
+        data[mw_mask] = 0
         save_loc = os.path.join(save_dr, parc.lower() + '_abox')
         np.save(save_loc, data)
 
-def proc_dlab(save_dr):
+def proc_dlab(save_dr, mw_mask):
     
     dr = '../raw/diedrichsen_lab/'
     parcs = os.listdir(dr)
@@ -56,44 +62,52 @@ def proc_dlab(save_dr):
         lh = conv_to_array_32k_space(loc)
         rh = conv_to_array_32k_space(loc.replace('.L.', '.R.'))
         data = merge(lh, rh)
+        data[mw_mask] = 0
         save_loc = os.path.join(save_dr, p.split('.')[0].lower() + '_dlab.npy')
         np.save(save_loc, data)
 
-def proc_schaefer(save_dr):
+def proc_schaefer(save_dr, mw_mask):
     
     for size in range(100, 1001, 100):
         loc = '../raw/schaefer_cifti/Schaefer2018_' + str(size) + 'Parcels_7Networks_order.dscalar.nii'
         data = conv_to_array_32k_space(loc)
+        data[mw_mask] = 0
         save_loc = os.path.join(save_dr, 'schaefer_' + str(size))
         np.save(save_loc, data)
 
-def proc_yeo(save_dr):
+def proc_yeo(save_dr, mw_mask):
 
     y1 = nib.load('../raw/yeo/Yeo2011_7Networks_N1000.dscalar.nii').get_fdata()
     y1 = y1.squeeze()
+    y1[mw_mask] = 0
+
     save_loc = os.path.join(save_dr, 'yeo_7networks.npy')
     np.save(save_loc, y1)
 
     y2 = nib.load('../raw/yeo/Yeo2011_17Networks_N1000.dscalar.nii').get_fdata()
     y2 = y2.squeeze()
+    y2[mw_mask] = 0
+
     save_loc = os.path.join(save_dr, 'yeo_17networks.npy')
     np.save(save_loc, y2)
 
-def proc_maps_and_parcs(save_dr):
+def proc_maps_and_parcs(save_dr, mw_mask):
     
-    for stub in ['economo', 'mesulam', 'oasis.chubs', 'sjh']:
+    for stub in ['economo', 'oasis.chubs', 'sjh']:
 
         surf = fsaverage_label_to_fs_lr(lh_loc='../raw/maps_and_parcs/lh.' + stub + '.annot',
                                         rh_loc='../raw/maps_and_parcs/rh.' + stub + '.annot')
+        surf[mw_mask] = 0
         save_loc = os.path.join(save_dr, stub + '.npy')
         np.save(save_loc, surf)
 
-def proc_multi_atlas(save_dr):
+def proc_multi_atlas(save_dr, mw_mask):
 
     for stub in ['aicha', 'nspn500']:
 
         surf = fsaverage_label_to_fs_lr(lh_loc='../raw/multi_atlas/lh.' + stub + '.annot',
                                         rh_loc='../raw/multi_atlas/rh.' + stub + '.annot')
+        surf[mw_mask] = 0
         save_loc = os.path.join(save_dr, stub + '.npy')
         np.save(save_loc, surf)
 
@@ -234,27 +248,25 @@ def proc_neuro_parc(save_dr, mw_mask):
 
 def main():
 
+    mw_mask =\
+        load_medial_wall(annot_loc='../raw/fs_LR_32k_label/medialwall.annot')
+
     save_dr = '../parcels/'
     os.makedirs(save_dr, exist_ok=True)
 
     # Proc already surf, already FS_lr_32k space
-    proc_balsa(save_dr)
-    proc_hcp(save_dr)
-    proc_abox(save_dr)
-    proc_dlab(save_dr)
-    proc_schaefer(save_dr)
-    proc_yeo(save_dr)
+    proc_balsa(save_dr, mw_mask)
+    proc_hcp(save_dr, mw_mask)
+    proc_abox(save_dr, mw_mask)
+    proc_dlab(save_dr, mw_mask)
+    proc_schaefer(save_dr, mw_mask)
+    proc_yeo(save_dr, mw_mask)
 
     # Resample from fs-average to FS_lr_32k
-    proc_maps_and_parcs(save_dr)
-    proc_multi_atlas(save_dr)
+    proc_maps_and_parcs(save_dr, mw_mask)
+    proc_multi_atlas(save_dr, mw_mask)
 
     # Proc sampling dif MNI volumes to surf
-    # Load mw_mask - as sampling is noisy, apply this mask
-    # to all re-sampled from volume
-    mw_mask =\
-        load_medial_wall(annot_loc='../raw/fs_LR_32k_label/medialwall.annot')
-
     proc_harvard_oxford(save_dr, mw_mask)
     proc_smith(save_dr, mw_mask)
     proc_craddock(save_dr, mw_mask)

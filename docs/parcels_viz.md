@@ -50,10 +50,9 @@ description: All static parcellations
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/desikan_abox.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/desikan_dlab.png)
 
-
 # Destrieux
 
-![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/dextrieux_abox.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/destrieux_abox.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/dextrieux_dlab.png)
 
 
