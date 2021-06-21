@@ -4,6 +4,8 @@ title: Parcellations Viz
 description: All static parcellations
 ---
 
+![parc](https://giphy.com/embed/GieVOEw7ynkLs1XKTQ)
+
 # Schaefer
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/schaefer_100.png)
