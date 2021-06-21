@@ -113,7 +113,7 @@ description: All static parcellations
 
 # SJH
 
-![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master//home/sage/parc_scaling/extra/Figures/parcels/sjh.png)
+![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/sjh.png)
 
 # Allen
 
