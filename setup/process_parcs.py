@@ -15,8 +15,11 @@ def proc_balsa(save_dr, mw_mask):
     gordon[mw_mask] = 0
     save_loc = os.path.join(save_dr, 'gordon.npy')
     np.save(save_loc, gordon)
-    
-    brodmann = conv_to_array_32k_space('../raw/gordon_balsa/Human.Brodmann09.32k_fs_LR.dlabel.nii')
+
+    # Original medial wall is saved under 1, change to 0
+    brodmann = nib.load('../raw/gordon_balsa/Human.Brodmann09.32k_fs_LR.dlabel.nii')
+    brodmann = np.squeeze(brodmann.get_fdata())
+    brodmann[brodmann==1] = 0
     brodmann[mw_mask] = 0
     save_loc = os.path.join(save_dr, 'brodmann.npy')
     np.save(save_loc, brodmann)
