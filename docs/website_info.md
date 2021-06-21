@@ -100,9 +100,6 @@ That's about it, as page content can be written just in markup. I will share a f
   [docs/_includes/stats_example.html](https://github.com/sahahn/parc_scaling/tree/main/docs/_includes/stats_example.html).
   Then with code:
 
-  ```
-  {% include stats_example.html %}
-  ```
+  \{% include stats_example.html %}
 
   That table can be inserted directly into the current page
-  {% include stats_example.html %}
