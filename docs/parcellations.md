@@ -105,14 +105,17 @@ Random parcellations within this project are generated in the setup/process_rand
 We test 6 different downsampled icosahedron parcellations (with medial wall removed).
 These spanned sizes: 42, 162, 362, 642, 1002, 1442. [See parcellations plotted](./parcels_viz#icosahedron).
 
-
 ## FreeSurfer ROIs
-Finally, we assessed the
-Desikan and Destrieux ROI values as extracted by FreeSurfer. These differ from the
-other tested parcellations both in how values are generated (FreeSurfer extracts values in
+
+The last parcellation we tested was actually using the [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all#ParcellationStatistics.28-.3Cno.3Eparcstats.29)
+extracted ROIs directly.
+These differ from the other tested parcellations both in how values are generated (FreeSurfer extracts values in
 an individual's native space whereas we extract values from data warped to a common space)
 in addition to the surface modalities used (only average thickness, surface area and mean curvature
-are employed, which differs from the features used in the base analyses). 
+are employed, which differs from the features used in the base analyses). These were extracted in order to provide a comparison with with other common a ML neuroimaging analyses.
+
+
+The code for generating the dataset of FreeSurfer ROIs is found [here](https://github.com/sahahn/parc_scaling/blob/main/setup/setup_fs_dataset.py).
 
 
 ## References

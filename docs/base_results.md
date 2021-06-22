@@ -10,9 +10,18 @@ description: Base results for single parcellations
 
 To model the base results with respect to type of parcellation we use an [OLS regression](./intro_to_results#modelling-results), with
 the formula `log10(Mean_Rank) ~ log10(Size) + C(Parcellation_Type)`, so notably first treating choice of parcellation as a fixed effect.
-We first though [estimate the region where a powerlaw holds](./estimate_powerlaw.html) and only model the results within this range. This procedure 
+We first though [estimate the region where a powerlaw holds](./estimate_powerlaw.html) and only model the results within this range.
 
 {% include base_results1.html %}
+
+A key point of interest beyond comparing between parcellation type is the coef. for Size.
+This represents the [scaling exponent](./powerlaw_scaling_exp.html) in a
+powerlaw relationship between Size and Performance.
+
+We note as well the significant coef. between [existing] and [random] parcellations, we plot
+below just these two lines of fit, as estimated by the OLS, and colored by parcellation type.
+
+[fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
 
 We can also alternately model parcellation type as as both a fixed effect and with a possible interaction with Size. 
 
