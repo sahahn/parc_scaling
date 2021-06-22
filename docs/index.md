@@ -57,7 +57,9 @@ provides a gradual introduction to the format the results are plotted with below
   
 - [Existing parcellations](./parcellations#existing-parcellations) outperformed [randomly generated parcellations](./parcellations#random-parcellations)
   when controlling for the influence of size, however [existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
-  than our results suggest to be most predictive ([See More / Stats](./base_results.html)).
+  than our results suggest to be most predictive ([See Stats](./base_results#parcellation-type-as-fixed-effect)).
+
+- [See results table](./base_results#results-table)
 
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
   the SVM based pipeline was most competitive ([See By Pipeline](./by_pipeline.html)).

@@ -244,3 +244,17 @@ def save_stats_summary(model, name):
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
+
+def save_results_table(r_df, name):
+    
+    r_df = r_df.rename({'Mean_Rank': 'Mean Rank', 'r2': 'R2',
+                        'roc_auc': 'ROC AUC', 'full_name': 'Parcellation'}, axis=1)
+    
+    r_df = r_df.set_index('Parcellation')
+    
+    r_df = r_df[['Mean Rank', 'Size', 'R2', 'ROC AUC']]
+    r_df = r_df.sort_values('Mean Rank')
+    
+    
+    with open('../docs/_includes/' + name + '.html', 'w') as f:
+        f.write(r_df.to_html(float_format="%.3f"))

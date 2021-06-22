@@ -4,9 +4,9 @@ title: Base Results
 description: Base results for single parcellations
 ---
 
-# By Parcellation Type Results
+# Single Parcellation Results
 
-[![Base Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2.png)](./interactive1.html)
+## Parcellation Type As Fixed Effect
 
 To model the base results with respect to type of parcellation we use an [OLS regression](./intro_to_results#modelling-results), with
 the formula `log10(Mean_Rank) ~ log10(Size) + C(Parcellation_Type)`, so notably first treating choice of parcellation as a fixed effect.
@@ -21,7 +21,9 @@ powerlaw relationship between Size and Performance.
 We note as well the significant coef. between [existing] and [random] parcellations, we plot
 below just these two lines of fit, as estimated by the OLS, and colored by parcellation type.
 
-[fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
+![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
+
+## Parcellation Type As Interaction
 
 We can also alternately model parcellation type as as both a fixed effect and with a possible interaction with Size. 
 
@@ -29,7 +31,16 @@ We can also alternately model parcellation type as as both a fixed effect and wi
 
 We see that in this case none of the interactions with Size are significant.
 
-[fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
+![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
 
 Plotting the basic fits by [parcellation type](./parcellations.html) we can see that for parcellations types with only a few samples
 it is difficult to conclude anything as the sample size is not sufficient.
+
+Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
+
+
+## Results Table
+
+The table below includes all parcellations specific scores.
+
+{% include raw_results1.html %}
