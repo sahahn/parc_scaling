@@ -35,12 +35,15 @@ it is difficult to conclude anything as the sample size is not sufficient.
 A key point of interest beyond comparing between parcellation type is the coef. for Size.
 This represents the [scaling exponent](./powerlaw_scaling_exp.html) in a
 powerlaw relationship between Size and Performance.
+We see that despite the choice of how we model parcellation type, this estimated coef. stays fairly stable.
 Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
-
 
 ## Results Table
 
 The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
 averaged across both [target variables](./variables.html) and [ML pipelines](./ml_pipelines.html).
+
+*Note that table headers are sortable*
+{: style="font-size: 75%; text-align: center;"}
 
 {% include raw_results1.html %}
