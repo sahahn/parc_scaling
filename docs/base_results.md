@@ -14,11 +14,7 @@ We first though [estimate the region where a powerlaw holds](./estimate_powerlaw
 
 {% include base_results1.html %}
 
-A key point of interest beyond comparing between parcellation type is the coef. for Size.
-This represents the [scaling exponent](./powerlaw_scaling_exp.html) in a
-powerlaw relationship between Size and Performance.
-
-We note as well the significant coef. between [existing] and [random] parcellations, we plot
+We note here the significant coef. between [existing] and [random] parcellations - we plot
 below just these two lines of fit, as estimated by the OLS, and colored by parcellation type.
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
@@ -36,6 +32,9 @@ We see that in this case none of the interactions with Size are significant.
 Plotting the basic fits by [parcellation type](./parcellations.html) we can see that for parcellations types with only a few samples
 it is difficult to conclude anything as the sample size is not sufficient.
 
+A key point of interest beyond comparing between parcellation type is the coef. for Size.
+This represents the [scaling exponent](./powerlaw_scaling_exp.html) in a
+powerlaw relationship between Size and Performance.
 Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
 
 
