@@ -43,7 +43,7 @@ Lastly, exploring the [interactive plot](./interactive1.html) may be useful seei
 The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
 averaged across both [target variables](./variables.html) and [ML pipelines](./ml_pipelines.html).
 
-*Note that table headers are sortable*
-{: style="font-size: 75%; text-align: center;"}
+*Table headers are sortable!*
+{: style="font-size: 85%; text-align: center;"}
 
 {% include raw_results1.html %}
