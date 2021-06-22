@@ -83,6 +83,12 @@ description: All static parcellations
 
 # DiFuMo
 
+![parc](https://media.giphy.com/media/QoZqXfCjBn7OaWe97o/source.gif)
+![parc](https://media.giphy.com/media/84Rkf0BKHzWG156Eas/source.gif)
+![parc](https://media.giphy.com/media/UV75E7Dt3VPZhid8Xv/source.gif)
+![parc](https://media.giphy.com/media/RNayRnkciJ2ahZ4ul1/source.gif)
+![parc](https://media.giphy.com/media/hJzR7dBTMX6yVWoVIw/source.gif)
+
 # MIST
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-mist-7.png)
@@ -117,6 +123,8 @@ description: All static parcellations
 
 # Allen
 
+![parc](https://media.giphy.com/media/krhWnAkq1rYlJMkYIj/source.gif)
+
 # BASC
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-basc-scale007.png)
@@ -131,22 +139,30 @@ description: All static parcellations
 
 # MSDL
 
+![parc](https://media.giphy.com/media/9EUsicS4zFbZolzhEw/source.gif)
+
 # Harvard Oxford
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr0-1mm.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr25-1mm.png)
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-harvard-oxford-cort-maxprob-thr50-1mm.png)
+![parc](https://media.giphy.com/media/imkCWuefM4XQK7Fv9f/source.gif)
 
 # Craddock
 
-![parc](https://media.giphy.com/media/ZwDSeyqNzOJkuQ3TLL/source.gif)
+![parc](https://media.giphy.com/media/yhykdmXjfyNBcefTW5/source.gif)
+![parc](https://media.giphy.com/media/OD4mEU8qG693nN9aeI/source.gif)
+![parc](https://media.giphy.com/media/CtR2QbucZx0IOGxPCe/source.gif)
+![parc](https://media.giphy.com/media/tjZ26EcurKVVVv2unj/source.gif)
 
 # Smith ICA
+
+![parc](https://media.giphy.com/media/Po4CPfrWYVJHWIC1lh/source.gif)
+![parc](https://media.giphy.com/media/0MVVNp6KKhUEHdY9o9/source.gif)
 
 # CPAC
 
 ![parc](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/parcels/vol-resamp-CPAC200.png)
-
 
 # Hammersmith
 
