@@ -27,7 +27,7 @@ We can also alternately model parcellation type as as both a fixed effect and wi
 
 We see that in this case none of the interactions with Size are significant.
 
-![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
+![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit2.png)
 
 Plotting the basic fits by [parcellation type](./parcellations.html) we can see that for parcellations types with only a few samples
 it is difficult to conclude anything as the sample size is not sufficient.
@@ -40,6 +40,7 @@ Lastly, exploring the [interactive plot](./interactive1.html) may be useful seei
 
 ## Results Table
 
-The table below includes all parcellations specific scores.
+The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
+averaged across both [target variables](./variables.html) and [ML pipelines](./ml_pipelines.html).
 
 {% include raw_results1.html %}
