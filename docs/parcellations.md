@@ -6,12 +6,18 @@ description: All parcellations used
 
 # Parcellations
 
-Within this project we consider two main sources for surface parcellations, existing and random.
-Lastly, a few additional variants are tested including downsampled and as extracted directly from FreeSurfer.
+Within this project we consider two main sources for surface parcellations,
+[existing](./parcellations#existing-parcellations) and [random](./parcellations#random-parcellations). We also
+considered two additional sources: [downsampled icosahedron](./parcellations#icosahedron-parcellations)
+and [FreeSurfer extracted](./parcellations#freesurfer-rois).
 
-See [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels).
-These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
-saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
+Breakdown by type:
+
+- Random: 130
+- Existing: 82 (Static: 68 - Prob: 14)
+- Icosahedron: 6
+- FreeSurfer: 2
+- Total: 220
 
 ## Existing Parcellations
 
@@ -114,9 +120,15 @@ an individual's native space whereas we extract values from data warped to a com
 in addition to the surface modalities used (only average thickness, surface area and mean curvature
 are employed, which differs from the features used in the base analyses). These were extracted in order to provide a comparison with with other common a ML neuroimaging analyses.
 
-
 The code for generating the dataset of FreeSurfer ROIs is found [here](https://github.com/sahahn/parc_scaling/blob/main/setup/setup_fs_dataset.py).
 
+## Source
+
+To access the final saved numpy array representations of the parcellations used, see [Final Parcellations Used](https://github.com/sahahn/parc_scaling/tree/main/parcels).
+These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
+saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
+
+These parcellations are also all visualized [here](./parcel_viz.html).
 
 ## References
 
