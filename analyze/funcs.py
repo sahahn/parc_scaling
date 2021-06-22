@@ -255,7 +255,7 @@ def save_results_table(r_df, name):
 
     html = '<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>'
     html += r_df.to_html(float_format="%.3f", classes=['sortable'],
-                         index=False, justidy='left')
+                         index=False, justify='center')
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
