@@ -32,6 +32,9 @@ The existing parcellations used are listed below:
 
 {% include parcel_table.html %}
 
+*Click the parcellation name link to see that parcellation plotted*
+{: style="font-size: 85%; text-align: center;"}
+
 See also the folder [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw)
 which contains the 'raw' existing parcellations, before any preprocessing or
 re-sampling conducted by this project, also included are information on how they can be downloaded.
@@ -42,9 +45,49 @@ folder into the [Final Parcellations Used](https://github.com/sahahn/parc_scalin
 
 ## Random Parcellations
 
-This project uses the idea of random surface parcellations extensively. Random parcellations are generated as follows: For a random parcellation of size N, N random points are first selected at random across both hemisphere’s 59,412 vertices (medial wall vertices excluded). Each selected point is then assigned as the seed of a new region and is randomly assigned a size probability between 0 and 1. Next, a region is randomly selected according to a weighted random choice between all regions (e.g., if a region was assigned an initial probability of .5 it would be picked on average twice as often as a region assigned .25). A random vertex is then added to the selected region from the list of valid neighboring unassigned vertices. This sequence, of selecting a region and adding one valid vertex, is repeated until all regions have no unassigned neighbors and therefore all non-medial wall vertices are assigned to a region. 
+This project uses the idea of random surface parcellations extensively.
+We generated 5 random parcellations for of the following sizes in the base experiment:
 
-Example generated random parcellation:
+[10](./parcels_viz#random-10),
+[20](./parcels_viz#random-20),
+[30](./parcels_viz#random-30),
+[40](./parcels_viz#random-40),
+[50](./parcels_viz#random-50),
+[60](./parcels_viz#random-60),
+[70](./parcels_viz#random-70),
+[80](./parcels_viz#random-80),
+[90](./parcels_viz#random-90),
+[100](./parcels_viz#random-100),
+[150](./parcels_viz#random-150),
+[200](./parcels_viz#random-200),
+[300](./parcels_viz#random-300),
+[400](./parcels_viz#random-400),
+[500](./parcels_viz#random-500),
+[600](./parcels_viz#random-600),
+[700](./parcels_viz#random-700),
+[800](./parcels_viz#random-800),
+[900](./parcels_viz#random-900),
+[1000](./parcels_viz#random-1000),
+[1500](./parcels_viz#random-1500),
+[2000](./parcels_viz#random-2000),
+[3000](./parcels_viz#random-3000),
+[4000](./parcels_viz#random-4000),
+[5000](./parcels_viz#random-5000),
+[6000](./parcels_viz#random-6000)
+
+*Click a parcellation size to see those random parcellations*
+{: style="font-size: 85%; text-align: center;"}
+
+Random parcellations are generated as follows:
+For a random parcellation of size N, N random points are first selected at random across both hemisphere’s 59,412 vertices (medial wall vertices excluded).
+Each selected point is then assigned as the seed of a new region and is randomly assigned a size probability between 0 and 1.
+Next, a region is randomly selected according to a weighted random choice between all regions
+(e.g., if a region was assigned an initial probability of .5 it would be picked on average twice as often as a region assigned .25).
+A random vertex is then added to the selected region from the list of valid neighboring unassigned vertices.
+This sequence, of selecting a region and adding one valid vertex, is repeated until all regions have no unassigned neighbors
+and therefore all non-medial wall vertices are assigned to a region. 
+
+Example of generating a random parcellation:
 
 ![Random Parc Gif](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/rand_parc.gif)
 
@@ -55,13 +98,16 @@ Source code for generating random parcellations is implemented and available thr
 the [Brain Predictability toolbox (BPt)](https://github.com/sahahn/BPt),
 specifically [here](https://github.com/sahahn/BPt/blob/master/BPt/extensions/random_parcellation.py).
 
-Random parcellations within this project are generated in the setup/process_random_parcels.py script. Random parcellations
-are used as a part of the base
+Random parcellations within this project are generated in the setup/process_random_parcels.py script.
 
-## Extra Parcellations
+## Icosahedron Parcellations
 
-We also tested 5 different downsampled icosahedron parcellations.
-These span in size from 42 to 1002 regions per hemisphere. Finally, we assessed the
+We test 6 different downsampled icosahedron parcellations (with medial wall removed).
+These spanned sizes: 42, 162, 362, 642, 1002, 1442. [See parcellations plotted](./parcels_viz#icosahedron).
+
+
+## FreeSurfer ROIs
+Finally, we assessed the
 Desikan and Destrieux ROI values as extracted by FreeSurfer. These differ from the
 other tested parcellations both in how values are generated (FreeSurfer extracts values in
 an individual's native space whereas we extract values from data warped to a common space)

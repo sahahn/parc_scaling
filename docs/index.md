@@ -44,8 +44,8 @@ Performance metrics are then converted in the results into a measure of [Mean Ra
 The below figure plots performance, as represented by [mean relative ranking](./results_intro#mean-rank)
 between all 220 parcellations, against the number of parcels / size in each parcellation.
 Results are further colored by type of parcellation and a log10-log10 inset
-of the same plot is provided. It may be useful to also review [Intro to Results](./results_intro.html) first, which
-provides a gentle introduction to the format plotted below.
+of the same plot is provided. It may be useful to also review the [Intro to Results](./results_intro.html) page first, which
+provides a gradual introduction to the format the results are plotted with below.
 
 [![Base Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2.png)](./interactive1.html)
 
@@ -57,12 +57,12 @@ provides a gentle introduction to the format plotted below.
   
 - [Existing parcellations](./parcellations#existing-parcellations) outperformed [randomly generated parcellations](./parcellations#random-parcellations)
   when controlling for the influence of size, however [existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
-  than our results suggest to be most predictive.
+  than our results suggest to be most predictive ([See More / Stats](./base_results.html)).
 
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
-  the SVM based pipeline was most competitive (See [By Pipeline](./by_pipeline.html)).
+  the SVM based pipeline was most competitive ([See By Pipeline](./by_pipeline.html)).
 
-- How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
+- How stable are these results across different target variables? [See Results by Target](./results_by_target.html).
 
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
