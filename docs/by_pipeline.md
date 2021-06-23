@@ -45,6 +45,9 @@ Another interesting way to view how results change when computed separately betw
 [Fullscreen Plot Link](./interactive2.html)
 {: style="font-size: 85%; text-align: center;"}
 
+A nice feature of the interactive plot is that by selecting different pipelines from the toggle, you can watch an animation of how specific results change
+with with different pipelines. You can also hover over specific data points to find out more information, for example what parcellation that data point corresponds to.
+
 ## Inter-Pipeline Comparison
 
 Alternately, we can compute rankings in an inter-pipeline manner, which means that the initial calculating of Rank is determined by directly comparing all Pipeline-Parcellation pairs for each target variable. The different here being inter-pipeline's Mean Rank as out of 660 versus intra as out of 220.
