@@ -6,7 +6,6 @@ import pandas as pd
 from IPython.display import display
 from funcs import get_parc_sizes
 from scipy.stats import kstest
-from statsmodels.formula.api import ols
 from scipy.stats import linregress, theilslopes
 
 

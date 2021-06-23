@@ -6,9 +6,10 @@ description: Results broken down by pipeline
 
 # By Pipeline
 
-![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)
+We break down the [base results](./base_results.md) here by pipeline, instead of parcellation type, in two different ways (corresponding to the top and bottom of the figure below).
+If necessary first view the [intro to results](./results_intro.html) for an example on how to interpret the below figure.
 
-- We break down the [base results](./base_results.md) here by pipeline, instead of parcellation type, in two different ways (corresponding to the top and bottom of the figure above).
+![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)
 
 - The top part of the figure, Intra-Pipeline Comparison, shows mean rank
   for each pipeline as computed only relative to other parcellations evaluated with the same pipeline
@@ -16,9 +17,9 @@ description: Results broken down by pipeline
 - The bottom part of the figure, Inter-Pipeline Comparison, shows mean rank as
   calculated between each parcellation-pipeline combination
 
-- Robust regression lines of best fit on the log10-log10 data are plotted separately
+- The regression line of best fit on the log10-log10 data are plotted separately
   for each pipeline across both figures (shaded regions around the lines of fit represent the bootstrap estimated 95% CI).
-
+  The OLS fit here was with robust regression.
 
 ## Intra-Pipeline Comparison
 
