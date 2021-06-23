@@ -9,8 +9,7 @@ description: Results broken down by pipeline
 We break down the [base results](./base_results.md) here by pipeline (instead of parcellation type) in two different ways:
 Intra and Inter pipeline (corresponding to the top and bottom of the figure below).
 
-*If necessary first view the [intro to results](./results_intro.html)
-for an example on how to interpret the below figure.*
+*If necessary first view the [intro to results](./results_intro.html) for an example on how to interpret the below figure.*
 {: text-align: center;"}
 
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)
@@ -33,7 +32,8 @@ When comparing in an intra-pipeline fashion, we are essentially computing the ra
 - SVM: 20-4000
 - LGBM: 7-3000
 
-We can then [model](./intro_to_results#modelling-results) these results as `log10(Mean_Rank) ~ log10(Size) * C(Pipeline_Type)` where Pipeline_Type is a fixed effect and can interact with Size.
+We can then [model](./intro_to_results#modelling-results) these results as `log10(Mean_Rank) ~ log10(Size) * C(Pipeline)` where Pipeline
+(the type of ML pipeline) is a fixed effect and can interact with Size.
 
 {% include intra_results1.html %}
 
@@ -50,9 +50,11 @@ with with different pipelines. You can also hover over specific data points to f
 
 ## Inter-Pipeline Comparison
 
-Alternately, we can compute rankings in an inter-pipeline manner, which means that the initial calculating of Rank is determined by directly comparing all Pipeline-Parcellation pairs for each target variable. The different here being inter-pipeline's Mean Rank as out of 660 versus intra as out of 220.
+Alternately, we can compute rankings in an inter-pipeline manner, which means that the initial calculating of Rank is determined by directly comparing all
+Pipeline-Parcellation pairs for each target variable.
+The key difference here being inter-pipeline's measure of mean rank as computed over 660 possible ranks versus intra as over 220 possible ranks.
 
-We model these results in the same way as with the intra-pipeline comparison, but importantly using the different computation of [mean rank](./intro_to_results#mean-rank). We also in this case do not estimate a powerlaw region of scaling as here we are more interested in the full statistical comparison. Formula: `log10(Mean_Rank) ~ log10(Size) * C(Pipeline_Type)`. 
+We model these results in the same way as with the intra-pipeline comparison, but importantly using the different computation of [mean rank](./intro_to_results#mean-rank). We also in this case do not estimate a powerlaw region of scaling as here we are more interested in the full statistical comparison. Formula: `log10(Mean_Rank) ~ log10(Size) * C(Pipeline)`. 
 
 {% include inter_results1.html %}
 
