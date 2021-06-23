@@ -37,7 +37,12 @@ We can then [model](./intro_to_results#modelling-results) these results as `log1
 
 {% include intra_results1.html %}
 
+The resulting statistical table is a little bit difficult to make sense of at first, so let's also plot the fit to the data to get a better feel.
+
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/intra_plot1.png)
+
+These results indicate that there are differences between the pipelines (i.e., scaling coefficient, range of scaling and intercept),
+as well as confirm more generally that scaling, albeit with varying degree, holds regardless of pipeline.
 
 Another interesting way to view how results change when computed separately between pipelines is through an interactive visualization. 
 {% include interactive2.html %}

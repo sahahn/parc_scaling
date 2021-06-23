@@ -2,6 +2,8 @@
 layout: default
 ---
 
+# Performance Scaling for Structural MRI Surface Parcellations: A Machine Learning Analysis in the ABCD Study
+
 ## Project Introduction
 
 Parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
