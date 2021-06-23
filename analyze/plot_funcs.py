@@ -783,7 +783,7 @@ def clean_name(parc):
     name = base.replace('_', ' ').replace('.npy', '')
     name = name.replace('-', ' ')
     name = name.replace('vol resamp ', '').replace(' prob', '')
-    name = name.replace(' abox', ' (abox)')
+    name = name.replace(' abox', ' (abox)').replace(' dlab', ' (dlab)')
     
     return name
 
