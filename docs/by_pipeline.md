@@ -10,7 +10,7 @@ We break down the [base results](./base_results.md) here by pipeline (instead of
 Intra and Inter pipeline (corresponding to the top and bottom of the figure below).
 
 *If necessary first view the [intro to results](./results_intro.html) for an example on how to interpret the below figure.*
-{: text-align: center;"}
+{: style="font-size: 100%; text-align: center;"}
 
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)
 
@@ -33,7 +33,7 @@ When comparing in an intra-pipeline fashion, we are essentially computing the ra
 - LGBM: 7-3000
 
 We can then [model](./intro_to_results#modelling-results) these results as `log10(Mean_Rank) ~ log10(Size) * C(Pipeline)` where Pipeline
-(the type of ML pipeline) is a fixed effect and can interact with Size.
+(the type of ML pipeline) is a fixed effect and can interact with Size ([Fullscreen Plot Link](./interactive2.html)).
 
 {% include intra_results1.html %}
 
@@ -41,9 +41,6 @@ We can then [model](./intro_to_results#modelling-results) these results as `log1
 
 Another interesting way to view how results change when computed separately between pipelines is through an interactive visualization. 
 {% include interactive2.html %}
-
-[Fullscreen Plot Link](./interactive2.html)
-{: style="font-size: 85%; text-align: center;"}
 
 A nice feature of the interactive plot is that by selecting different pipelines from the toggle, you can watch an animation of how specific results change
 with with different pipelines. You can also hover over specific data points to find out more information, for example what parcellation that data point corresponds to.
