@@ -790,7 +790,7 @@ def clean_name(parc):
 
 def target_to_name(df):
 
-    map = {'anthro_3_height_calc': 'Standing Height (inches)',
+    map = {'anthro_height_calc': 'Standing Height (inches)',
            'anthro_weight_calc': 'Measured Weight (lbs)',
            'anthro_waist_cm': 'Waist Circumference (inches)',
            'devhx_20_motor_dev_p': 'Motor Development',
@@ -813,28 +813,28 @@ def target_to_name(df):
            'sports_activity_activities_p_performance': 'Summed Performance Sports Activity',
            'sports_activity_activities_p_team_sport': 'Summed Team Sports Activity',
            'accult_phenx_q2_p': 'Speaks Non-English Language',
-           'asr_scr_thought_r': 'Thought Problems ASR Syndrome Scale',
-           'cbcl_scr_syn_aggressive_r': 'CBCL Aggressive Syndrome Scale',
+           'asr_scr_thought_r_binary': 'Thought Problems ASR Syndrome Scale',
+           'cbcl_scr_syn_aggressive_r_binary': 'CBCL Aggressive Syndrome Scale',
            'devhx_12a_born_premature_p': 'Born Premature',
            'devhx_15_days_incubator_p': 'Incubator Days',
            'devhx_18_mnths_breast_fed_p': 'Months Breast Feds',
            'devhx_5_twin_p': 'Has Twin',
            'devhx_6_pregnancy_planned_p': 'Planned Pregnancy',
-           'devhx_distress_at_birth': 'Distress At Birth',
-           'devhx_mother_probs': 'Mother Pregnancy Problems',
-           'devhx_ss_alcohol_avg_p': 'Any Alcohol',
-           'devhx_ss_marijuana_amt_p': 'Any Marijuana',
-           'screentime_week_p': 'Screen Time Week',
-           'screentime_weekend_p': 'Screen Time Weekend',
-           'ksads_adhd_composite': 'KSADS ADHD Composite',
-           'ksads_bipolar_composite': 'KSADS Bipolar Composite',
-           'ksads_OCD_composite': 'KSADS OCD Composite',
+           'devhx_distress_at_birth_binary': 'Distress At Birth',
+           'devhx_mother_probs_binary': 'Mother Pregnancy Problems',
+           'devhx_ss_alcohol_avg_p_binary': 'Any Alcohol',
+           'devhx_ss_marijuana_amt_p_binary': 'Any Marijuana',
+           'screentime_week_p_binary': 'Screen Time Week',
+           'screentime_weekend_p_binary': 'Screen Time Weekend',
+           'ksads_adhd_composite_binary': 'KSADS ADHD Composite',
+           'ksads_bipolar_composite_binary': 'KSADS Bipolar Composite',
+           'ksads_OCD_composite_binary': 'KSADS OCD Composite',
            'sex_at_birth': 'Sex at Birth',
-           'sleep_ss_total_p': 'Sleep Disturbance Scale',
+           'sleep_ss_total_p_binary': 'Sleep Disturbance Scale',
            'ksads_back_c_det_susp_p': 'Detentions / Suspensions',
            'ksads_back_c_mh_sa_p': 'Mental Health Services',
            'married.bl': 'Parents Married',
-           'prodrom_psych_ss_severity_score': 'Prodromal Psychosis Score'}
+           'prodrom_psych_ss_severity_score_binary': 'Prodromal Psychosis Score'}
 
     df['target'] = df['target'].replace(map)
 
