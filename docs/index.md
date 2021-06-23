@@ -54,17 +54,16 @@ provides a gradual introduction to the format the results are plotted with below
 
 - There is a relationship between performance, as estimated by [mean rank](./results_intro#mean-rank), and parcellation size.
   Up to ~Size 4000 a [power law](./estimate_powerlaw.html) relationship appears to hold, with [scaling exponent](./powerlaw_scaling_exp.html) .-2753.
+  See [results table](./base_results#results-table).
   
 - [Existing parcellations](./parcellations#existing-parcellations) outperformed [randomly generated parcellations](./parcellations#random-parcellations)
   when controlling for the influence of size, however [existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
-  than our results suggest to be most predictive ([See Stats](./base_results#parcellation-type-as-fixed-effect)).
-
-- [See results table](./base_results#results-table)
+  than our results suggest to be most predictive (See [Stats](./base_results#parcellation-type-as-fixed-effect)).
 
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
-  the SVM based pipeline was most competitive ([See By Pipeline](./by_pipeline.html)).
+  the SVM based pipeline was most competitive (See [By Pipeline](./by_pipeline.html)).
 
-- How stable are these results across different target variables? [See Results by Target](./results_by_target.html).
+- How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
 
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,

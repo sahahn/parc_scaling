@@ -396,7 +396,7 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
                     log=False, threshold=False,
                     only_targets=None, add_raw=False,
                     models=['svm', 'elastic', 'lgbm'],
-                    keep_full_name=False,
+                    keep_full_name=False, add_ranks_labels=False,
                     **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
@@ -408,6 +408,7 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
     # Otherwise, only average over models to get ranks
     else:
         pm_df = get_model_avg_ranks(df)
+        pm_df = target_to_name(pm_df)
 
     pm_df['Size'] = [parc_sizes[p] for p in pm_df.index]
 
@@ -420,16 +421,21 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
         split_means = df.groupby(['is_binary', 'model', 'parcel']).apply(mean_score)
         regression_means = split_means.loc[False].groupby('parcel').apply(lambda x : x[0].mean())
         binary_means = split_means.loc[True].groupby('parcel').apply(lambda x : x[0].mean())
-        pm_df ['r2'] = regression_means
-        pm_df ['roc_auc'] = binary_means
-        
+        pm_df['r2'] = regression_means
+        pm_df['roc_auc'] = binary_means
+
+    if add_ranks_labels:
+        base = 'Mean Rank: ' + pm_df['Mean_Rank'].round(3).astype(str)
+        extra = '<br>log10(Mean Rank): ' + np.log10(pm_df['Mean_Rank']).round(3).astype(str)
+        pm_df['rank_label'] = base + extra
+
+        base = 'Size: ' + pm_df['Size'].astype(str)
+        extra = '<br>log10(Size): ' + np.log10(pm_df['Size']).round(3).astype(str)
+        pm_df['size_label'] = base + extra
+
     if log:
         pm_df['Mean_Rank'] = np.log10(pm_df['Mean_Rank'])
         pm_df['Size'] = np.log10(pm_df['Size'])
-
-        if 'r2' in pm_df:
-            pm_df['r2'] = np.log10(pm_df['r2'])
-            pm_df['roc_auc'] = np.log10(pm_df['roc_auc'])
 
     if not by_group:
         return pm_df
@@ -438,7 +444,7 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
     r_df = pm_df.reset_index()
 
     if keep_full_name:
-        r_df['full_name'] = r_df['parcel'].copy()
+        r_df['full_name'] = r_df['parcel'].copy().apply(clean_name)
 
     groups = []
     for parcel in r_df['parcel']:
@@ -771,3 +777,66 @@ def get_highest_performing_df(results, **kwargs):
     scores = scores.set_index('Model')
     
     return scores
+
+def clean_name(parc):
+    
+    base = parc.split('/')[-1]
+    name = base.replace('_', ' ').replace('.npy', '')
+    name = name.replace('-', ' ')
+    name = name.replace('vol resamp ', '').replace(' prob', '')
+    name = name.replace(' abox', ' (abox)')
+    
+    return name
+
+
+def target_to_name(df):
+
+    map = {'anthro_3_height_calc': 'Standing Height (inches)',
+           'anthro_weight_calc': 'Measured Weight (lbs)',
+           'anthro_waist_cm': 'Waist Circumference (inches)',
+           'devhx_20_motor_dev_p': 'Motor Development',
+           'cbcl_scr_syn_rulebreak_r': 'CBCL RuleBreak Syndrome Scale',
+           'demo_prnt_age_p': 'Parent Age (yrs)',
+           'devhx_2_birth_wt_lbs_p': 'Birth Weight (lbs)',
+           'interview_age': 'Age (months)',
+           'lmt_scr_perc_correct': 'Little Man Test Score',
+           'macvs_ss_r_p': 'MACVS Religion Subscale',
+           'neighb_phenx_ss_mean_p': 'Neighborhood Safety',
+           'neurocog_pc1.bl': 'NeuroCog PCA1 (general ability)',
+           'neurocog_pc2.bl': 'NeuroCog PCA2 (executive function)',
+           'neurocog_pc3.bl': 'NeuroCog PCA3 (learning / memory)',
+           'nihtbx_cardsort_uncorrected': 'NIH Card Sort Test',
+           'nihtbx_list_uncorrected': 'NIH List Sorting Working Memory Test',
+           'nihtbx_pattern_uncorrected': 'NIH Comparison Processing Speed Test',
+           'nihtbx_picvocab_uncorrected': 'NIH Picture Vocabulary Test',
+           'nihtbx_reading_uncorrected': 'NIH Oral Reading Recognition Test',
+           'pea_wiscv_trs': 'WISC Matrix Reasoning Score',
+           'sports_activity_activities_p_performance': 'Summed Performance Sports Activity',
+           'sports_activity_activities_p_team_sport': 'Summed Team Sports Activity',
+           'accult_phenx_q2_p': 'Speaks Non-English Language',
+           'asr_scr_thought_r': 'Thought Problems ASR Syndrome Scale',
+           'cbcl_scr_syn_aggressive_r': 'CBCL Aggressive Syndrome Scale',
+           'devhx_12a_born_premature_p': 'Born Premature',
+           'devhx_15_days_incubator_p': 'Incubator Days',
+           'devhx_18_mnths_breast_fed_p': 'Months Breast Feds',
+           'devhx_5_twin_p': 'Has Twin',
+           'devhx_6_pregnancy_planned_p': 'Planned Pregnancy',
+           'devhx_distress_at_birth': 'Distress At Birth',
+           'devhx_mother_probs': 'Mother Pregnancy Problems',
+           'devhx_ss_alcohol_avg_p': 'Any Alcohol',
+           'devhx_ss_marijuana_amt_p': 'Any Marijuana',
+           'screentime_week_p': 'Screen Time Week',
+           'screentime_weekend_p': 'Screen Time Weekend',
+           'ksads_adhd_composite': 'KSADS ADHD Composite',
+           'ksads_bipolar_composite': 'KSADS Bipolar Composite',
+           'ksads_OCD_composite': 'KSADS OCD Composite',
+           'sex_at_birth': 'Sex at Birth',
+           'sleep_ss_total_p': 'Sleep Disturbance Scale',
+           'ksads_back_c_det_susp_p': 'Detentions / Suspensions',
+           'ksads_back_c_mh_sa_p': 'Mental Health Services',
+           'married.bl': 'Parents Married',
+           'prodrom_psych_ss_severity_score': 'Prodromal Psychosis Score'}
+
+    df['target'] = df['target'].replace(map)
+
+    return df
