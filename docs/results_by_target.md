@@ -20,6 +20,8 @@ in how our fit changes relative to just using the mean rank from the [base resul
 
 {% include by_target_table.html %}
 
+## Increasing Variance
+
 Looking back at the main figure we notice another interesting thing. It appears like as sizes get bigger the spread of values also increases, such that the largest sizes may have the highest mean rank but they also have the highest variability. We can formalize this by computing the [IQR](https://en.wikipedia.org/wiki/Interquartile_range) at every unique size. We can then model this increasing spread as: `IQR ~ log10(Size)`.
 
 {% include iqr_stats.html %}

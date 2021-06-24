@@ -61,7 +61,7 @@ provides a gradual introduction to the format the results are plotted with below
   than our results suggest to be most predictive (See [Stats](./base_results#parcellation-type-as-fixed-effect)).
 
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
-  the SVM based pipeline was most competitive (See [By Pipeline](./by_pipeline.html)).
+  the SVM based pipeline was most competitive (See [Results by Pipeline](./by_pipeline.html)).
 
 - How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
 

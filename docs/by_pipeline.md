@@ -1,10 +1,10 @@
 ---
 layout: default
-title: By Pipeline
+title: Results by Pipeline
 description: Results broken down by pipeline
 ---
 
-# By Pipeline
+# Results by Pipeline
 
 We break down the [base results](./base_results.md) here by pipeline (instead of parcellation type) in two different ways:
 Intra and Inter pipeline (corresponding to the top and bottom of the figure below).
