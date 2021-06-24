@@ -39,9 +39,9 @@ This project is setup with a few different directories, which if necessary conta
   This folder contains all of the processed and numpy saved versions of main parcellations
   used in this project.
 
-- `raw/`
+- [raw/](raw/)
 
-  This folder contains all of the raw data, parcellations and input data etc..., used in the project. See [raw/README.md](raw/README.md) for mo
+  This folder contains all of the raw data, parcellations and input data etc..., used in the project. See [raw/](raw/) for more details.
 
 - setup/
 
