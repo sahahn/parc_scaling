@@ -354,11 +354,12 @@ def get_model_avg_ranks(df):
     ranks = ranks.to_frame().reset_index()
 
     means = ranks.groupby(['target', 'parcel']).apply(mean_rank)
-    all_ranks_df = means.reset_index().set_index('parcel')
-    # all_ranks_df = all_ranks_df.drop('target', axis=1)
+    scores = df.reset_index().groupby(['target', 'parcel']).apply(mean_score)
 
-    all_ranks_df = all_ranks_df.rename(columns={0: 'Mean_Rank'})
-    return all_ranks_df
+    return_df = means.to_frame().rename(columns={0: 'Mean_Rank'})
+    return_df['Mean_Score'] = scores
+
+    return return_df.reset_index().set_index('parcel')
 
 def get_cut_off_df(r_df):
     
