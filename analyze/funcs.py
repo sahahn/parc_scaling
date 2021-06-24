@@ -254,7 +254,7 @@ def save_results_table(r_df, name):
     r_df = r_df.sort_values('Mean Rank')
 
     html = '<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>'
-    html += r_df.to_html(float_format="%.3f", classes=['sortable'],
+    html += r_df.to_html(float_format="%.4f", classes=['sortable'],
                          index=False, justify='center')
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:

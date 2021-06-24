@@ -40,7 +40,7 @@ to model results from the base experiments. Base notation for OLS equations are 
 where `A` is the dependent variable and `B + C` are independent fixed effects.
 Alternatively, if written as `A ~ B * D` then `D` will be added as a fixed effect
 along with an interaction term between `B` and `D` (equivalent to alternate notation `A ~ B + D + B * D`).
-If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect.
+If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect. A variable is specified as categorical in statsmodel by wrapping it with `C`, for example: `C(variable)`, would specify that `variable` as categorical.
 Lastly, if a variable is wrapped in `log10()`, then the logarithm of the variable with base 10 has been used.
 
 
