@@ -34,7 +34,7 @@ This project is setup with a few different directories, which if necessary conta
   
   This folder is where the random parcellations used for the multiple parcellation strategies are stored. This folder is created and filled by a script in `setup/`.
 
-- `parcels/`
+- [parcels/](parcels/)
   
   This folder contains all of the processed and numpy saved versions of main parcellations
   used in this project.
