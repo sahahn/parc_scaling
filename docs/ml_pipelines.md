@@ -7,15 +7,14 @@ description: Information of the different ML Pipelines used.
 # ML Pipelines
 
 The python library [BPt](https://github.com/sahahn/BPt) was used to implement three ML pipelines of interest.
-Each pipeline has both a classifier and regressor variant, and were chosen in order to cover a representative sample of different popular and predictive ML strategies.
+Each pipeline has both a classifier and regressor variant, and were chosen in order to cover a representative sample of different popular and predictive ML strategies. These also include as built in a number of [performance optimizations](./optimizations.html) we made.
 
 All ML pipelines consist of the same initial pieces, differing only on choice of base estimator. The first piece of all pipelines
 is a [Loader](https://sahahn.github.io/BPt/reference/api/BPt.Loader.html#BPt.Loader),
 which is responsible for extracting ROIs according to a specified surface parcellation, and then concatenating the features together.
 The next shared piece is a [Scaler](https://sahahn.github.io/BPt/reference/api/BPt.Scaler.html), specifically a
 [robust scaler](https://sahahn.github.io/BPt/options/pipeline_options/scalers.html#robust)
-where each feature is standardized by first removing the median and then scaling according to the 5th and 95th percentiles
-of that features distribution.
+where each feature is standardized by first removing the median and then scaling according to the 5th and 95th percentiles of that features distribution.
 
 Lastly, these features are used as input for one of three base estimator components, which are listed below:
 

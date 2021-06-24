@@ -9,8 +9,17 @@ The first, if it counts as one, is that the [Vermont Advanced Computing Core](ht
 run all of the expiriments, which is a supercomputer. Even so, there are a number of other key / interesting optimizations
 made. This page will discuss some of the optimizations we made that allowed us to actually finish these expiriments.
 
-- Randomized Submission System
+## Randomized Submission System
+
+
+
+
 - Caching applying parcellation
 - Extensive caching and re-use during multiple parcellation exp.
 - SVM hyper-parameter trick
+
+## Parallel Computing
+
+It is common within ML implementations to be able to multi-process certain processes. This project was no exception, as we utilized heavily multi-processing (beyond the use of the cluster to submit multiple evaluation jobs at once) to parallelize primarily the hyper-parameter search within specific evaluation jobs.
+
 - Experiments with different parallel computing strategies, including dask, and finally settling on joblib based solution.

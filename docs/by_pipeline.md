@@ -7,10 +7,8 @@ description: Results broken down by pipeline
 # Results by Pipeline
 
 We break down the [base results](./base_results.md) here by pipeline (instead of parcellation type) in two different ways:
-Intra and Inter pipeline (corresponding to the top and bottom of the figure below).
-
-*If necessary first view the [intro to results](./results_intro.html) for an example on how to interpret the below figure.*
-{: style="font-size: 100%; text-align: center;"}
+Intra and Inter pipeline (corresponding to the top and bottom of the figure below). *If necessary first 
+see the [intro to results](./results_intro.html) page for a guide on how the results in this project are interpreted.*
 
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure3.png)
 
@@ -22,7 +20,7 @@ Intra and Inter pipeline (corresponding to the top and bottom of the figure belo
 
 - The regression line of best fit on the log10-log10 data are plotted separately
   for each pipeline across both figures (shaded regions around the lines of fit represent the bootstrap estimated 95% CI).
-  The OLS fit here was with robust regression.
+  The OLS fit here was with [robust regression](https://www.statsmodels.org/stable/rlm.html).
 
 ## Intra-Pipeline Comparison
 
