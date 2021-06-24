@@ -22,10 +22,10 @@ ensemble_max_choice = max([int(c) for c in ensemble_n_choices])
 
 # Which parcellations, start str stub, should be run as a job with only
 # one fold, e.g., those that take a long time to complete.
-split_if = ['stacked_', 'voted_', 'grid_',
-            'random_2000_', 'random_3000_',
-            'random_4000_', 'random_5000_',
-            'icosahedron-1442_']
+split_if = ['stacked_', 'voted_', 'grid_', 'random_2000_',
+            'random_3000_', 'random_4000_', 'random_5000_',
+            'random_6000_', 'random_7000_', 'random_8000_',
+            'random_9000_', 'random_10000_', 'icosahedron-1442_']
 
 # Other directories based on main_dr
 exp_dr = os.path.join(main_dr, 'exp')

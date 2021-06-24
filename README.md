@@ -10,42 +10,47 @@ This github repository contains READMEs dedicated primarily to explaining the ac
 
 This project is setup with a few different directories, which if necessary contain their own more detailed READMEs.
 
-- `analyze/`
-
+- [analyze](analyze/)
+  
   This folder contains the code for processing, analyzing and plotting the results.
 
-- `data/`
+- [config.json](config.json)
+
+  This configuration file is used across the project to specify different key shared parameters.
+
+- [data](data/)
 
   This folder stores the processed data as generated from setup.
 
-- `docs/`
+- [docs](docs/)
 
   This include the markdown pages for the [project website](https://sahahn.github.io/parc_scaling/).
 
-- `exp/`
+- [exp](exp/)
   
   This folder includes all of the code used to perform the ML expiriments.
+  See [exp/](exp/) README.md for more details.
 
-- `extra/`
+- [extra](extra/)
   
-  This folder contains various misc. notebooks for making brain figures and other random side-analyses. 
+  This folder contains various misc. notebooks for making brain figures and other misc. side-analyses. 
 
-- [extra_random_parcels/](extra_random_parcels/)
+- [extra_random_parcels](extra_random_parcels/)
   
-  This folder is where the random parcellations used for the multiple parcellation strategies are stored. This folder is created and filled by a script in `setup/`.
+  This folder is where the random parcellations used for the multiple parcellation strategies are stored. This folder is created and filled by a script in [setup](setup/).
 
-- [parcels/](parcels/)
+- [parcels](parcels/)
   
   This folder contains all of the processed and numpy saved versions of main parcellations
   used in this project.
 
-- [raw/](raw/)
+- [raw](raw/)
 
-  This folder contains all of the raw data, parcellations and input data etc..., used in the project. See [raw/](raw/) for more details.
+  This folder contains all of the raw data, parcellations and input data etc..., used in the project. See [raw/](raw/) README.md for more details.
 
-- setup/
+- [setup](setup/)
 
-In general those starting with capital letters, (setup/, exp/, analyze/) contain code used to run different steps, with other directories used to store data or parcellations, e.g. (data/, parcels/, ect...).
+  This folder contains the code used to setup the rest of the expiriments, including processing input data and parcellations for later ML. See [setup/](setup/) README.md for more details.
 
 
 <p align="center">

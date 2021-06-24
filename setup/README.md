@@ -20,19 +20,38 @@ This project requires downloading a great deal of raw data from a few different 
 ### Usage
 --------------------------
 
-Once config.py has been filled in, there are two scripts which can be used to to run the setup. These are local_setup.sh and slurm_setup.sh. One is designed to run all of the setup steps on a local device and the other is designed to perform the same set of steps, but to be submitted with sbatch slurm_setup.sh on a SLURM cluster. 
+There are two scripts which can be used to to run the full setup procedure. These are [local_setup.sh](local_setup.sh) and [slurm_setup.sh](slurm_setup.sh). One is designed to run all of the setup steps on a local device and the other is designed to perform the same set of steps, but to be submitted with sbatch slurm_setup.sh on a SLURM cluster. 
+Running setup runs / uses the following sub-scripts:
 
-Running setup runs the following sub-scripts:
+- [config.py](config.py)
 
-- process_parcs.py : In this script, all of the collected "raw" parcellations within the raw/ folder are converted into ultimately numpy arrays within FS_lr_32k space. This script takes care of any re-sampling or other steps, e.g., combining left and right hemispheres, fsaverage to FS_lr_32k projection, ect... that are needed. All final parcellations are saved within the parcels/ folder (https://github.com/sahahn/parc_scaling/tree/main/parcels).
+    This file contains information shared across different evaluation code in this directory. It mostly takes values from the main config.json file and should not need to be edited.
 
-- process_random_parcels.py : In this script, a range of random surface parcellations are generated across different sizes and random seeds. The RandomParcels class from BPt extensions is used for this (https://github.com/sahahn/BPt/blob/master/BPt/extensions/RandomParcels.py). 
+- [generate_random_parcels.py](generate_random_parcels.py)
+  
+    In this script, a range of random surface parcellations are generated across different sizes and random seeds, according to the values specified in the main config.json file.
 
-- process_derivatives.py : This script accomplishes two tasks. First, Desikan and Destr. rois are extracted from the downloaded FreeSurfer stats files for each subject, and then are converted and saved as csv files within data (a directory created at the top structure to hold processed data). Next, all downloaded "raw" surface values are re-saved within data as numpy arrays, e.g., under data/abcd_structural/curv/SUBJ_ID.npy or data/abcd_structural/thick/SUBJ_ID.npy.
+- [helpers.py](helpers.py)
 
-- process_targets.py : This script loads and performs some relevant transformations to all of the identified target variables. Raw data is loaded from raw/nda_rds_201.csv. The final csv containing all target variables (and family id) is saved under data/targets.csv. 
+    This file contains a number of shared utilities for different setup code. For the most part though this code contains different code used for resampling parcellations.
 
-- setup_dataset.py : This script creates and saved the base BPt dataset object. First, target data is loaded and relevant types inferred. Next, all imaging data is loaded and outlier filtering performed on each type of data. The summary standard deviation across all vertices were calculated for each subject, hemisphere, and modality separately. Next, any subject’s summary standard deviation that was outside of 10 standard deviations relative to all other subjects (for that hemisphere and modality) was determined to be an outlier. This process was repeated further for just the curvature data (as this modality contained a few extreme outliers), where in addition to a summary measure of standard deviation, the minimum and maximum vertex values were utilized. Ultimately, 9432 subjects’ data passed these exclusion criteria.  A version of the data is then saved under data/consolidated where each type of data per subject [curv, thick, myelin, sulc] are stacked per subject (this step is done to save time, and reduce the number of cached files / files to be loaded during later machine learning). Lastly, the prepared dataset object is saved under data/dataset.pkl, where it can be later loaded with as many asynchronous copies as desired and ML experiments performed.
+- [process_derivatives.py](process_derivatives.py)
+  
+    This script accomplishes two tasks. First, Desikan and Destr. rois are extracted from the downloaded FreeSurfer stats files for each subject, and then are converted and saved as csv files within data (a directory created at the top structure to hold processed data). Next, all downloaded "raw" surface values are re-saved within data as numpy arrays, e.g., under data/abcd_structural/curv/SUBJ_ID.npy or data/abcd_structural/thick/SUBJ_ID.npy.
 
-- setup_fs_dataset.py : This script generates an alternate BPt dataset object, where instead of loading the raw surface data, the csv's with FreeSurfer derived Desikan and Destr. rois are instead loaded. Valid subjects are restricted to be exactly those that met all of the criteria in creating setup_dataset, such that the eventual expiriments run with this separate data source will match exactly the fold structure from the other expiriments. The output ML object is saved under data/fs_dataset.pkl.
+- [process_parcs.py](process_parcs.py)
+  
+    In this script, all of the collected "raw" parcellations within the raw/ folder are converted into ultimately numpy arrays within FS_lr_32k space. This script takes care of any re-sampling or other steps, e.g., combining left and right hemispheres, fsaverage to FS_lr_32k projection, ect... that are needed. All final parcellations are saved within the parcels/ folder [parcels](https://github.com/sahahn/parc_scaling/tree/main/parcels).
+
+- [process_targets.py](process_targets.py)
+
+    This script loads and performs some relevant transformations to all of the identified target variables. Raw data is loaded from raw/nda_rds_201.csv. The final csv containing all target variables (and family id) is saved under data/targets.csv. 
+
+- [setup_dataset.py](setup_dataset.py)
+
+    This script creates and saved the base BPt dataset object. First, target data is loaded and relevant types inferred. Next, all imaging data is loaded and outlier filtering performed on each type of data. The summary standard deviation across all vertices were calculated for each subject, hemisphere, and modality separately. Next, any subject’s summary standard deviation that was outside of 10 standard deviations relative to all other subjects (for that hemisphere and modality) was determined to be an outlier. This process was repeated further for just the curvature data (as this modality contained a few extreme outliers), where in addition to a summary measure of standard deviation, the minimum and maximum vertex values were utilized. Ultimately, 9432 subjects’ data passed these exclusion criteria.  A version of the data is then saved under data/consolidated where each type of data per subject [curv, thick, myelin, sulc] are stacked per subject (this step is done to save time, and reduce the number of cached files / files to be loaded during later machine learning). Lastly, the prepared dataset object is saved under data/dataset.pkl, where it can be later loaded with as many asynchronous copies as desired and ML experiments performed.
+
+- [setup_fs_dataset.py](setup_fs_dataset.py)
+
+    This script generates an alternate BPt dataset object, where instead of loading the raw surface data, the csv's with FreeSurfer derived Desikan and Destr. rois are instead loaded. Valid subjects are restricted to be exactly those that met all of the criteria in creating setup_dataset, such that the eventual expiriments run with this separate data source will match exactly the fold structure from the other expiriments. The output ML object is saved under data/fs_dataset.pkl.
 

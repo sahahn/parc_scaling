@@ -20,6 +20,6 @@ ensemble_n_repeats = config['ensemble_n_repeats']
 ensemble_max_choice = max([int(c) for c in ensemble_n_choices])
 
 # Path's to extra libraries
-matlab_bin_loc = '/home/sage/Downloads/matlab/bin'
-conv_script_loc = '/home/sage/data/CBIG/stable_projects/registration/Wu2017_RegistrationFusion/bin/standalone_scripts_for_MNI_fsaverage_projection/CBIG_RF_projectMNI2fsaverage.sh'
-freesurfer_loc = '/home/sage/Downloads/freesurfer'
+matlab_bin_loc = config['matlab_bin_loc']
+conv_script_loc = config['conv_script_loc']
+freesurfer_loc = config['freesurfer_loc']
