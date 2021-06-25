@@ -29,8 +29,9 @@ Another aspect of the submission system which proved invaluable was a flag for c
 
 ## Caching
 
-- Caching applying parcellation
-- Extensive caching and re-use during multiple parcellation exp.
+### Parcellation Caching
+
+### Multiple Parcellation Strategy Caching
 
 ## Parallel Computing
 

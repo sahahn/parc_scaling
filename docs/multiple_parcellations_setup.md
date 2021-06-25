@@ -22,7 +22,6 @@ In all of the multiple parcellation based analytic approaches, [random parcellat
 
 The "Grid" based strategy was designed to treat choice of parcellation as a hyperparameter. The motivation behind this idea being that nested cross validation could perhaps help to identify the best single parcellation from group of potential parcellations. In order to treat choice of parcellation as a hyperparameter, we employed a nested [grid search](https://scikit-learn.org/stable/modules/grid_search.html). A three-fold nested cross-validation scheme on the training set, respecting family structure as before (i.e., assigning members of the same family to the same fold), was used to evaluate each potential parcellation. Within each of these internal folds a ML pipeline was trained, with its own nested parameter tuning, and then evaluated on its respective internal validation set. This process yielded an average for each of the three folds’ scores for each parcellation. The parcellation which obtained the highest score was selected for re-training on the full training set which involved, as in each nested fold, training a ML pipeline with its own nested parameter search. The final trained ML estimator, with the selected best parcellation, was then used to evaluate the validation fold. This process was repeated across the whole training set according to the same five-fold structure as used in the base analyses, thus allowing the results to be directly comparable.
 
-
 ### Voted
 
 The voting based strategy is the simpler of the [ensemble](https://en.wikipedia.org/wiki/Ensemble_learning) based strategies tested.
@@ -47,3 +46,10 @@ the same base ML pipelines but trained on features as extracted from different [
 Each considered multiple parcellation strategy was evaluated in a directly comparable way to the [base analysis](./index#base-experiment-setup) (i.e., for each target with the same five-fold cross-validation). As in the base analysis, multiple parcellation analyses were first run for each choice of [ML pipeline]((./ml_pipelines.html)) separately. Additionally, we also considered ensembling and selecting across both parcellation and choice of ML pipeline (e.g., a voting ensemble which averages predictions from SVM, Elastic-Net and LGBM pipelines, each trained on random parcellations of size 100, 200 and 300). 
 
 For the number of different parcellations available to a search or ensemble strategy, we evaluated four different numbers of parcellations: 3, 5, 8 and 10. Further, for each of these numbers of parcellations, we tested fixed size parcellations as well as differentially sized parcellations across a range of sizes (100, 200, 300, 400, 500, 50-500, 100-1000 and 300-1200). For example, for a combination of 3 parcellations and a fixed size of 100, three random parcellations with size 100 could be used. For a combination of 5 parcellations of a range of sizes from 100-1000, parcellations of size 100, 325, 550, 775 and 1000 could be used.
+
+## Implementation
+
+The implementation for these different ensemble methods is contained within the same file where the different pipelines are defined, in [exp/models.py](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py), using code from [BPt](https://sahahn.github.io/BPt/) version 2.0+
+
+One key implementation detail is that the different multiple parcellation strategies were designed with maximum reusability in mind via an extensive caching system.
+To read more in depth about this important optimization see [Optimizations: Multiple Parcellation Strategy Caching](./optimizations#multiple-parcellation-strategy-caching).
