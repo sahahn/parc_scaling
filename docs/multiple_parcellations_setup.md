@@ -58,7 +58,11 @@ Each configuration of:
 - Fixed Sizes: 20 `5 (Sizes) * 4 (Number of parcellations)`
 - Across Sizes: 12 `3 (Ranges of Sizes) * 4 (Number of parcellations)`
   
-Were evaluated across all 1080 combinations `3 (Base Strategies) * 4 (3 Base Pipelines + 'All' Configuration) * 45 (Target Variables) * 2 (Random Repeats)`.
+Were evaluated across all 1,080 combinations:
+
+- `3 (Base Strategies) * 4 (3 Base Pipelines + 'All' Configuration) * 45 (Target Variables) * 2 (Random Repeats)`.
+
+In total 34.560 ((20 + 12) * 1080).
 
 ## Implementation
 
