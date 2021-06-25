@@ -22,6 +22,8 @@ In all of the multiple parcellation based analytic approaches, [random parcellat
 
 The "Grid" based strategy was designed to treat choice of parcellation as a hyperparameter. The motivation behind this idea being that nested cross validation could perhaps help to identify the best single parcellation from group of potential parcellations. In order to treat choice of parcellation as a hyperparameter, we employed a nested [grid search](https://scikit-learn.org/stable/modules/grid_search.html). A three-fold nested cross-validation scheme on the training set, respecting family structure as before (i.e., assigning members of the same family to the same fold), was used to evaluate each potential parcellation. Within each of these internal folds a ML pipeline was trained, with its own nested parameter tuning, and then evaluated on its respective internal validation set. This process yielded an average for each of the three folds’ scores for each parcellation. The parcellation which obtained the highest score was selected for re-training on the full training set which involved, as in each nested fold, training a ML pipeline with its own nested parameter search. The final trained ML estimator, with the selected best parcellation, was then used to evaluate the validation fold. This process was repeated across the whole training set according to the same five-fold structure as used in the base analyses, thus allowing the results to be directly comparable.
 
+[Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L70)
+
 ### Voted
 
 The voting based strategy is the simpler of the [ensemble](https://en.wikipedia.org/wiki/Ensemble_learning) based strategies tested.
@@ -32,6 +34,8 @@ and [voting regressor](https://scikit-learn.org/stable/modules/ensemble.html#vot
 making use of the [BPt](https://sahahn.github.io/BPt/) tweaked versions. The 'estimators' in this case, the base models
 to be averaged, are separate versions of the same base ML pipeline but trained on features as extracted from different [random parcellations](./parcellations#random-parcellations).
 
+[Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L92)
+
 ### Stacked
 
 The [stacking ensemble](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/), while similar to the voting ensemble, is a bit more complex. For each of the pipeline-parcellation combinations, a separate three-fold cross-validation framework was used in the training set. In this framework, three ML pipelines were trained on 2/3 of the training set and predictions were made on the remaining 1/3, yielding an out-of-sample prediction for each participant in the training set (notably this is the same nested three fold validation used in the [grid strategy](./multiple_parcellations_setup#grid)). The predictions from all pipeline-parcellation combinations were used as features to train a “stacking model”. The purpose of the stacking model was to learn a relative weighting of each parcellation-pipeline combination (i.e., to give more weight to better parcellation-pipeline combinations and less weight to worse ones). The algorithm used to train the stacking model was a ridge penalized linear or logistic regression with nested hyper-parameter tuning. Once trained, this stacking model was used to predict the target variable in a novel sample (i.e., the held-out test set). The stacking ensemble procedure notably involved a large increase in computation relative to the voting ensemble, as the stacking ensemble involved training three pipelines for each parcellation-pipeline combination, whereas the voting ensemble consisted of training only one ML pipeline for each.
@@ -40,6 +44,8 @@ This approach was based on the scikit learn implementation of [stacked generaliz
 as ultimately implemented in [BPt](https://sahahn.github.io/BPt/).
 Like with the voting based strategy, the key detail here is the base models used for stacking were separate versions of
 the same base ML pipelines but trained on features as extracted from different [random parcellations](./parcellations#random-parcellations).
+
+[Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L110)
 
 ## Evaluation 
 
