@@ -70,7 +70,7 @@ provides a gradual introduction to the format the results are plotted with below
 
 ## Multiple Parcellation Strategies
 
-...
+As an additional set of analyses we sought to characterize the potential gains in performance from employing strategies that can make use of information from multiple parcellations in order to inform predictions. These extensions to the base analysis can be broken up into three different types: choice of parcellation as a nested hyper-parameter (["Grid"]((./multiple_parcellations_setup#grid))), ensembling over multiple parcellations using voting (["Voted"]((./multiple_parcellations_setup#voted))), and ensembling using stacking (["Stacked"](./multiple_parcellations_setup#stacked)). See [Multiple Parcellations Setup](./multiple_parcellations_setup.html) for more detailed information on how this experiment was structured 
 
 ## Authors
 
