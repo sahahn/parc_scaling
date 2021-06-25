@@ -17,7 +17,7 @@ region names assigned as combinations of well known regions.
 Choice of pipeline will also influence how easily feature importances can be obtained,
 for example the Elastic-Net has associated beta weights and LGBM based pipeline a few different, although imperfect, measures of built in feature importance.
 The SVM based model though, since it employs the nonlinear radial basis function kernel, does not compute any built in measures of feature importance.
-Instead, a model-agnostic method must be used in order to derive feature importances. While these methods have their own trade-offs, there is certainly a growing interest in developing approaches to explain the outputs from “black-box” models (Altmann 2010, Lundberg 2017, Poyiadzi 2020).
+Instead, a model-agnostic method must be used in order to derive feature importances. While these methods have their own trade-offs, there is certainly a growing interest in developing approaches to explain the outputs from “black-box” models ([Altmann 2010](https://academic.oup.com/bioinformatics/article/26/10/1340/193348), [Lundberg 2017](https://arxiv.org/abs/1705.07874), [Poyiadzi 2020](https://research-information.bris.ac.uk/ws/portalfiles/portal/221094080/aies2020cr.pdf)).
 
 Similar to choice of pipeline is if to ensemble over multiple parcellations, where if an ensemble method is used, then interpretation is generally made more complex.
 For the voting ensemble, feature importances from the sub-model can be simply averaged, whereas for the stacking based ensemble a weighted average,
@@ -43,8 +43,8 @@ The caveat here is that the algorithms and implementations we used were not nece
 
 ## References
 
-- Altmann, A., Toloşi, L., Sander, O., & Lengauer, T. (2010). Permutation importance: a corrected feature importance measure. Bioinformatics, 26(10), 1340-1347.
+- [Altmann, A., Toloşi, L., Sander, O., & Lengauer, T. (2010). Permutation importance: a corrected feature importance measure. Bioinformatics, 26(10), 1340-1347.](https://academic.oup.com/bioinformatics/article/26/10/1340/193348)
 
-- Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. In Advances in neural information processing systems (pp. 4765-4774).
+- [Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. In Advances in neural information processing systems (pp. 4765-4774).](https://arxiv.org/abs/1705.07874)
 
-- Poyiadzi, R., Sokol, K., Santos-Rodriguez, R., De Bie, T., & Flach, P. (2020, February). FACE: feasible and actionable counterfactual explanations. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (pp. 344-350).
+- [Poyiadzi, R., Sokol, K., Santos-Rodriguez, R., De Bie, T., & Flach, P. (2020, February). FACE: feasible and actionable counterfactual explanations. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (pp. 344-350).](https://research-information.bris.ac.uk/ws/portalfiles/portal/221094080/aies2020cr.pdf)

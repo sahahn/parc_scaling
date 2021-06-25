@@ -1,4 +1,8 @@
-# Machine Learning for Neuroimaging
+---
+layout: default
+---
+
+# Goals / Considerations for Machine Learning based Neuroimaging
 
 Machine learning, and more broadly, prediction as a general framework, offers a number of inherent benefits, but it is not without its downsides. Importantly, it is difficult to assess if a specific machine learning workflow is optimal, as there exists a seemingly endless pool of choices for different classifiers, data pre-processing steps, ensemble strategies, and other choices. Likewise, due to the nature of predictive performance, it is difficult to claim that a proposed pipeline is optimal, as there is likely a better solution or set of steps which would yield better predictive performance. 
 

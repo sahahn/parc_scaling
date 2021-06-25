@@ -7,16 +7,14 @@ layout: default
 Parcellations and neuroimaging atlases are ubiquitous in neuroimaging, namely because they allow for a principled
 reduction of features. This project focuses in particular on the question of
 choice of parcellation, in particular, how does choice of parcellation influence performance
-within a machine learning context (See [Background on Machine Learning for Neuroimaging](./ml_neuroimaging.html)). We
-perform a number of different experiments in order to probe this and related questions in detail.
+within a machine learning context (See [Goals / Considerations for Machine Learning based Neuroimaging](./ml_neuroimaging.html)). We perform a number of different experiments in order to probe this and related questions in detail.
 
 This website acts as both a standalone project site and as online supplementary materials for
 the corresponding project paper - [*Why a website?*](./website_info.html)
 
 ## Base Experiment Setup
 
-The base experiment conducted within this project was a systematic test of performance of different pre-defined parcellations.
-The structure of the evaluation is shown below:
+The base experiment conducted within this project was a systematic test of performance of different pre-defined parcellations. The structure of the evaluation is shown below:
 
 ![Outline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure1.png)
 
