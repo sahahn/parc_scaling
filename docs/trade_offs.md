@@ -32,9 +32,10 @@ That said, within this project we were not interested directly in interpretabili
 The ML methods, atleast those used in this project, scale differently with respect to the number of input features.
 This scaling is therefore influenced by the the scale of the parcellations used as those with more parcels
 will produce more input feature and that will effect the computational resources needed to perform ML.
-We will consider in this section the influence of different parameters on runtime, noting of course that these times are with [performance optimizations](./optimizations.html) applied.
+We will consider in this section the influence of different parameters on runtime,
+noting of course that these times are with [performance optimizations](./optimizations.html) applied.
 
-
+![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_8.png)
 
 ### Upper Limit
 

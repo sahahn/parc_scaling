@@ -76,7 +76,9 @@ The plotted [mean ranks](./results_intro#mean-rank) are therefore computed now b
 The results are further broken down by if the pool of parcellations was sourced from fixed sizes or across multiple sizes
 (See [Multiple Parcellations Evaluation]./multiple_parcellations_setup#evaluation).
 
-![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure5.png)
+[![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure5.png)](./interactive4.html)
+*Click the figure above to open an interactive version of the plot*
+{: style="font-size: 85%; text-align: center;"}
 
 ## Authors
 

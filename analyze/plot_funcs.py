@@ -397,9 +397,17 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
                     only_targets=None, add_raw=False,
                     models=['svm', 'elastic', 'lgbm'],
                     keep_full_name=False, add_ranks_labels=False,
+                    binary_only=False,
+                    regression_only=False,
                     **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
+
+    # If binary or regression only
+    if binary_only:
+        df = df[df['is_binary']]
+    if regression_only:
+        df = df[~df['is_binary']]
     
     # Base case is average over targets
     if avg_targets:
@@ -437,7 +445,16 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
         pm_df['Mean_Rank'] = np.log10(pm_df['Mean_Rank'])
         pm_df['Size'] = np.log10(pm_df['Size'])
 
+
     if not by_group:
+        
+        # Pretty hacky... but
+        if keep_full_name:
+            temp = pm_df.reset_index()
+            temp['full_name'] = temp['parcel'].apply(clean_name)
+            temp = temp.set_index('parcel')
+            pm_df['full_name'] = temp['full_name']
+
         return pm_df
 
     # Set another column to group
