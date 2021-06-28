@@ -62,4 +62,5 @@ We can also check for interactions with Size, but first we will restrict the res
 ![Ensemble Method](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/fixed_vs_across2.png)
 
 These results indicate that not only do fixed size parcellations do better, but they exhibit different scaling with respect to size.
-The biggest caveat to all of these comparisons being that the different sizes for fixed sizes and ranges of sizes for across sizes were hardly comprehensive. 
+The biggest caveat to all of these comparisons being that the different sizes for fixed sizes
+and ranges of sizes for across sizes were hardly comprehensive. 
