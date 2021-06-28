@@ -239,8 +239,13 @@ def extract(txt, parc_sizes, skip_svm=False):
 def save_stats_summary(model, name):
 
     # Save html stats table
-    html = '<html><body>' + model.summary().tables[0].as_html() + '<br>'
-    html += model.summary().tables[1].as_html() + '</body></html>'
+
+    # Trunc second half of first table
+    t1 = model.summary().tables[0].as_html()
+    t1 = t1[:t1.index('<th>Time:</th>')]
+
+    html = '<html><body><div style="margin: auto; width: 50%">' + t1 + '<br>'
+    html += model.summary().tables[1].as_html() + '</div></body></html>'
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
@@ -250,7 +255,8 @@ def save_results_table(r_df, name):
     r_df = r_df.rename({'Mean_Rank': 'Mean Rank', 'r2': 'Mean R2',
                         'roc_auc': 'Mean ROC AUC', 'full_name': 'Parcellation'}, axis=1)
     
-    r_df = r_df[['Parcellation', 'Mean Rank', 'Size', 'Mean R2', 'Mean ROC AUC']]
+    r_df = r_df[['Parcellation', 'Mean Rank', 'Size',
+                 'Mean R2', 'Mean ROC AUC']]
     r_df = r_df.sort_values('Mean Rank')
 
     html = '<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>'
