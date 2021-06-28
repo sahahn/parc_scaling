@@ -246,7 +246,7 @@ def save_stats_summary(model, name):
     
     # Replace headers
     t_header = '<table class="simpletable">'
-    t_header_new = '<table class="simpletable" style="margin-left: auto; margin-right: auto;">'
+    t_header_new = '<table class="simpletable" style="margin-left: auto; margin-right: auto;" align="center">'
     t1 = t1.replace(t_header, t_header_new)
     t2 = model.summary().tables[1].as_html().replace(t_header, t_header_new)
 
