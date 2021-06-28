@@ -90,7 +90,16 @@ The results are further broken down by if the pool of parcellations was sourced 
 - Sourcing random parcellation for ensembling from fixed sizes outperforms sourcing parcellations
   from a range of sizes (See [Stats](./ensemble_comparison#fixed-vs-across-sizes)).
 
+- Searching over multiple parcellations as hyper-parameter was not a successful strategy (See [Stats](./grid_vs_random.html)).
+
 - See also [full results table](./full_results.html)
+
+## So whats the best?
+
+![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure6.png)
+
+FILL-ME
+
 
 ## Authors
 

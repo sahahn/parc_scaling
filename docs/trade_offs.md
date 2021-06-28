@@ -46,6 +46,13 @@ below is also rounded to the nearest 500.
 
 ![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_8.png)
 
+Contrast that with the same plot but for only jobs run with 4 cores:
+![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_4.png)
+
+Note the odd looking cut-offs
+
+FILL-ME
+
 ### Upper Limit
 
 There are also upper limits of runtime complexity to consider. We originally planned to run expiriments on the highest resolution data available, this is the vertex level data directly, but ultimately where unable to finish any of the expiriments (except the Elastic-Net based pipeline for regression targets only). The rest of the configurations, even running just a single of the 5 fold evaluations with up to 4 cores and up to 256GB of memory, were unable to complete within a week (the maximum time limit on the cluster) or failed due to memory constraints. 

@@ -29,9 +29,15 @@ Another aspect of the submission system which proved invaluable was a flag for c
 
 ## Caching
 
+FILL-ME
+
 ### Parcellation Caching
 
+FILL-ME
+
 ### Multiple Parcellation Strategy Caching
+
+FILL-ME
 
 ## Parallel Computing
 
@@ -39,6 +45,10 @@ It is common within ML implementations to be able to multi-process certain proce
 
 - Experiments with different parallel computing strategies, including dask, and finally settling on joblib based solution.
 
+FILL-ME
+
 ## Other
 
 - SVM hyper-parameter trick. 
+
+FILL-ME
