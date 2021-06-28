@@ -14,3 +14,5 @@ Formula: `log10(Mean_Rank) ~ log10(Size) + C(Parcellation_Type)` (where Parcella
 ![Ensemble Method](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/ensemble_method1.png)
 
 In both the formal statistics and visualizing the results we see no real differences in performance between the two methods.
+
+Interestingly though if we go to the [sortable results table](./full_results.html) 

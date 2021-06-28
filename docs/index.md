@@ -85,7 +85,7 @@ The results are further broken down by if the pool of parcellations was sourced 
 - Ensemble methods across multiple parcellations outperform single parcellation based methods (See [Stats](./single_vs_ensemble.html)).
 
 - We don't observe a big difference between ["Voted"](./multiple_parcellations_setup#voted) vs. ["Stacked"](./multiple_parcellations_setup#stacked),
-  ensemble methods, [or do we]()?.
+  ensemble methods, [or do we](./ensemble_comparison.html)?.
 
 - See also [full results table](./full_results.html) 
 

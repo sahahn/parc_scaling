@@ -14,3 +14,5 @@ model as: `log10(Mean_Rank) ~ log10(Size) * Is_Ensemble`.
 The difference is even more obvious when explicitly plotted.
 
 ![Is Ensemble](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/is_ensemble.png)
+
+What about between different types of ensembles? Do we see the a difference in performance there? [Link](./ensemble_comparison.html).
