@@ -56,20 +56,21 @@ Each considered multiple parcellation strategy was evaluated in a directly compa
 
 For the number of different parcellations available to a search or ensemble strategy, we evaluated four different numbers of parcellations: 3, 5, 8 and 10. Further, for each of these numbers of parcellations, we tested fixed size parcellations as well as differentially sized parcellations across a range of sizes (100, 200, 300, 400, 500, 50-500, 100-1000 and 300-1200). For example, for a combination of 3 parcellations and a fixed size of 100, three random parcellations with size 100 could be used. For a combination of 5 parcellations of a range of sizes from 100-1000, parcellations of size 100, 325, 550, 775 and 1000 could be used. All combinations are then repeated twice with two different versions of parcellations at each size used.
 
-Each configuration of:
+Ultimately, all combinations of the following parameters were evaluated:
 
-- Fixed Sizes: 20 `5 (Sizes) * 4 (Number of parcellations)`
-- Across Sizes: 12 `3 (Ranges of Sizes) * 4 (Number of parcellations)`
-  
-Were evaluated across all 1,080 combinations:
+- `8 Size Configurations (5 Fixed Sizes + 3 Across Sizes)`
+- `4 Number of Parcellations (3, 5, 8, 10)`
+- `3 Base Strategies (Grid, Voted, Stacked)`
+- `4 Pipelines (3 Base Pipelines + 'All' Configuration)`
+- `45 Target Variables`
+- `2 Random Repeats`
 
-- `3 (Base Strategies) * 4 (3 Base Pipelines + 'All' Configuration) * 45 (Target Variables) * 2 (Random Repeats)`.
-
-In total 34.560 ((20 + 12) * 1080).
+In total: 34,560 combinations.
 
 ## Implementation
 
-The implementation for these different ensemble methods is contained within the same file where the different pipelines are defined, in [exp/models.py](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py), using code from [BPt](https://sahahn.github.io/BPt/) version 2.0+
+The implementation for these different ensemble methods is contained within the same file where the different pipelines are defined,
+in [exp/models.py](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py), using code from [BPt](https://sahahn.github.io/BPt/) version 2.0+.
 
 One key implementation detail is that the different multiple parcellation strategies were designed with maximum reusability in mind via an extensive caching system.
 To read more in depth about this important optimization see [Optimizations: Multiple Parcellation Strategy Caching](./optimizations#multiple-parcellation-strategy-caching).
