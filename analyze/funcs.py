@@ -242,9 +242,9 @@ def save_stats_summary(model, name):
 
     # Trunc second half of first table
     t1 = model.summary().tables[0].as_html()
-    t1 = t1[:t1.index('<th>Time:</th>')]
+    t1 = t1[:t1.index('<tr>\n  <th>Time:</th>')]
 
-    html = '<html><body><div style="margin: auto;">' + t1 + '</table><br>'
+    html = '<html><body><div style="width: 95%; margin: auto;">' + t1 + '</table><br>'
     html += model.summary().tables[1].as_html() + '</div></body></html>'
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
