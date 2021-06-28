@@ -87,6 +87,8 @@ The results are further broken down by if the pool of parcellations was sourced 
 - We don't observe a big difference between ["Voted"](./multiple_parcellations_setup#voted) vs. ["Stacked"](./multiple_parcellations_setup#stacked),
   ensemble methods, [or do we](./ensemble_comparison.html)?.
 
+- Sourcing random parcellation for ensembling from fixed sizes outperforms sourcing parcellations from a range of sizes (See [Stats](./ensemble_comparison#fixed-vs-across-sizes)).
+
 - See also [full results table](./full_results.html) 
 
 ## Authors

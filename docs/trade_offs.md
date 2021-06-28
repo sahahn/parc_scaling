@@ -35,6 +35,15 @@ will produce more input feature and that will effect the computational resources
 We will consider in this section the influence of different parameters on runtime,
 noting of course that these times are with [performance optimizations](./optimizations.html) applied.
 
+Caveat: In viewing plots of runtime it is important to remember that they may be biased in different ways given some of the quirks of the
+[job submission system](./optimizations#flexible-submission-system). For example, for parcellations with a small number of parcels, cluster
+jobs were typically submitted with lower resources and number of cores, therefore in the plot below where by plot only results run with 8 cores, it is important
+to keep in mind that most of the smaller parcellations were likely run with 4 or less cores.
+
+The below plot shows violin plots of runtime as broken down by ML Pipeline on a subset of only jobs run with 8 cores
+and only jobs from the single parcellation [base experiment](./index#bas-experiment-setup). Parcellation size in the plot
+below is also rounded to the nearest 500.
+
 ![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_8.png)
 
 ### Upper Limit
