@@ -242,10 +242,16 @@ def save_stats_summary(model, name):
 
     # Trunc second half of first table
     t1 = model.summary().tables[0].as_html()
-    t1 = t1[:t1.index('<tr>\n  <th>Time:</th>')]
+    t1 = t1[:t1.index('<tr>\n  <th>Time:</th>')] + '</table>'
+    
+    # Replace headers
+    t_header = '<table class="simpletable">'
+    t_header_new = '<table class="simpletable" style="margin-left: auto; margin-right: auto;">'
+    t1 = t1.replace(t_header, t_header_new)
+    t2 = model.summary().tables[1].as_html().replace(t_header, t_header_new)
 
-    html = '<html><body><div style="width: 95%; margin: auto;">' + t1 + '</table><br>'
-    html += model.summary().tables[1].as_html() + '</div></body></html>'
+    html = '<html><body>' + t1 + '<br>'
+    html += t2 + '</body></html>'
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
