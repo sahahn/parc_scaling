@@ -23,6 +23,7 @@ In all of the multiple parcellation based analytic approaches, [random parcellat
 The "Grid" based strategy was designed to treat choice of parcellation as a hyperparameter. The motivation behind this idea being that nested cross validation could perhaps help to identify the best single parcellation from group of potential parcellations. In order to treat choice of parcellation as a hyperparameter, we employed a nested [grid search](https://scikit-learn.org/stable/modules/grid_search.html). A three-fold nested cross-validation scheme on the training set, respecting family structure as before (i.e., assigning members of the same family to the same fold), was used to evaluate each potential parcellation. Within each of these internal folds a ML pipeline was trained, with its own nested parameter tuning, and then evaluated on its respective internal validation set. This process yielded an average for each of the three folds’ scores for each parcellation. The parcellation which obtained the highest score was selected for re-training on the full training set which involved, as in each nested fold, training a ML pipeline with its own nested parameter search. The final trained ML estimator, with the selected best parcellation, was then used to evaluate the validation fold. This process was repeated across the whole training set according to the same five-fold structure as used in the base analyses, thus allowing the results to be directly comparable.
 
 [Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L70)
+{: style="text-align: center;"}
 
 ### Voted
 
@@ -35,6 +36,7 @@ making use of the [BPt](https://sahahn.github.io/BPt/) tweaked versions. The 'es
 to be averaged, are separate versions of the same base ML pipeline but trained on features as extracted from different [random parcellations](./parcellations#random-parcellations).
 
 [Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L92)
+{: style="text-align: center;"}
 
 ### Stacked
 
@@ -46,6 +48,7 @@ Like with the voting based strategy, the key detail here is the base models used
 the same base ML pipelines but trained on features as extracted from different [random parcellations](./parcellations#random-parcellations).
 
 [Link to code](https://github.com/sahahn/parc_scaling/blob/main/exp/models.py#L110)
+{: style="text-align: center;"}
 
 ## Evaluation 
 
