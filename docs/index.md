@@ -62,7 +62,8 @@ provides a gradual introduction to the format the results are plotted with below
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
   the [SVM](./ml_pipelines#svm) based pipeline was most competitive. See more at [Results by Pipeline](./by_pipeline.html).
 
-- How stable are these results across different target variables? See more at [Results by Target](./results_by_target.html).
+- How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
+  
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
   runtime and downstream interpretation complexity.
@@ -80,6 +81,13 @@ The results are further broken down by if the pool of parcellations was sourced 
 [![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure5.png)](./interactive4.html)
 *Click the figure above to open an interactive version of the plot*
 {: style="font-size: 85%; text-align: center;"}
+
+- Ensemble methods across multiple parcellations outperform single parcellation based methods (See [Stats]()).
+  
+- We don't observe a big difference between ["Voted"](./multiple_parcellations_setup#voted) vs. ["Stacked"](./multiple_parcellations_setup#stacked),
+  ensemble methods, [or do we]()?.
+
+- 
 
 ## Authors
 
