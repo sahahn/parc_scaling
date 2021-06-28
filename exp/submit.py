@@ -7,7 +7,13 @@ def unpack_args():
 
      # Get n_jobs
     passed_args = list(sys.argv)
-    n_jobs = int(passed_args[1])
+
+    try:
+        n_jobs = int(passed_args[1])
+    
+    # Default to 4 cores if not passed
+    except IndexError:
+        n_jobs = 4
 
     try:
         c = int(passed_args[2])

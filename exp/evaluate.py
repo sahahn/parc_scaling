@@ -4,7 +4,7 @@ import BPt as bp
 import os
 
 from models import get_pipe
-
+from traceback import format_exc
 
 def _evaluate(args, n_jobs):
 
@@ -75,6 +75,10 @@ def evaluate(args, n_jobs):
             f.write('n_jobs: ' + str(n_jobs) + ' Elapsed: ' + elapsed)
             f.write('Error msg: ' + repr(e))
             f.write('\n')
+
+        # Print full traceback + error also
+        print(format_exc())
+        print(repr(e))
 
         # If not somehow already done by different job
         if len(existing) == 1:
