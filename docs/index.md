@@ -57,7 +57,7 @@ provides a gradual introduction to the format the results are plotted with below
   
 - [Existing parcellations](./parcellations#existing-parcellations) outperformed [randomly generated parcellations](./parcellations#random-parcellations)
   when controlling for the influence of size, however [existing parcellations](./parcellations#existing-parcellations) tended to have fewer parcels 
-  than our results suggest to be most predictive (See [Stats](./base_results#parcellation-type-as-fixed-effect)).
+  than our results suggest to be most predictive (See [Results by Parcellation Type](./base_results#parcellation-type-as-fixed-effect)).
 
 - The general pattern was stable across [ML Pipelines](./ml_pipelines.html), but when compared inter-pipeline,
   the [SVM](./ml_pipelines#svm) based pipeline was most competitive. See more at [Results by Pipeline](./by_pipeline.html).
@@ -71,35 +71,36 @@ provides a gradual introduction to the format the results are plotted with below
 
 ## Multiple Parcellation Strategies
 
-As an additional set of analyses we sought to characterize the potential gains in performance from employing strategies that can make use of information from multiple parcellations in order to inform predictions. These extensions to the base analysis can be broken up into three different types: choice of parcellation as a nested hyper-parameter - (["Grid"](./multiple_parcellations_setup#grid)), ensembling over multiple parcellations using voting - (["Voted"](./multiple_parcellations_setup#voted)), and ensembling using stacking - (["Stacked"](./multiple_parcellations_setup#stacked)). See [Multiple Parcellations Setup](./multiple_parcellations_setup.html) for more detailed information on how this experiment was structured.
+As an additional set of analyses we sought to characterize the potential gains in performance from employing strategies that can
+make use of information from multiple parcellations in order to inform predictions.
+These extensions to the base analysis can be broken up into three different types:
+choice of parcellation as a nested hyper-parameter - (["Grid"](./multiple_parcellations_setup#grid)),
+ensembling over multiple parcellations using voting - (["Voted"](./multiple_parcellations_setup#voted)),
+and ensembling using stacking - (["Stacked"](./multiple_parcellations_setup#stacked)).
+See [Multiple Parcellations Setup](./multiple_parcellations_setup.html) for more detailed information on how this experiment was structured.
 
 The figure below compares the prior single parcellation only results to the introduced [multiple parcellation strategies](./multiple_parcellations_setup.html).
 The plotted [mean ranks](./results_intro#mean-rank) are therefore computed now between 412 (220 single parcellation and 192 multiple parcellation based) configurations. 
 The results are further broken down by if the pool of parcellations was sourced from fixed sizes or across multiple sizes
-(See [Multiple Parcellations Evaluation]./multiple_parcellations_setup#evaluation).
+(See [Multiple Parcellations Evaluation](./multiple_parcellations_setup#evaluation)).
 
 [![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure5.png)](./interactive4.html)
 *Click the figure above to open an interactive version of the plot*
 {: style="font-size: 85%; text-align: center;"}
 
-- Ensemble methods across multiple parcellations outperform single parcellation based methods (See [Stats](./single_vs_ensemble.html)).
+- Ensemble methods across multiple parcellations outperform single parcellation based methods (See [Single vs. Ensembled](./single_vs_ensemble.html)).
 
-- We don't observe a big difference between ["Voted"](./multiple_parcellations_setup#voted) vs. ["Stacked"](./multiple_parcellations_setup#stacked),
-  ensemble methods, [or do we](./ensemble_comparison.html)?.
+- We don't observe a big difference between ensemble strategies [Voted](./multiple_parcellations_setup#voted) and [Stacked](./multiple_parcellations_setup#stacked),
+  [or do we](./ensemble_comparison.html)?.
 
 - Sourcing random parcellation for ensembling from fixed sizes outperforms sourcing parcellations
-  from a range of sizes (See [Stats](./ensemble_comparison#fixed-vs-across-sizes)).
+  from a range of sizes (See [Fixed vs. Across Sizes](./ensemble_comparison#fixed-vs-across-sizes)).
 
-- Searching over multiple parcellations as hyper-parameter was not a successful strategy (See [Stats](./grid_vs_random.html)).
+- Searching over multiple parcellations as hyper-parameter was not a successful strategy (See [Grid vs. Random](./grid_vs_random.html)).
+
+- All options considered, what are the [best strategies across different sizes](./whats_best.html)?
 
 - See also [full results table](./full_results.html)
-
-## So whats the best?
-
-![Multiple Parcellation Results](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure6.png)
-
-FILL-ME
-
 
 ## Authors
 
@@ -112,7 +113,10 @@ Departments of Complex Systems and Psychiatry, University of Vermont, Burlington
 
 - Sage Hahn, Max M. Owens, DeKang Yuan and Anthony C Juliano were supported by NIDA grant T32DA043593
 
-- Data used in the preparation of this article were obtained from the ABCD Study (https://abcdstudy.org) held in the NDA. This is a multisite, longitudinal study designed to recruit more than 10,000 children ages 9–10 years old and follow them over 10 years into early adulthood. The ABCD study is supported by the National Institutes of Health and additional federal partners under award numbers U01DA041048, U01DA050989, U01DA051016, U01DA041022, U01DA051018, U01DA051037, U01DA050987, U01DA041174, U01DA041106, U01DA041117, U01DA041028, U01DA041134, U01DA050988, U01DA051039, U01DA041156, U01DA041025, U01DA041120, U01DA051038, U01DA041148, U01DA041093, U01DA041089, U24DA041123 and U24DA041147. A full list of supporters is available at https://abcdstudy.org/federal-partners.html. A listing of participating sites and a complete listing of the study investigators can be found at https://abcdstudy.org/consortium_members/.
+- Data used in the preparation of this article were obtained from the ABCD Study (https://abcdstudy.org) held in the NDA. This is a 
+
+
+tisite, longitudinal study designed to recruit more than 10,000 children ages 9–10 years old and follow them over 10 years into early adulthood. The ABCD study is supported by the National Institutes of Health and additional federal partners under award numbers U01DA041048, U01DA050989, U01DA051016, U01DA041022, U01DA051018, U01DA051037, U01DA050987, U01DA041174, U01DA041106, U01DA041117, U01DA041028, U01DA041134, U01DA050988, U01DA051039, U01DA041156, U01DA041025, U01DA041120, U01DA051038, U01DA041148, U01DA041093, U01DA041089, U24DA041123 and U24DA041147. A full list of supporters is available at https://abcdstudy.org/federal-partners.html. A listing of participating sites and a complete listing of the study investigators can be found at https://abcdstudy.org/consortium_members/.
 
 - Computations were performed on the Vermont Advanced Computing Core supported, in part, by NSF award number OAC-1827314.
 

@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Base Results
-description: Base results for single parcellations
+description: Results by Parcellation Type
 ---
 
-# Single Parcellation Results
+# Results by Parcellation Type
 
 ## Parcellation Type As Fixed Effect
 
