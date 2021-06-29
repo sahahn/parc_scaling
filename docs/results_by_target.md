@@ -29,3 +29,15 @@ Looking back at the main figure we notice another interesting thing. It appears 
 ![IQR](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/iqr.png)
 
 We actually end up with a pretty good fit explaining increase in IQR at each unique size from log10 of parcel size. One explanation for this is that increasing resolutions helps predict some target variables and not others. In this way, increasing resolution can improve performance on average, but will still sometimes not be a good fit.
+
+## Results Table
+
+The table below contains results as broken down by both target variable and type of parcellation.
+The presented [mean ranks](./results_intro#mean-rank) and mean scores are averaged over just
+choice of [ML pipeline](./ml_pipelines.html). The mean scores represent either R2 or ROC AUC depending
+on if the target variable was binary or not.
+
+*Table columns are sortable!*
+{: style="font-size: 85%; text-align: center;"}
+
+{% include by_target_full_results.html %}
