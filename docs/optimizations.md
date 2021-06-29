@@ -29,11 +29,30 @@ Another aspect of the submission system which proved invaluable was a flag for c
 
 ## Caching
 
-FILL-ME
+Caching is a technique used in computer science in order to store results from intermediate computations
+and then when the same set of intermediate computations is encountered again, use the stored copy instead of re-computing the same set of instructions.
+Caching proved extremely useful in two key areas discussed below within this project.
 
 ### Parcellation Caching
 
-FILL-ME
+Extracting mean ROI values from data is fairly quick, maybe a bit longer for probabilistic parcellations.
+Notably in this project we use the same parcellations over and over, which means we then need to parcellate each subjects data over and over.
+For example take one of the existing parcellations in the [base experiment](./index#base-experiment-setup), in this case the same parcellation needs to be applied for each combination of
+pipeline, target and for each of the 5-folds. The real bottle neck here though is the time it takes to load the raw (i.e., un-parcellated) data, especially using
+a cluster where the filesystem is very large and therefore slow.
+
+All together it takes about 5-10 minutes to load just one combination of pipeline-target-fold, which means
+without any caching we would need to use the same repeated 5-10 minutes of loading 675 (3 pipelines * 45 targets * 5 folds) times for each parcellation.
+Given that we have 220 parcellations tested in the base experiment... you can start to see how big a waste of resources this might be if not handled -
+We are talking about around 12,000 hours of wasted computation (5min * 675 * 220). 
+
+Instead, we can cut that number down to just the initial 5-10 minutes for each parcellation, around 18 hours, so 675 times better. Specifically, we end up caching
+at the level of each participant-parcellation pair, such that only the first time a participants data is parcellated with a parcellation is the raw data loaded.
+Then every time a parcellation is needed for a specific participant the saved version is used instead. This caching is
+implemented through the [Loader](https://sahahn.github.io/BPt/reference/api/BPt.Loader.html) object via [BPt](https://sahahn.github.io/BPt/index.html).
+
+Note: Another equivalently efficient method would be to pre-calculate the ROI values for all participant-parcellation pairs. It
+doesn't really matter which way you go, though the two methods would require some changes to code structure and workflow.
 
 ### Multiple Parcellation Strategy Caching
 
@@ -41,11 +60,32 @@ FILL-ME
 
 ## Parallel Computing
 
-It is common within ML implementations to be able to multi-process certain processes. This project was no exception, as we utilized heavily multi-processing (beyond the use of the cluster to submit multiple evaluation jobs at once) to parallelize primarily the hyper-parameter search within specific evaluation jobs.
+It is common within ML implementations to be able to multi-process certain processes.
+This project was no exception, as we utilized heavily multi-processing (beyond the use of the cluster to submit multiple evaluation jobs at once)
+to parallelize primarily the hyper-parameter search within specific evaluation jobs.
 
-- Experiments with different parallel computing strategies, including dask, and finally settling on joblib based solution.
+Before this project we actually went in with some questions to test. Specifically, we wanted to know what the best strategy would
+be for running the huge amount of different ML expiriments described above, and not just that, but what would be the best use of parallel computing?
+The tricky part here is that there are an almost infinite number of different ways to slice it up. Given that each specific ML job can be parallelized, in
+terms of sometimes the base algorithm itself, or in this case in the hyper-parameter search, and also the different jobs themselves can be run at the same time
+given the SLURM computing cluster. So whats the best way to break it up? 
 
-FILL-ME
+One extreme would be to rely solely on the SLURM job level parallelization:
+basically every single ML job would just get one core to run on. This strategy has the benefit of 1. being easy to implement and 2. this type of
+single core job are the most readily available on the SLURM cluster used for this project. The big problem, and there is a big one, was that with
+just one core, each single job would take too long. Essentially if the job takes over 30 hours, then benefit number 2 is cancelled as jobs that take over 30 hours
+are very limited in supply. 
+
+The other extreme would be try to maximize parallelization within the job itself. Given searching over 60-180 hyper-parameters, and potential further parallelization we could
+with enough resources finish specific jobs very quickly. This though would require either requesting scarce very high resource computational nodes from the SLURM cluster or
+explored a distributed solution like [dask distributed](https://distributed.dask.org/en/latest/). We did explore dask distributed, the idea being to submit multiple lower resource jobs
+(avoiding the issue of node scarcity) and then set them up to be dask worker nodes, which can communicate with a master node that would run one ML job in a massively parallel way. 
+In practice... we got it working, but only after a good amount of effort. This solution ended up requiring far too much over-engineering and in the end was not even competitive with the eventual strategy we landed upon, not to mention was filled with all sorts of very small but tricky edge cases (e.g., what if the main job starts running, but the worker jobs are still stuck on the queue... in this case the main job will just stall waiting to connect to the worker jobs).
+
+So what did we end up doing? In the end we settled on a hybrid approach where we would submit nodes with somewhere between 1-16 cores, with the actual number depending on how long it takes for a certain parcellation-pipeline-target combination, e.g., if the job is short then we just submit a more readily available 1 core job, but if intensive need to submit up to a more scarce 16 core job. This allowed us parallelize both across jobs, submitting sometimes up to hundreds of jobs at once, and in a flexible way within job (using only as much resources as needed to finish within 30 hours). 
+
+It is also worth noting that the within job hyper-parameter parallelization we ended up using was with a [joblib](https://joblib.readthedocs.io/en/latest/parallel.html) backend.
+To start we had been using python default multi-processing, but on the SLURM cluster it was extremely buggy, and sometimes jobs would just hang and not work for seemingly no reason (this was actually one of the reasons we first tries the dask distributed approach). Ultimately though, we ended up using the joblib code which was a true lifesaver and has been added as the new default in [BPt](https://sahahn.github.io/BPt/index.html)!
 
 ## Other
 

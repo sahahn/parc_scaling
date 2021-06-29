@@ -812,7 +812,8 @@ def clean_name(parc):
     return name
 
 def clean_model_names(df):
-    return df.replace({'lgbm': 'LGBM', 'elastic': 'Elastic-Net', 'svm':'SVM'})
+    return df.replace({'lgbm': 'LGBM', 'elastic': 'Elastic-Net',
+                       'svm':'SVM', 'all': 'All'})
 
 def target_to_name(df):
 

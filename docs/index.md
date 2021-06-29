@@ -90,8 +90,8 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 - Ensemble methods across multiple parcellations outperform single parcellation based methods (See [Single vs. Ensembled](./single_vs_ensemble.html)).
 
-- We don't observe a big difference between ensemble strategies [Voted](./multiple_parcellations_setup#voted) and [Stacked](./multiple_parcellations_setup#stacked),
-  [or do we](./ensemble_comparison.html)?.
+- We did not observe a large difference between ensemble strategies [Voted](./multiple_parcellations_setup#voted)
+  and [Stacked](./multiple_parcellations_setup#stacked) - [unless we breakdown results by binary vs. regression!](./ensemble_comparison.html)
 
 - Sourcing random parcellation for ensembling from fixed sizes outperforms sourcing parcellations
   from a range of sizes (See [Fixed vs. Across Sizes](./ensemble_comparison#fixed-vs-across-sizes)).
