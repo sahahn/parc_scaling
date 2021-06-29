@@ -24,7 +24,8 @@ see the [intro to results](./results_intro.html) page for a guide on how the res
 
 ## Intra-Pipeline Comparison
 
-When comparing in an intra-pipeline fashion, we are essentially computing the ranks independently for each choice of [ML Pipeline](./ml_pipelines.html). We also [estimate the powerlaw region](./estimate_powerlaw.html) separately for each. 
+When comparing in an intra-pipeline fashion, we are essentially computing the ranks independently
+for each choice of [ML Pipeline](./ml_pipelines.html). We also [estimate the powerlaw region](./estimate_powerlaw.html) separately for each. 
 
 - Elastic-Net: 7-2000
 - SVM: 20-4000
@@ -48,6 +49,8 @@ Another interesting way to view how results change when computed separately betw
 A nice feature of the interactive plot is that by selecting different pipelines from the toggle, you can watch an animation of how specific results change
 with with different pipelines. You can also hover over specific data points to find out more information, for example what parcellation that data point corresponds to.
 
+- Click [here](./intrapipe_table.html) to see the full results table containing intra-pipeline specific results.
+
 ## Inter-Pipeline Comparison
 
 Alternately, we can compute rankings in an inter-pipeline manner, which means that the initial calculating of Rank is determined by directly comparing all
@@ -59,3 +62,9 @@ We model these results in the same way as with the intra-pipeline comparison, bu
 {% include inter_results1.html %}
 
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/inter_plot1.png)
+
+- Click [here](./interpipe_table.html) to see the full results table containing inter-pipeline specific results.
+
+## Extra
+
+- See also Inter/Intra Pipeline comparisons for ensembled results [here](./ensemble_by_pipeline.html)

@@ -32,12 +32,5 @@ We actually end up with a pretty good fit explaining increase in IQR at each uni
 
 ## Results Table
 
-The table below contains results as broken down by both target variable and type of parcellation.
-The presented [mean ranks](./results_intro#mean-rank) and mean scores are averaged over just
-choice of [ML pipeline](./ml_pipelines.html). The mean scores represent either R2 or ROC AUC depending
-on if the target variable was binary or not.
-
-*Table columns are sortable!*
-{: style="font-size: 85%; text-align: center;"}
-
-{% include by_target_full_results.html %}
+Click [here](./results_by_target_table.html) to see the full and sortable raw results as broken down by target variable.
+Warning: this table is very large and difficult to make sense of, it may be easier to use the [interactive plot](./interactive3.html).
