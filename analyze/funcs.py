@@ -256,14 +256,24 @@ def save_stats_summary(model, name):
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
 
+def clean_col_names(r_df):
+
+    return r_df.rename({'Mean_Rank': 'Mean Rank', 'r2': 'Mean R2',
+                        'roc_auc': 'Mean ROC AUC', 'target': 'Target',
+                        'full_name': 'Parcellation', 'Mean_Score': 'Mean Score'}, axis=1)
+
 def save_results_table(r_df, name):
     
-    r_df = r_df.rename({'Mean_Rank': 'Mean Rank', 'r2': 'Mean R2',
-                        'roc_auc': 'Mean ROC AUC', 'full_name': 'Parcellation'}, axis=1)
-    
+    r_df = clean_col_names(r_df)
+
     r_df = r_df[['Parcellation', 'Mean Rank', 'Size',
                  'Mean R2', 'Mean ROC AUC']]
+
     r_df = r_df.sort_values('Mean Rank')
+
+    save_table(r_df, name)
+    
+def save_table(r_df, name):
 
     html = '<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>'
     html += r_df.to_html(float_format="%.4f", classes=['sortable'],
@@ -271,3 +281,4 @@ def save_results_table(r_df, name):
 
     with open('../docs/_includes/' + name + '.html', 'w') as f:
         f.write(html)
+

@@ -28,11 +28,11 @@ def unpack_args():
 
     # Choice of only by passed choice
     if c == 0:
-        only = ['elastic', 'svm']
+        only = ['elastic', 'svm', 'lgbm']
     elif c == 1:
-        only = ['lgbm']
-    elif c == 2:
         only = ['elastic']
+    elif c == 2:
+        only = ['lgbm']
     elif c == 3:
         only = ['svm']
     elif c == 4:

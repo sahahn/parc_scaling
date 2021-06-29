@@ -389,7 +389,9 @@ def get_intra_pipeline_df(results, log=False, threshold=False, **kwargs):
         r_dfs.append(r_df)
 
     intra_pipe_df = pd.concat(r_dfs)
-    return intra_pipe_df
+    
+    # Return with clean model names
+    return clean_model_names(intra_pipe_df)
 
 
 def get_ranks_sizes(results, by_group=True, avg_targets=True,
@@ -490,7 +492,7 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
 
 
 def get_across_ranks(results, only_targets=None, log=False,
-                     drop_all=False, **kwargs):
+                     drop_all=False, keep_full_name=True, **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets,
                                     **kwargs)
@@ -502,9 +504,13 @@ def get_across_ranks(results, only_targets=None, log=False,
 
     mean_ranks = ranks.groupby(['model', 'parcel']).apply(mean_rank)
     scores = mean_ranks.reset_index()
+
+    if keep_full_name:
+        scores['full_name'] = scores['parcel'].copy().apply(clean_name)
     
     # Change names
-    scores = scores.rename(columns={0: 'Mean_Rank', 'model': 'Model', 'parcel': 'Parcellation'})
+    scores = scores.rename(columns={0: 'Mean_Rank', 'model':
+                                    'Model', 'parcel': 'Parcellation'})
     
     # Add size
     scores['Size'] = [parc_sizes[p] for p in scores['Parcellation']]
@@ -805,6 +811,8 @@ def clean_name(parc):
     
     return name
 
+def clean_model_names(df):
+    return df.replace({'lgbm': 'LGBM', 'elastic': 'Elastic-Net', 'svm':'SVM'})
 
 def target_to_name(df):
 
