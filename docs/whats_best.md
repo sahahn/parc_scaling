@@ -39,4 +39,4 @@ be taken with a grain of salt due to [scaling issues](./scaling_issues.html) bet
 *Table columns are sortable!*
 {: style="font-size: 85%; text-align: center;"}
 
-{% include best_of_full_results %}
+{% include best_of_full_results.html %}
