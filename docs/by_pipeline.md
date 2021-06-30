@@ -16,7 +16,7 @@ see the [intro to results](./results_intro.html) page for a guide on how the res
   for each pipeline as computed only relative to other parcellations evaluated with the same pipeline
 
 - The bottom part of the figure, Inter-Pipeline Comparison, shows mean rank as
-  calculated between each parcellation-pipeline combination
+  calculated between each parcellation-pipeline combination.
 
 - The regression line of best fit on the log10-log10 data are plotted separately
   for each pipeline across both figures (shaded regions around the lines of fit represent the bootstrap estimated 95% CI).

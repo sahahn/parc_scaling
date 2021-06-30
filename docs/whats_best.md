@@ -13,7 +13,7 @@ The foundational points are as follows:
 
 - [Existing parcellations perform better than random parcellations](./base_results.html)
 - [SVM based pipelines were most competitive for single parcellations](./by_pipeline.html)
-- [SVM based pipelines were also most competitive for ensembled parcellations](./ensemble_by_pipeline.html)
+- [SVM based pipelines were also most competitive for ensembled parcellations](./ensemble_by_pipeline#inter-pipeline-comparison)
 - [Fixed size ensembles outperformed across sizes'](./ensemble_comparison#fixed-vs-across-sizes)
 
 Based on those findings, we plot two special subsets:
