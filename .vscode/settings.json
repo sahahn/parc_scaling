@@ -526,6 +526,7 @@
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
         "**/data/abcd_structural/**": true,
+        "**/data/**": true,
         "**/data/consolidated/**": true,
         "data/abcd_structural/**": true,
         "data/consolidated/**": true,
@@ -535,7 +536,8 @@
         "**/exp/All_Job_Logs/**": true,
         "**/exp/All_Job_Logs/*": true,
         "exp/All_Job_Logs/*": true,
-        "data/abcd_structural": true
+        "data/abcd_structural": true,
+        "**/extra_random_parcels/**": true
       }
     
 }

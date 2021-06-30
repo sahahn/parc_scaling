@@ -104,8 +104,6 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 - All options considered, what are the [best strategies across different sizes](./whats_best.html)?
 
-- See also [full results table](./full_results.html).
-
 ## Authors
 
 Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter Hugh Garavan, Nicholas Allgaier
