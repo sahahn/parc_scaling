@@ -6,9 +6,19 @@ description: Ensemble Results broken down by pipeline
 
 # Ensemble Results by Pipeline
 
-We break down just the [ensemble based multiple parcellation results](./index#multiple- parcellation-strategies) here. Intra and Inter pipeline (corresponding to the top and bottom of the figure below).
+We break down just the [ensemble based multiple parcellation results](./index#multiple-parcellation-strategies) here as both intra and inter pipeline (corresponding to the top and bottom of the figure below).
 
 ![By Pipeline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/interpipeline_ensemble_comparison.png)
+
+- The top part of the figure, Intra-Pipeline Comparison, shows mean rank
+  for each ensemble of pipelines as computed only relative to other parcellations evaluated with the same pipeline
+
+- The bottom part of the figure, Inter-Pipeline Comparison, shows mean rank as
+  calculated between each combination.
+
+- The regression line of best fit on the log10-log10 data are plotted separately
+  for each pipeline across both figures (shaded regions around the lines of fit represent the bootstrap estimated 95% CI).
+  The OLS fit here was with [robust regression](https://www.statsmodels.org/stable/rlm.html).
 
 These results are interesting when contrasted with the same [single parcellation results by pipeline(./by_pipeline.html)]
 

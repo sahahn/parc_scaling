@@ -40,3 +40,5 @@ be taken with a grain of salt due to [scaling issues](./scaling_issues.html) bet
 {: style="font-size: 85%; text-align: center;"}
 
 {% include best_of_full_results.html %}
+
+See Also [Multiple Parcellations Naming](./multiple_parcellations_setup#on-naming).

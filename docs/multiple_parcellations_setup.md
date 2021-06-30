@@ -67,6 +67,14 @@ Ultimately, all combinations of the following parameters were evaluated:
 
 In total: 34,560 combinations.
 
+## On Naming
+
+Within the results sections on this site these multiple parcellation strategies are referenced with names like: "stacked random 500 10 0". In this example this means this was
+a stacking based ensemble comprised of 10 random parcellations all of size 500. Lastly the 0 at the end refers to the repeat (i.e., there is another result called "stacked random 500 10 1" that was also a stacking based ensemble of 10 random parcellations all of size 500, but a different 10 random parcellations).Likewise, if voting or grid based then names would be "voted random 500 10 0" and " "grid random 500 10 0" respectively. 
+
+The across sizes variant is simmilar, but maybe a bit confusing. For example if the name is
+"voted random 100 1000 10 0", then that means it was a voting based ensemble with 10 random parcellations ranging in size from 100 to 1000 (in this case sizes 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000).
+
 ## Implementation
 
 The implementation for these different ensemble methods is contained within the same file where the different pipelines are defined,
