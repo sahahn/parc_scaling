@@ -40,7 +40,7 @@ Performance metrics are then converted in the results into a measure of [Mean Ra
 
 ## Base Experiment Results
 
-The below figure plots performance, as represented by [mean relative ranking](./results_intro#mean-rank)
+The below figure plots performance, as measured by [mean relative ranking](./results_intro#mean-rank)
 between all 220 parcellations, against the number of parcels / size in each parcellation.
 Results are further colored by type of parcellation and a log10-log10 inset
 of the same plot is provided. It may be useful to also review the [Intro to Results](./results_intro.html) page first, which
@@ -51,7 +51,7 @@ provides a gradual introduction to the format the results are plotted with below
 *Click the figure above to open an interactive version of the plot*
 {: style="font-size: 85%; text-align: center;"}
 
-- There is a relationship between performance, as estimated by [mean rank](./results_intro#mean-rank), and parcellation size.
+- There is a relationship between performance, as measured by [mean relative ranking](./results_intro#mean-rank), and parcellation size.
   Up to ~Size 4000 a [power law](./estimate_powerlaw.html) relationship appears to hold, with [scaling exponent](./powerlaw_scaling_exp.html) .-2753.
   See [results table](./base_results#results-table).
   

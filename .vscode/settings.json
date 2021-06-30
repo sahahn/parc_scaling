@@ -525,8 +525,12 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
-        "**/data/**": true,
-        "**/exp/results/**": true
+        "**/data/abcd_structural/**": true,
+        "**/data/consolidated/**": true,
+        "**/exp/results/**": true,
+        "**/exp/results/*": true,
+        "**/exp/All_Job_Logs/**": true,
+        "**/exp/All_Job_Logs/*": true,
       }
     
 }
