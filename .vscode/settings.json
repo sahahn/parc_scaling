@@ -527,10 +527,15 @@
         "**/node_modules/*/**": true,
         "**/data/abcd_structural/**": true,
         "**/data/consolidated/**": true,
+        "data/abcd_structural/**": true,
+        "data/consolidated/**": true,
         "**/exp/results/**": true,
         "**/exp/results/*": true,
+        "exp/results/*": true,
         "**/exp/All_Job_Logs/**": true,
         "**/exp/All_Job_Logs/*": true,
+        "exp/All_Job_Logs/*": true,
+        "data/abcd_structural": true
       }
     
 }

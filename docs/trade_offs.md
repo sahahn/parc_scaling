@@ -46,12 +46,15 @@ below is also rounded to the nearest 500.
 
 ![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_8.png)
 
-Contrast that with the same plot but for only jobs run with 4 cores:
+In general you will notice with this plot that parcellations with fewer parcels run much quicker, but also note that jobs with 8 cores were rarely used to run very small parcellations. The other interesting piece of this plots is how runtime changes based on the pipeline used, with the general pattern being Elastic-Net is quickest, followed by LGBM, then SVM. The Elastic-Net times are interesting though as they are bi-modal, this is because the binary version on average took longer than the regression version.
+
+Contrast the 8-core jobs plot with the same plot but for only jobs run with 4 cores:
+
 ![times](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/runtimes_by_model_4.png)
 
-Note the odd looking cut-offs
+The jobs with 4 cores cut off at 4000, and as we can see the distribution extends all the way to the limit here. This indicates that these jobs took up to the maximum amount of time (up to 30 hours for each of the 5 folds.) We also notice an interesting pattern at sizes 1000 and 1500 where the distributions cut off suddenly at 30 hours. This is happens because parcellations at that size are submitted with all 5 folds in one job, so jobs that took longer than 30 hours just simply failed and were likely completed by a job with 8 or more cores instead.
 
-FILL-ME
+Runtime for the Multiple Parcellation based strategies is more difficult to visualize due to [extensive caching](./optimizations#multiple-parcellation-strategy-caching).
 
 ### Upper Limit
 
