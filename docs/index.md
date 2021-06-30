@@ -96,7 +96,11 @@ The results are further broken down by if the pool of parcellations was sourced 
 - Sourcing random parcellation for ensembling from fixed sizes outperforms sourcing parcellations
   from a range of sizes (See [Fixed vs. Across Sizes](./ensemble_comparison#fixed-vs-across-sizes)).
 
-- Searching over multiple parcellations as hyper-parameter was not a successful strategy (See [Grid vs. Random](./grid_vs_random.html)).
+- The [SVM](./ml_pipelines#svm) based ensembles were once again better than the others,
+  with the exception now of the special 'All' ensemble. See [Ensemble Results by Pipeline](./ensemble_by_pipeline.html)
+
+- Searching over multiple parcellations as hyper-parameter was not a successful strategy.
+  See [Grid vs. Random](./grid_vs_random.html).
 
 - All options considered, what are the [best strategies across different sizes](./whats_best.html)?
 
@@ -104,7 +108,7 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 ## Authors
 
-Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter, Hugh Garavan, Nicholas Allgaier
+Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter Hugh Garavan, Nicholas Allgaier
 
 Departments of Complex Systems and Psychiatry, University of Vermont, Burlington, VT 05401
  

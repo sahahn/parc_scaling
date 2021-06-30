@@ -22,6 +22,8 @@ We can also model allowing for interactions: `log10(Mean_Rank) ~ log10(Size) * C
 In both the formal statistics and visualizing the results we see no significant differences in performance between the two methods,
 or significant interactions with Size.
 
+- See also [full results table](./full_results.html).
+
 ## More to the story?
 
 Interestingly, if we go to the [sortable results table](./full_results.html) and sort by the default [mean rank](./results_intro#mean-rank) we
