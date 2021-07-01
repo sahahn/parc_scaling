@@ -25,4 +25,8 @@ the benefit from ensembling.
 
 - We can also look at different sourcing for parcellation sizes (i.e., fixed versus across sizes) [Link](./ensemble_comparison#fixed-vs-across-sizes).
 
-- See also [full results table](./full_results.html) 
+## See Also
+
+- See [Full Results Table](./full_results.html) for a sortable table with specific results.
+
+- See [All Interactive By Target](./interactive7.html) for an interactive plot breaking down results by target.

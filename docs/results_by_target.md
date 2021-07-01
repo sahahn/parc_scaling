@@ -34,3 +34,8 @@ We actually end up with a pretty good fit explaining increase in IQR at each uni
 
 Click [here](./results_by_target_table.html) to see the full and sortable raw results as broken down by target variable.
 Warning: this table is very large and difficult to make sense of, it may be easier to use the [interactive plot](./interactive3.html).
+
+## See Also
+
+- See [All Interactive By Target](./interactive7.html) to see a version of the interactive plot above,
+  but with the results from the multiple parcellation strategies added as well.
