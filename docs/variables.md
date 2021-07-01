@@ -12,9 +12,9 @@ the rds file made available by the DAIRC (specifically on a version of the rds f
 See: [github link](https://github.com/ABCD-STUDY/analysis-nda) and [data repository](https://nda.nih.gov/abcd).
 All collected variables, both target and brain, are from the baseline time point on the study.
 Best efforts were made to source a list of representative, diverse and [predictive](./variables#is-predictive) variables.
-Extra pre-processing beyond done by the DEAP team, and the creation of the targets.csv is conducted in the script setup/process_targets.py
+Extra pre-processing beyond done by the DEAP team, and the creation of the targets.csv is conducted in the script [setup/process_targets.py](https://github.com/sahahn/parc_scaling/blob/main/setup/process_targets.py)
 
-All target variables used in the final project are listed below with clickable links to a more detailed description of each measure.
+All target variables used in the final project are listed below with clickable links to a more detailed description of each measure. See also [distribution info for each target](./variables#targets-stats).
 
 | Continuous Variables                  | Binary Variables                            |
 |:--------------------------------------|:--------------------------------------------|
