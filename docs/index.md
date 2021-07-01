@@ -20,7 +20,7 @@ The base experiment conducted within this project was a systematic test of perfo
 ![Outline](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure1.png)
 
 - a). This study uses baseline data from the ABCD Study [NDA Collection 3165 Release](https://collection3165.readthedocs.io/en/stable/).
-Specifically, we concatenate participant's structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
+Specifically, we concatenate 9,432 participant's structural MRI measures to use as input features for ML (See [Input Data](./input_data.html) for more information).
 
 - b). We test a mix of mostly random and existing parcellations (See [Parcellations](./parcellations.html)).
 
@@ -108,7 +108,11 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 - [Why do we see a performance boost from increasing parcellation resolution?](./why_performance_boost.html)
   
-- This project required an incredible amount of computations, but we also made a great deal of effort to [optimize performance](./optimizations.html) wherever possible.
+- This project required an incredible amount of computations, but we also
+  made a great deal of effort to [optimize performance](./optimizations.html) wherever possible.
+
+In testing a variety of [parcellation schemes](./parcellations.html) and [ML modeling](./ml_pipelines.html) approaches, we have identified an apparent [power law scaling]((./estimate_powerlaw.html)) of increasing predictive performance by increasing parcellation resolution. The details of this relationship were found to vary according to [type of parcellation](./base_results#parcellation-type-as-fixed-effect) as well as [ML pipeline](./by_pipeline.html) employed, though the general pattern proved stable. The [large sample size](./input_data#sample-size), range of predictive [targets](./variable.html), and collection of [existing]((./parcellations#existing-parcellations)) and [random parcellations]()./parcellations#random-parcellations) tested all serve to lend confidence to the observed results. Researchers selecting a parcellation for predictive modelling may wish to consider this size-performance trade-off in addition to other factors such as [interpretability and computational resources](./trade_offs.html). We also highlighted important factors that improved performance above and beyond the size-scaling, for example, finding [existing parcellations performed better than randomly generated parcellations](./base_results.html). Further, we demonstrated the benefit of [ensembling over multiple parcellations](./single_vs_ensemble.html), which yielded a performance boost relative to results from single parcellations.
+
 
 ## Authors
 

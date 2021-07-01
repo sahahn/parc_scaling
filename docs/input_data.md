@@ -6,7 +6,8 @@ description: Information of the input data used.
 
 ## Input Data
 
-Data is sourced from the baseline ABCD Study release [NDA Collection 3165 Release 1.1.0](https://collection3165.readthedocs.io/en/stable/).
+Data is sourced from the baseline (9-10 yr old) [ABCD Study](abcdstudy.org)
+release [NDA Collection 3165 Release 1.1.0](https://collection3165.readthedocs.io/en/stable/).
 Data used within this study are the sMRI outputs of a modified HCP style pipeline.
 We downloaded for each available subject their left and right hemisphere curvature,
 sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard
@@ -20,6 +21,12 @@ task-based fMRI and resting state fMRI just as easily as dMRI. The choice to use
 MRI surfaces was therefore somewhat arbitrary, but given its ubiquity and the amount of
 available studies which employ it, it may not be a bad choice. Future work may very
 well consider different modalities or explicitly [multi-modal fusion](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4917230/).
+
+## Sample Size
+
+One of the big strengths of this study is that we use data from 9,432 participants! This allows us
+to perform ML and be more confident about our results than smaller studies would allow. Importantly,
+studies with small sample sizes are well known to produce spurious ML results with large CIs.
 
 ## Downloading
 
