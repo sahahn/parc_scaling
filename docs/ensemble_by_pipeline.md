@@ -22,6 +22,16 @@ calculated between each combination.
 
 These results are interesting when contrasted with the same [single parcellation results by pipeline](./by_pipeline.html)]
 
+Another interesting way to view how results change when computed separately between pipelines is through an interactive visualization.
+Click [Here](./interactive6.html) for a fullscreen version of the plot.
+
+{% include interactive6.html %}
+
+Note: You can watch an animation of how specific results change with with different pipelines.
+You can also hover over specific data points to find out more information. 
+
+- Click [here](./intrapipe_table.html) to see the full results table containing intra-pipeline specific results.
+
 ## Intra-Pipeline
 
 ![Intra](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Ensemble-Intra-Model-Comparison.png)

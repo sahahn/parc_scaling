@@ -43,7 +43,9 @@ The resulting statistical table is a little bit difficult to make sense of at fi
 These results indicate that there are differences between the pipelines (i.e., scaling coefficient, range of scaling and intercept),
 as well as confirm more generally that scaling, albeit with varying degree, holds regardless of pipeline.
 
-Another interesting way to view how results change when computed separately between pipelines is through an interactive visualization. 
+Another interesting way to view how results change when computed separately between pipelines is through an interactive visualization.
+Click [Here](./interactive2.html) for a fullscreen version of the plot.
+
 {% include interactive2.html %}
 
 A nice feature of the interactive plot is that by selecting different pipelines from the toggle, you can watch an animation of how specific results change
