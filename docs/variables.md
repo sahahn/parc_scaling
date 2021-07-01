@@ -57,7 +57,7 @@ binary variables and matthews correlation coef. for categorical variables
 (these types were auto-detected by [BPt](https://github.com/sahahn/BPt)).
 Within this framework we then established variables as 'predictive' only if they had a
 performance metric > than the null for that metric + the standard deviation
-across five folds (e.g., for r2 needs an r2 > r2 std, but for ROC AUC needs ROC AUC > .5 + ROC AUC std). 
+across five folds (e.g., for R2 needs an R2 > R2 std, but for ROC AUC needs ROC AUC > .5 + ROC AUC std). 
 
 
 ## Why Threshold
