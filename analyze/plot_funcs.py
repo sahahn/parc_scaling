@@ -817,7 +817,8 @@ def clean_model_names(df):
 
 def target_to_name(df):
 
-    map = {'anthro_height_calc': 'Standing Height (inches)',
+    target_map = {
+           'anthro_height_calc': 'Standing Height (inches)',
            'anthro_weight_calc': 'Measured Weight (lbs)',
            'anthro_waist_cm': 'Waist Circumference (inches)',
            'devhx_20_motor_dev_p': 'Motor Development',
@@ -863,6 +864,10 @@ def target_to_name(df):
            'married.bl': 'Parents Married',
            'prodrom_psych_ss_severity_score_binary': 'Prodromal Psychosis Score'}
 
-    df['target'] = df['target'].replace(map)
+    def rep(i):
+        for key in target_map:
+            i = i.replace(key, target_map[key])
+        return i 
 
+    df['target'] = df['target'].apply(rep)
     return df

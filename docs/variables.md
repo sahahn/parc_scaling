@@ -68,3 +68,13 @@ First, thresholding variables in this way while perhaps not best practice, does 
 wanted to mimic actually used practices in this sense. Secondly, we wanted to try and ensure that the number of continuous variables and
 binary variables where roughly equal. Lastly, in a number of cases the continuous version of the variable was not at all predictive, but 
 the binarized version was (likely due to the highly skewed nature of these variables true underlying distribution).
+
+## Targets Stats
+
+### Continuous
+
+{% include float_table.html %}
+
+### Binary
+
+{% include binary_table.html %}

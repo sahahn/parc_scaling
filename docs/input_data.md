@@ -36,4 +36,4 @@ The following subjects of data were specified when downloading for all available
 
 The data is then moved to the [raw/](https://github.com/sahahn/parc_scaling/tree/main/raw) folder upon successful download.
 Unfortunately, due to data privacy issues, this data cannot be shared directly. If interested in working with ABCD Study data, please
-find more information on their website [https://abcdstudy.org/](https://abcdstudy.org/). 
+find more information on their website [https://abcdstudy.org/](https://abcdstudy.org/).
