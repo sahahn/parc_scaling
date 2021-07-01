@@ -318,7 +318,7 @@ DEAP name: devhx_5_twin_p
 Does your child have a twin? /¿Su niño(a) tiene un gemelo?
 1 = Yes /Sí; 0 = No /No; 999 = Don't know/ No lo sé
 
-## Planned Prgenancy
+## Planned Pregnancy
 ---------------------
 DEAP name: devhx_6_pregnancy_planned_p
 

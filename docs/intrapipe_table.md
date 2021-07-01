@@ -13,4 +13,4 @@ Mean R2 and ROC AUC are calculated only from their relevant subsets of 22 and 23
 *Table columns are sortable!*
 {: style="font-size: 85%; text-align: center;"}
 
-{% include inter_pipe_table.html %}
+{% include intra_pipe_table.html %}
