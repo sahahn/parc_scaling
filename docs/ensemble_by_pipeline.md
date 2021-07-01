@@ -52,3 +52,10 @@ Formula: `log10(Mean_Rank) ~ log10(Size) * C(Pipeline)`
 We can conclude here that the SVM based ensembles of pipelines outperforms the Elastic-Net and LGBM based ensembles. That said, the differential performance is not quite as large as we saw earlier in the simmilar inter-pipeline single parcellation comparison.
 
 - Click [here](./ensemble_interpipe_table.html) to see the full results table containing ensemble inter-pipeline specific results.
+
+## All Intra-Pipeline
+
+Included below is an interactive intra-pipeline visualization including results across both the single parcellations and multiple parcellations
+Click [Here](./interactive5.html) for a fullscreen version of the plot.
+
+{% include interactive5.html %}
