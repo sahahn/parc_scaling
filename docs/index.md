@@ -112,9 +112,10 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 ## Authors
 
-Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter Hugh Garavan, Nicholas Allgaier
+[Sage Hahn](https://github.com/sahahn), [Max M. Owens](https://scholar.google.com/citations?user=DxYosOMAAAAJ&hl=en), [DeKang Yuan](https://www.researchgate.net/scientific-contributions/DeKang-Yuan-2168133545), [Anthony C Juliano](https://scholar.google.com/citations?user=tYsQsskAAAAJ&hl=en), [Alexandra Potter](https://www.uvm.edu/cas/psychology/profiles/alexandra-potter-behavior-therapy-and-psychotherapy), [Hugh Garavan](https://www.uvm.edu/cas/psychology/profiles/hugh-garavan),
+[Nicholas Allgaier](http://www.uvm.edu/~nallgaie/)
 
-Departments of Complex Systems and Psychiatry, University of Vermont, Burlington, VT 05401
+Departments of [Complex Systems](https://vermontcomplexsystems.org/) and [Psychiatry](http://www.med.uvm.edu/psychiatry/home), University of Vermont, Burlington, VT 05401
  
 
 ## Acknowledgments 
