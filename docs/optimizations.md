@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Performance Optimizations
 ---
 
 # Performance Optimizations
@@ -56,7 +57,19 @@ doesn't really matter which way you go, though the two methods would require som
 
 ### Multiple Parcellation Strategy Caching
 
-FILL-ME
+The [multiple parcellation strategies](./multiple_parcellations_setup.html) require on the surface a huge, huge amount of computation. In order to
+ease this burden, we sought to as with the parcellation caching, make sure to set up the code to re-use intermediate results as much as possible.
+
+Consider the diagram of different ensemble methods below:
+
+![ensemble diagram](https://raw.githubusercontent.com/sahahn/parc_scaling/master/extra/Figures/ensemble_options.png)
+
+The important piece is that the base "Validation Fold Predictions" can be shared across all three multiple parcellation strategies, as they all require this information. Likewise, the internal three folder "Train Fold Predictions" can be shared across the "Grid" and "Stacked" strategies as in the grid search they are used to estimate performance and in the stacked strategy they are used to train a meta-estimator.
+
+What this means is that we can setup caching specifically at the level of each of the pooled parcellations. Each parcellation in the pool then just needs to be fit 4 times (on the full training set and on the 3 internal folds of the training set), then those 4 fits re-used for each strategy.
+
+By caching at the level of the individual parcellation within the pool of parcellations we receive another large benefit; that is, we can re-use intermediate results between runs.
+Consider first running a stacking ensemble on say 5 random parcellations each of size 100, once this is finished we now have cached results for each of these five random parcellations. So next when we run a stacking ensemble on 3 random parcellations of size 100, the cached results can be used and the full ensemble fit within minutes. Likewise, for the 8 random parcellations of size 100, we only need to train models for the 3 previously unseen parcellations. By setting up the caching this way and by re-using random parcellations we end up saving a large amount of computation.
 
 ## Parallel Computing
 
@@ -86,9 +99,3 @@ So what did we end up doing? In the end we settled on a hybrid approach where we
 
 It is also worth noting that the within job hyper-parameter parallelization we ended up using was with a [joblib](https://joblib.readthedocs.io/en/latest/parallel.html) backend.
 To start we had been using python default multi-processing, but on the SLURM cluster it was extremely buggy, and sometimes jobs would just hang and not work for seemingly no reason (this was actually one of the reasons we first tries the dask distributed approach). Ultimately though, we ended up using the joblib code which was a true lifesaver and has been added as the new default in [BPt](https://sahahn.github.io/BPt/index.html)!
-
-## Other
-
-- SVM hyper-parameter trick. 
-
-FILL-ME

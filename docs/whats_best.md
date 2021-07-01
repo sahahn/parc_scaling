@@ -26,7 +26,6 @@ over both pipeline and parcellation (See [Multiple Parcellations Evaluation](./m
 
 ![Best](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure6.png)
 
-
 ## Results Table
 
 This table includes just results from the subsets as plotted above. The [mean relative rankings](./results_intro#mean-rank) shown here are 

@@ -104,6 +104,12 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 - All options considered, what are the [best strategies across different sizes](./whats_best.html)?
 
+## Discussion
+
+- [Why do we see a performance boost from increasing parcellation resolution?](./why_performance_boost.html)
+  
+- This project required an incredible amount of computations, but we also made a great deal of effort to [optimize performance](./optimizations.html) wherever possible.
+
 ## Authors
 
 Sage Hahn, Max M. Owens, DeKang Yuan, Anthony C Juliano, Alexandra Potter Hugh Garavan, Nicholas Allgaier
