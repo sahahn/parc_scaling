@@ -28,7 +28,7 @@ Specifically, we concatenate participant's structural MRI measures to use as inp
 
 - d). In total we employ 45 different phenotypic target variables (See [Target Variables](./variables.html)).
 
-We evaluated each combination of target variable, parcellation and ML pipeline with five-fold
+We [evaluated](./evaluation_structure.html) each combination of target variable, parcellation and ML pipeline with five-fold
 cross validation using the full set of available participants. The CV fold structure was kept
 constant and therefore directly comparable across all combinations of ML pipeline, target variable and parcellation. 
 This evaluation procedure was used to generate different metrics of performance,
@@ -36,7 +36,7 @@ This evaluation procedure was used to generate different metrics of performance,
 for regression predictors and
 [area under the receiver operator characteristic curve (ROC AUC)](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
 for binary predictors, for each of the combinations.
-Performance metrics are then converted in the results into a measure of [Mean Rank](./results_intro#mean-rank).
+Performance metrics were then converted in the results into a measure of [Mean Rank](./results_intro#mean-rank).
 
 ## Base Experiment Results
 
