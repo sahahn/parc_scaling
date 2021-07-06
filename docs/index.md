@@ -63,10 +63,7 @@ provides a gradual introduction to the format the results are plotted with below
   the [SVM](./ml_pipelines#svm) based pipeline was most competitive. See [Results by Pipeline](./by_pipeline.html).
 
 - How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
-  
-- Notably, performance may not in practice be the only metric of interest,
-  instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
-  runtime and downstream interpretation complexity.
+
 
 
 ## Multiple Parcellation Strategies
@@ -104,12 +101,26 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 - All options considered, what are the [best strategies across different sizes](./whats_best.html)?
 
-## Discussion
+## Discussion Points
+
+- [There is a relationship between parcellation scale and performance.](.performance_scaling.html)
 
 - [Why do we see a performance boost from increasing parcellation resolution?](./why_performance_boost.html)
+
+- [Some practical recommendations for researchers](./recommendations.html)
   
+- [Why does ensembling over multiple parcellations work?](./why_ensemble_boost.html)
+
+- Notably, performance may not in practice be the only metric of interest,
+  instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
+  runtime and downstream interpretation complexity.
+
 - This project required an incredible amount of computations, but we also
   made a great deal of effort to [optimize performance](./optimizations.html) wherever possible.
+
+- There are a number of [possible extensions / future work](./future_work.html).
+
+## Conclusion
 
 In testing a variety of [parcellation schemes](./parcellations.html) and [ML modeling](./ml_pipelines.html) approaches, we have identified an apparent [power law scaling]((./estimate_powerlaw.html)) of increasing predictive performance by increasing parcellation resolution. The details of this relationship were found to vary according to [type of parcellation](./base_results#parcellation-type-as-fixed-effect) as well as [ML pipeline](./by_pipeline.html) employed, though the general pattern proved stable. The [large sample size](./input_data#sample-size), range of predictive [targets](./variable.html), and collection of [existing]((./parcellations#existing-parcellations)) and [random parcellations](./parcellations#random-parcellations) tested all serve to lend confidence to the observed results. Researchers selecting a parcellation for predictive modelling may wish to consider this size-performance trade-off in addition to other factors such as [interpretability and computational resources](./trade_offs.html). We also highlighted important factors that improved performance above and beyond the size-scaling, for example, finding [existing parcellations performed better than randomly generated parcellations](./base_results.html). Further, we demonstrated the benefit of [ensembling over multiple parcellations](./single_vs_ensemble.html), which yielded a performance boost relative to results from single parcellations.
 
