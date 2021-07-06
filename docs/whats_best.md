@@ -14,7 +14,7 @@ The foundational points are as follows:
 - [Existing parcellations perform better than random parcellations](./base_results.html)
 - [SVM based pipelines were most competitive for single parcellations](./by_pipeline.html)
 - [SVM based pipelines were also most competitive for ensembled parcellations](./ensemble_by_pipeline#inter-pipeline-comparison)
-- [Fixed size ensembles outperformed across sizes'](./ensemble_comparison#fixed-vs-across-sizes)
+- [Fixed size ensembles outperformed across sizes](./ensemble_comparison#fixed-vs-across-sizes)
 
 Based on those findings, we plot two special subsets:
 
@@ -35,9 +35,10 @@ Mean R2 and ROC AUC are calculated only from their relevant subsets
 of 22 and 23 [target variables](./variables.html) respectively. Warning: Mean R2 and ROC AUC should
 be taken with a grain of salt due to [scaling issues](./scaling_issues.html) between different targets.
 
+See Also [Multiple Parcellations Naming](./multiple_parcellations_setup#on-naming).
+
 *Table columns are sortable!*
 {: style="font-size: 85%; text-align: center;"}
 
 {% include best_of_full_results.html %}
 
-See Also [Multiple Parcellations Naming](./multiple_parcellations_setup#on-naming).
