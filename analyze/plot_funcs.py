@@ -9,6 +9,56 @@ from scipy.stats import kstest
 from scipy.stats import linregress, theilslopes
 
 
+target_map = {
+           'anthro_height_calc': 'Standing Height (inches)',
+           'anthro_weight_calc': 'Measured Weight (lbs)',
+           'anthro_waist_cm': 'Waist Circumference (inches)',
+           'devhx_20_motor_dev_p': 'Motor Development',
+           'cbcl_scr_syn_rulebreak_r': 'CBCL RuleBreak Syndrome Scale',
+           'demo_prnt_age_p': 'Parent Age (yrs)',
+           'devhx_2_birth_wt_lbs_p': 'Birth Weight (lbs)',
+           'interview_age': 'Age (months)',
+           'lmt_scr_perc_correct': 'Little Man Test Score',
+           'macvs_ss_r_p': 'MACVS Religion Subscale',
+           'neighb_phenx_ss_mean_p': 'Neighborhood Safety',
+           'neurocog_pc1.bl': 'NeuroCog PCA1 (general ability)',
+           'neurocog_pc2.bl': 'NeuroCog PCA2 (executive function)',
+           'neurocog_pc3.bl': 'NeuroCog PCA3 (learning / memory)',
+           'nihtbx_cardsort_uncorrected': 'NIH Card Sort Test',
+           'nihtbx_list_uncorrected': 'NIH List Sorting Working Memory Test',
+           'nihtbx_pattern_uncorrected': 'NIH Comparison Processing Speed Test',
+           'nihtbx_picvocab_uncorrected': 'NIH Picture Vocabulary Test',
+           'nihtbx_reading_uncorrected': 'NIH Oral Reading Recognition Test',
+           'pea_wiscv_trs': 'WISC Matrix Reasoning Score',
+           'sports_activity_activities_p_performance': 'Summed Performance Sports Activity',
+           'sports_activity_activities_p_team_sport': 'Summed Team Sports Activity',
+           'accult_phenx_q2_p': 'Speaks Non-English Language',
+           'asr_scr_thought_r_binary': 'Thought Problems ASR Syndrome Scale',
+           'cbcl_scr_syn_aggressive_r_binary': 'CBCL Aggressive Syndrome Scale',
+           'devhx_12a_born_premature_p': 'Born Premature',
+           'devhx_15_days_incubator_p_binary': 'Incubator Days',
+           'devhx_18_mnths_breast_fed_p_binary': 'Months Breast Feds',
+           'devhx_5_twin_p': 'Has Twin',
+           'devhx_6_pregnancy_planned_p': 'Planned Pregnancy',
+           'devhx_distress_at_birth_binary': 'Distress At Birth',
+           'devhx_mother_probs_binary': 'Mother Pregnancy Problems',
+           'devhx_ss_alcohol_avg_p_binary': 'Any Alcohol',
+           'devhx_ss_marijuana_amt_p_binary': 'Any Marijuana',
+           'screentime_week_p_binary': 'Screen Time Week',
+           'screentime_weekend_p_binary': 'Screen Time Weekend',
+           'ksads_adhd_composite_binary': 'KSADS ADHD Composite',
+           'ksads_bipolar_composite_binary': 'KSADS Bipolar Composite',
+           'ksads_OCD_composite_binary': 'KSADS OCD Composite',
+           'sex_at_birth': 'Sex at Birth',
+           'sleep_ss_total_p_binary': 'Sleep Disturbance Scale',
+           'ksads_back_c_det_susp_p': 'Detentions / Suspensions',
+           'ksads_back_c_mh_sa_p': 'Mental Health Services',
+           'married.bl': 'Parents Married',
+           'prodrom_psych_ss_severity_score_binary': 'Prodromal Psychosis Score'}
+
+rev_target_map = {target_map[k]: k for k in target_map}
+
+
 def plot_avg_ranks(results, only_targets=None, across=False,
                    raw=False, model='average',
                    plot='mean', log=False, ax=None, sm=1,
@@ -186,6 +236,11 @@ def get_results(results_dr):
     return results
 
 def conv_to_df(results, only=None, only_targets=None):
+    
+    # Check for if passed as formatted names
+    if only_targets is not None:
+        if only_targets[0] in list(rev_target_map):
+            only_targets = [rev_target_map[t] for t in only_targets]
     
     parcels, models = [], []
     targets, scores = [], []
@@ -815,59 +870,18 @@ def clean_model_names(df):
     return df.replace({'lgbm': 'LGBM', 'elastic': 'Elastic-Net',
                        'svm':'SVM', 'all': 'All'})
 
-def target_to_name(df):
+def rep_target(i):
+    
+    for key in target_map:
+        i = i.replace(key, target_map[key])
+    return i 
 
-    target_map = {
-           'anthro_height_calc': 'Standing Height (inches)',
-           'anthro_weight_calc': 'Measured Weight (lbs)',
-           'anthro_waist_cm': 'Waist Circumference (inches)',
-           'devhx_20_motor_dev_p': 'Motor Development',
-           'cbcl_scr_syn_rulebreak_r': 'CBCL RuleBreak Syndrome Scale',
-           'demo_prnt_age_p': 'Parent Age (yrs)',
-           'devhx_2_birth_wt_lbs_p': 'Birth Weight (lbs)',
-           'interview_age': 'Age (months)',
-           'lmt_scr_perc_correct': 'Little Man Test Score',
-           'macvs_ss_r_p': 'MACVS Religion Subscale',
-           'neighb_phenx_ss_mean_p': 'Neighborhood Safety',
-           'neurocog_pc1.bl': 'NeuroCog PCA1 (general ability)',
-           'neurocog_pc2.bl': 'NeuroCog PCA2 (executive function)',
-           'neurocog_pc3.bl': 'NeuroCog PCA3 (learning / memory)',
-           'nihtbx_cardsort_uncorrected': 'NIH Card Sort Test',
-           'nihtbx_list_uncorrected': 'NIH List Sorting Working Memory Test',
-           'nihtbx_pattern_uncorrected': 'NIH Comparison Processing Speed Test',
-           'nihtbx_picvocab_uncorrected': 'NIH Picture Vocabulary Test',
-           'nihtbx_reading_uncorrected': 'NIH Oral Reading Recognition Test',
-           'pea_wiscv_trs': 'WISC Matrix Reasoning Score',
-           'sports_activity_activities_p_performance': 'Summed Performance Sports Activity',
-           'sports_activity_activities_p_team_sport': 'Summed Team Sports Activity',
-           'accult_phenx_q2_p': 'Speaks Non-English Language',
-           'asr_scr_thought_r_binary': 'Thought Problems ASR Syndrome Scale',
-           'cbcl_scr_syn_aggressive_r_binary': 'CBCL Aggressive Syndrome Scale',
-           'devhx_12a_born_premature_p': 'Born Premature',
-           'devhx_15_days_incubator_p_binary': 'Incubator Days',
-           'devhx_18_mnths_breast_fed_p_binary': 'Months Breast Feds',
-           'devhx_5_twin_p': 'Has Twin',
-           'devhx_6_pregnancy_planned_p': 'Planned Pregnancy',
-           'devhx_distress_at_birth_binary': 'Distress At Birth',
-           'devhx_mother_probs_binary': 'Mother Pregnancy Problems',
-           'devhx_ss_alcohol_avg_p_binary': 'Any Alcohol',
-           'devhx_ss_marijuana_amt_p_binary': 'Any Marijuana',
-           'screentime_week_p_binary': 'Screen Time Week',
-           'screentime_weekend_p_binary': 'Screen Time Weekend',
-           'ksads_adhd_composite_binary': 'KSADS ADHD Composite',
-           'ksads_bipolar_composite_binary': 'KSADS Bipolar Composite',
-           'ksads_OCD_composite_binary': 'KSADS OCD Composite',
-           'sex_at_birth': 'Sex at Birth',
-           'sleep_ss_total_p_binary': 'Sleep Disturbance Scale',
-           'ksads_back_c_det_susp_p': 'Detentions / Suspensions',
-           'ksads_back_c_mh_sa_p': 'Mental Health Services',
-           'married.bl': 'Parents Married',
-           'prodrom_psych_ss_severity_score_binary': 'Prodromal Psychosis Score'}
+def target_to_name(df, are_cols=False):
 
-    def rep(i):
-        for key in target_map:
-            i = i.replace(key, target_map[key])
-        return i 
+    if are_cols:
+        df = df.rename(target_map, axis=1)
+        return df
 
-    df['target'] = df['target'].apply(rep)
+    df['target'] = df['target'].apply(rep_target)
     return df
+
