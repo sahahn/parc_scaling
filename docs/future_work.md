@@ -1,3 +1,9 @@
+---
+layout: default
+title: Future Work
+description: Future work / extensions
+---
+
 # Future Work
 
 This present study only examined one modality of MRI, that is structural MRI. The results from this study might therefore not extend to data from different modalities, such as functional MRI (fMRI) or diffusion weighted imaging. Especially in the case of constructing connectome data from fMRI, where features grow exponentially as the number of parcels increase, we might observe a very different relationship (ML Pipelines will scale different according to number of features).

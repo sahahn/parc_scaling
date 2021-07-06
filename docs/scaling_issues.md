@@ -3,6 +3,8 @@ layout: default
 title: Scaling Issues
 ---
 
+# Scaling Issues
+
 One's first intuition when generating a composite measure of performance across multiple target variables, even if both
 say use explained variance as the metric of interest, is to simply average them. In the case where these target variables
 are on roughly simmilar scales, that is to say, both similarly predictive in the best and worst cases, this might not be a bad

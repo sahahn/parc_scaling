@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Future Work
+description: Future work / extensions
 ---
 
 # Grid vs Random
@@ -20,5 +22,7 @@ We can also formalize the comparison by modelling these same subsets of data poi
 {% include grid_vs_random.html %}
 
 Even if we treat parcellation type as a fixed effect, the coef. is not significant.
-Ultimately we find that that searching over multiple parcellations is not a very effective strategy, especially when compared against the ensemble based multiple parcellation strategies.
-This may relate to a fundamental observed trait in improving ML performance where tuning hyper-parameters typically is not as efficient as ensembling over multiple estimators. 
+Ultimately we find that that searching over multiple parcellations is not a very effective strategy,
+especially when compared against the ensemble based multiple parcellation strategies.
+This may relate to a fundamental observed trait in improving ML performance where tuning hyper-parameters
+typically is not as efficient as ensembling over multiple estimators. 

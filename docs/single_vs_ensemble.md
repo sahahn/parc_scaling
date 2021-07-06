@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Single vs. Ensembled Parcellations
 ---
 
 # Single vs. Ensembled Parcellations

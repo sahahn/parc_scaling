@@ -3,6 +3,10 @@ layout: default
 title: Intro to Results
 ---
 
+# Intro to Results
+
+This page includes some introductory information on some key ingredients for making sense of the results within the project.
+
 ## Mean Rank
 
 The measure of performance presented within with project is typically in terms of 'Mean Rank'. This measure can be

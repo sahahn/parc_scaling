@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Multiple Parcellation Strategies Setup
 ---
 
 # Multiple Parcellation Strategies Setup

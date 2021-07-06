@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Trade-Offs
 ---
 
 # Trade-Offs

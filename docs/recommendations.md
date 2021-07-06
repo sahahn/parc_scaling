@@ -1,6 +1,13 @@
-## Recommendations
+---
+layout: default
+title: Recommendations
+---
+
+# Recommendations
 
 The observed scaling between performance and size can also be used to inform practical recommendations for researchers.
 First, we note that current common practices with respect to choice of parcellation may not fully be exploiting all available predictive information. As a representative case, we focus on the results from the two FreeSurfer extracted sets of ROIs. As shown in [Figure](./index#base-experiment-results), we note that the observed mean rank for both FreeSurfer based parcellations are almost fully explained by their number of parcels (Desikan - 70, Destrieux - 150) and their status as an existing parcellation. For these and other existing parcellations commonly used, their inability to exploit all predictive information therefore comes down primarily to the number of unique ROI’s. Therefore when prioritizing predictive capability, a simple heuristic is to select the highest possible resolution parcellation, in this case Destrieux over Desikan. Importantly, the diminishing returns nature of the scaling relationship (e.g., consider relative performance gains between sizes 100 to 3000 vs. 3000 to 4000) as well as the region where scaling ends (e.g., 20,000 parcels likely performs worse than 3000), should also be taken into account. 
 
 Likewise, throughout this work different strategies and algorithms outperformed others at different spatial scales (i.e., see the [best strategies across different sizes](./whats_best.html) page.). The two top performing strategies were the SVM based pipeline with existing parcellations and an ensemble combining the three ML algorithms (the ‘All ensemble) with randomly generated parcellations of the same size. The ‘All’ ensemble results in particular were interesting as they were both the most complex, where predictions were averaged across multiple combinations of pipeline and parcellation, but were also consistently the highest performing. Despite the noted variability across targets and in recognition of the “no free lunch theorem” (where one parcellation / algorithm will never always provide the best performance), we still believe it useful to characterize the general patterns which influence performance (Wolpert 1995). In this case noting the relative merit of SVM based pipelines, non random individual parcellations, and ensembling across multiple parcellations and / or ML algorithms.
+
+Treating choice of parcellation as a hyper-parameter was [not a successful strategy](./grid_vs_random.html), therefore the simple recommendation is to not try this approach.

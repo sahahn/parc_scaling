@@ -4,7 +4,7 @@ title: Results by Target Table
 ---
 
 
-## Results by Target Table
+# Results by Target Table
 
 The table below contains results as broken down by both target variable and type of parcellation.
 The presented [mean ranks](./results_intro#mean-rank) and mean scores are averaged over just

@@ -4,7 +4,9 @@ title: Input Data
 description: Information of the input data used.
 ---
 
-## Input Data
+# Input Data
+
+## Source
 
 Data is sourced from the baseline (9-10 yr old) [ABCD Study](abcdstudy.org)
 release [NDA Collection 3165 Release 1.1.0](https://collection3165.readthedocs.io/en/stable/).
@@ -15,11 +17,13 @@ sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard
 Likewise, we additionally downloaded each subject's automatically computed
 [FreeSurfer ROI stats](https://fscph.nru.dk/slides/Martin/fs.roi.mr.pdf) files. 
 
+## Modality
+
 We chose to use [structural MRI](https://www.sciencedirect.com/topics/medicine-and-dentistry/structural-magnetic-resonance-imaging)
 surfaces. That said, the idea of parcellations easily extends to
 task-based fMRI and resting state fMRI just as easily as dMRI. The choice to use structural
 MRI surfaces was therefore somewhat arbitrary, but given its ubiquity and the amount of
-available studies which employ it, it may not be a bad choice. Future work may very
+available studies which employ it, it may not be a bad choice. [Future work](./future_work.html) may very
 well consider different modalities or explicitly [multi-modal fusion](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4917230/).
 
 ## Sample Size

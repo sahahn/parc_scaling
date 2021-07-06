@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Ensemble Comparison
 ---
 
 # Ensemble Comparison

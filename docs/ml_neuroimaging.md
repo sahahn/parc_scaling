@@ -1,5 +1,6 @@
 ---
 layout: default
+title: ML for Neuroimaging
 ---
 
 # Goals / Considerations for Machine Learning based Neuroimaging

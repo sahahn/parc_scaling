@@ -4,7 +4,7 @@ title: Why a performance boost?
 description: Across different scales what performs best
 ---
 
-## Why a performance boost?
+# Why a performance boost?
 
 There are several possible reasons for the increase in predictive performance with parcellation resolution. First we note that by ‘applying’ parcellations within the context of the analyses above, we are simply taking the mean value across a contiguous region of vertices. That means that when the region of interest is centered on a single homogenous area that the mean value of the region will have added noise resulting from its heterogeneity. Therefore by increasing the resolution of the parcellation, with a larger number of smaller parcels, each parcel will be less likely to span across multiple distinct structures (i.e., “true regions”). That said, once the resolution becomes too fine grained, subdividing true regions of interest can also introduce noisy estimates.
 
