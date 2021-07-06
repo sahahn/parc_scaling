@@ -35,7 +35,7 @@ then Mean Rank if computed across enough individual rankings will show the two p
 
 ## Modelling Results
 
-We employ ordinary least squares regression (OLS), as implemented in the python package [statsmodel](https://www.statsmodels.org/stable/index.html)
+We employ ordinary least squares regression (OLS), as implemented in the python package [statsmodels](https://www.statsmodels.org/stable/index.html)
 to model results from the base experiments. Base notation for OLS equations are written in the R formula style as `A ~ B + C`
 where `A` is the dependent variable and `B + C` are independent fixed effects.
 Alternatively, if written as `A ~ B * D` then `D` will be added as a fixed effect
