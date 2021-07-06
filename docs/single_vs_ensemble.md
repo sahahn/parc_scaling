@@ -21,12 +21,13 @@ their single parcellation counterparts. The other point of interest is that thes
 which [previous results](./base_results.html) showed to be much worse than existing parcellations - which serves to highlight even further
 the benefit from ensembling.
 
-- What about between different types of ensembles? Do we see the a difference in performance there? [Link](./ensemble_comparison.html).
-
-- We can also look at different sourcing for parcellation sizes (i.e., fixed versus across sizes) [Link](./ensemble_comparison#fixed-vs-across-sizes).
-
-## See Also
-
 - See [Full Results Table](./full_results.html) for a sortable table with specific results.
 
 - See [All Interactive By Target](./interactive7.html) for an interactive plot breaking down results by target.
+
+## See Also
+
+- [Do we observe a simmilar performance difference between different types of ensembles?](./ensemble_comparison.html).
+
+- [What about between different sourcing for parcellations to ensemble over (i.e., fixed versus across sizes)](./ensemble_comparison#fixed-vs-across-sizes).
+
