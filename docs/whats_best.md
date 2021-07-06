@@ -32,10 +32,11 @@ This table includes just results from the subsets as plotted above. The [mean re
 as computed only between these subsets (and as  averaged across [target variable](./variables.html)).
 averaged across  and computed across parcellation and [ML pipeline](./ml_pipelines.html).
 Mean R2 and ROC AUC are calculated only from their relevant subsets
-of 22 and 23 [target variables](./variables.html) respectively. Warning: Mean R2 and ROC AUC should
-be taken with a grain of salt due to [scaling issues](./scaling_issues.html) between different targets.
+of 22 and 23 [target variables](./variables.html) respectively. 
 
-See Also [Multiple Parcellations Naming](./multiple_parcellations_setup#on-naming).
+- Warning: Mean R2 and ROC AUC should be taken with a grain of salt due to [scaling issues](./scaling_issues.html) between different targets.
+
+- See Also [Multiple Parcellations Naming](./multiple_parcellations_setup#on-naming).
 
 *Table columns are sortable!*
 {: style="font-size: 85%; text-align: center;"}

@@ -1,7 +1,7 @@
 import os
 import numpy as np
 
-# Get helpers from Exp directory
+# Get helpers from exp directory
 import sys
 sys.path.append("../exp/")
 from helpers import get_ensemble_options

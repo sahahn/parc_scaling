@@ -103,13 +103,15 @@ The results are further broken down by if the pool of parcellations was sourced 
 
 ## Discussion Points
 
-- [There is a relationship between parcellation scale and performance.](.performance_scaling.html)
+- There is certainly a relationship between parcellation scale and performance,
+  but [what factors influence this relationship?](.performance_scaling.html)
 
 - [Why do we see a performance boost from increasing parcellation resolution?](./why_performance_boost.html)
 
-- [Some practical recommendations for researchers](./recommendations.html)
+- This project makes a lot of different comparisons, with this in mind we provide some
+  [practical recommendations for researchers.](./recommendations.html)
   
-- [Why does ensembling over multiple parcellations work?](./why_ensemble_boost.html)
+- [Why does ensembling over multiple parcellations help?](./why_ensemble_boost.html)
 
 - Notably, performance may not in practice be the only metric of interest,
   instead there are a number of [Performance Trade-Offs](./trade_offs.html) to consider, e.g.,
