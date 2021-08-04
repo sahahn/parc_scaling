@@ -6,10 +6,10 @@ description: Across different scales what performs best
 
 # Whats best?
 
-Across different pieces of the analyses we have established a number of different interesting, but perhaps hard to piece together results.
-For example, [existing parcellations perform better than random parcellations](./base_results.html).
+Across different pieces of the analyses we have provided support for a number of interesting, but potentially difficult to synthesize, findings.
+For example, support for [existing parcellations performing better than random parcellations](./base_results.html).
 This section of the project site is designed to focus in on only a subset of the results as informed by these prior findings.
-The foundational points are as follows:
+The foundational points focused on here are as follows:
 
 - [Existing parcellations perform better than random parcellations](./base_results.html)
 - [SVM based pipelines were most competitive for single parcellations](./by_pipeline.html)
@@ -28,7 +28,8 @@ over both pipeline and parcellation (See [Multiple Parcellations Evaluation](./m
 
 ## Results Table
 
-This table includes just results from the subsets as plotted above. The [mean relative rankings](./results_intro#mean-rank) shown here are 
+This table includes just results from the subsets as plotted above.
+The [mean relative rankings](./results_intro#mean-rank) shown here are 
 as computed only between these subsets (and as  averaged across [target variable](./variables.html)).
 averaged across  and computed across parcellation and [ML pipeline](./ml_pipelines.html).
 Mean R2 and ROC AUC are calculated only from their relevant subsets

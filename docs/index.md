@@ -32,7 +32,7 @@ We [evaluated](./evaluation_structure.html) each combination of target variable,
 cross validation using the full set of available participants. The CV fold structure was kept
 constant and therefore directly comparable across all combinations of ML pipeline, target variable and parcellation. 
 This evaluation procedure was used to generate different metrics of performance,
-[explained variance](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score)
+[R2](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score)
 for regression predictors and
 [area under the receiver operator characteristic curve (ROC AUC)](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
 for binary predictors, for each of the combinations.

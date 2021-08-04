@@ -704,7 +704,7 @@ def plot_raw_scores(parc_sizes, df, avg_only=False, log=False):
     binary_means = split_means.loc[True]
 
     plot_scores(parc_sizes, regression_means,
-                ylabel='Avg Explained Variance',
+                ylabel='Avg R2',
                 avg_only=avg_only, log=log)
     plot_scores(parc_sizes, binary_means,
                 ylabel='Avg ROC AUC',

@@ -25,8 +25,8 @@ score gets rank 2 and so on. Mean Rank can then be computed across in this case 
 two target variables. Or for example, Mean Rank could be computed both across different [Target Variables](./variables.html)
 and / or across different [ML Pipelines](./ml_pipelines.html), depending on the specific figure or subset of results.
 
-A key benefit of Mean Rank over employing metrics like explained variance directly is that we can now compare across both
-different binary and regression metrics, as well as to address [scaling issues](./scaling_issues.html) between metrics
+A key benefit of Mean Rank over employing metrics like [R2](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score)
+directly is that we can now compare across both different binary and regression metrics, as well as to address [scaling issues](./scaling_issues.html) between metrics
 (e.g., [Sex at Birth](./target_variables#sex-at-birth) is more predictive than
 [KSADS ADHD Composite](./target_variables#ksads-adhd-composite)). In some degenerative cases Mean Rank has the potential to hide
 information about magnitude of difference, but in general when computed over a sufficient number of comparisons (in this case
