@@ -56,7 +56,7 @@ Binary Cluster 1:
 
 Binary Cluster 2:
 
- ['Thought Problems ASR Syndrome Scale', 'CBCL Aggressive Syndrome Scale', 'Born Premature', 'Incubator Days', 'Has Twin', 'Distress At Birth', 'Any Alcohol', 'Any Marijuana', 'KSADS OCD Composite', 'KSADS ADHD Composite', 'Detentions / Suspensions', 'Mental Health Services', 'KSADS Bipolar Composite', 'Prodromal Psychosis Score', 'Screen Time Week', 'Screen Time Weekend']
+ ['Thought Problems ASR Syndrome Scale', 'CBCL Aggressive Syndrome Scale', 'Born Premature', 'Incubator Days', 'Has Twin', 'Distress At Birth', 'Any Alcohol During Pregnancy', 'Any Marijuana During Pregnancy', 'KSADS OCD Composite', 'KSADS ADHD Composite', 'Detentions / Suspensions', 'Mental Health Services', 'KSADS Bipolar Composite', 'Prodromal Psychosis Score', 'Screen Time Week', 'Screen Time Weekend']
 
 This subset is plotted below first on a normal scale, then on a log scale, where the mean ranks are determined from averaging just over the target variables in that cluster, and the number in ()'s refers to the number of variables in that cluster.
 

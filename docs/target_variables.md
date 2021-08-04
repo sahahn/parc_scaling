@@ -439,7 +439,7 @@ During the pregnancy with this child, did you/biological mother have any of the 
 
 If any, set to 1, else set to 0.
 
-## Any Alcohol 
+## Any Alcohol During Pregnancy
 ---------------------
 DEAP name: None
 Internal name: devhx_ss_alcohol_avg_p
@@ -450,16 +450,16 @@ Summed variables ['devhx_ss_8_alcohol_avg_p', 'devhx_ss_9_alcohol_avg_p']
 Summed Questions (before binarization):
 
 devhx_ss_8_alcohol_avg_p:
-Alcohol? Average drinks per week?
+Before the biological mother/you found out she was pregnant, but while she/you might have been pregnant with this child, did she/you use Alcohol? Average drinks per week?
 In the Developmental History survey, if "No" was endorsed for use of a substance, the answer for "Average drinks per week?" was stored as missing. Here we have replaced missing with "0".
 
 devhx_ss_9_alcohol_avg_p:
-Alcohol? Average drinks per week?
+Once you /biomom knew you/she were pregnant, were you/biomom using Alcohol? Average drinks per week?
 In the Developmental History survey, if "No" was endorsed for use of a substance, the answer for "Average drinks per week?" was stored as missing. Here we have replaced missing with "0".
 
 If greater than 0, set as yes. Otherwise, No.
 
-## Any Marijuana
+## Any Marijuana During Pregnancy
 ---------------------
 DEAP name: None
 Internal name: devhx_ss_marijuana_amt_p
@@ -470,11 +470,11 @@ Summed variables: ['devhx_ss_8_marijuana_amt_p', 'devhx_ss_9_marijuana_amt_p']
 Summed Questions:
 
 devhx_ss_8_marijuana_amt_p:
-Marijuana? How many times per day?
+Before the biological mother/you found out she was pregnant, but while she/you might have been pregnant with this child, did she/you use Marijuana? How many times per day?
 In the Developmental History survey, if "No" was endorsed for use of a substance, the answer for "How many times per day?" was stored as missing. Here we have replaced missing with "0".
 
 devhx_ss_9_marijuana_amt_p:
-Marijuana? How many times per day?
+Once you /biomom knew you/she were pregnant, were you/biomom using Marijuana? How many times per day?
 In the Developmental History survey, if "No" was endorsed for use of a substance, the answer for "How many times per day?" was stored as missing. Here we have replaced missing with "0".
 
 If greater than 0, set as yes. Otherwise, No.
