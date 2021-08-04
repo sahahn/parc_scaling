@@ -7,16 +7,16 @@ description: All parcellations used
 # Parcellations
 
 Within this project we consider two main sources for surface parcellations,
-[existing](./parcellations#existing-parcellations) and [random](./parcellations#random-parcellations). We also
-considered two additional sources: [downsampled icosahedron](./parcellations#icosahedron-parcellations)
-and [FreeSurfer extracted](./parcellations#freesurfer-rois).
+[Existing](./parcellations#existing-parcellations) and [Random](./parcellations#random-parcellations). We also
+considered two additional sources: [Downsampled / Icosahedron](./parcellations#icosahedron-parcellations)
+and [FreeSurfer Extracted](./parcellations#freesurfer-rois).
 
 Breakdown by type:
 
-- Random: 130
-- Existing: 82 (Static: 68 - Prob: 14)
-- Icosahedron: 6
-- FreeSurfer: 2
+- [Random](./parcellations#random-parcellations): 130
+- [Existing](./parcellations#existing-parcellations): 82 (Static: 68 - Prob: 14)
+- [Icosahedron](./parcellations#icosahedron-parcellations): 6
+- [FreeSurfer](./parcellations#freesurfer-rois): 2
 - Total: 220
 
 ## Existing Parcellations
@@ -128,7 +128,7 @@ To access the final saved numpy array representations of the parcellations used,
 These are saved as numpy arrays corresponding the fs_LR_32K space, in the case of probabilistic parcellation are
 saved with shape (64984, number of parcels), otherwise are saved as a flat array of 64984 vertex (left hemi first).
 
-These parcellations are also all visualized [here](./parcel_viz.html).
+These parcellations are also all visualized [here](./parcels_viz.html).
 
 ## References
 

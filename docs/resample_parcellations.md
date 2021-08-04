@@ -93,7 +93,7 @@ functions contained here are for the most part python wrappers around different 
 ~~~
 
 Which is used to convert surface files from freesurfer format to gifti via the freesurfer command
-[mri_convert)(https://surfer.nmr.mgh.harvard.edu/fswiki/mri_convert).
+[mri_convert](https://surfer.nmr.mgh.harvard.edu/fswiki/mri_convert).
 
 ## Libraries / External Code Used
 
