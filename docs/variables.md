@@ -27,8 +27,8 @@ All target variables used in the final project are listed below with clickable l
 [Birth Weight (lbs)](./target_variables#birth-weight-lbs)|[Planned Pregnancy](./target_variables#planned-pregnancy)|                               
 [Age (months)](./target_variables#age-months)|[Distress At Birth](./target_variables#distress-at-birth)|                                        
 [Little Man Test Score](./target_variables#little-man-test-score)|[Mother Pregnancy Problems](./target_variables#mother-pregnancy-problems)|                                
-[MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|[Any Alcohol During Pregnancy](./target_variables#any-alcohol)|                             
-[Neighborhood Safety](./target_variables#neighborhood-safety)|[Any Marijuana During Pregnancy](./target_variables#any-marijuana)|                               
+[MACVS Religion Subscale](./target_variables#macvs-religion-subscale)|[Any Alcohol During Pregnancy](./target_variables#any-alcohol-during-pregnancy)|                             
+[Neighborhood Safety](./target_variables#neighborhood-safety)|[Any Marijuana During Pregnancy](./target_variables#any-marijuana-during-pregnancy)|                               
 [NeuroCog PCA1 (general ability)](./target_variables#neurocog-pca1-general-ability)|[KSADS OCD Composite](./target_variables#ksads-ocd-composite)|                   
 [NeuroCog PCA2 (executive function)](./target_variables#neurocog-pca2-executive-function)|[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)|
 [NeuroCog PCA3 (learning / memory)](./target_variables#neurocog-pca3-learning-memory)|[KSADS Bipolar Composite](./target_variables#ksads-bipolar-composite)|
