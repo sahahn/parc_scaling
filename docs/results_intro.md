@@ -35,17 +35,19 @@ different parcellations) then this will be less of an issue. For example conside
 a very slight amount in performance, then their mean rank as computed across many target variables would end up being very close,
 as each each evaluated target will be noisy. On the other hand, if a parcellation outperforms another by a large amount across
 a large number of target variables, then this will be accurately reflected as the better parcellation obtaining a much better
-Mean Rank. The core idea here is that if the difference in performance is two small between two parcellation, i.e., not actually better,
-then Mean Rank if computed across enough individual rankings will show the two parcellations to be equal.
+Mean Rank. The core idea here is that if the difference in performance is too small between two parcellations, i.e., not actually better,
+then Mean Rank when computed across enough individual rankings will correctly show the two parcellations to have equivalent rank.
 
 ## Modelling Results
 
-We employ ordinary least squares regression (OLS), as implemented in the python package [statsmodels](https://www.statsmodels.org/stable/index.html)
+We employ ordinary least squares regression (OLS), as implemented in
+the python package [statsmodels](https://www.statsmodels.org/stable/index.html)
 to model results from the base experiments. Base notation for OLS equations are written in the R formula style as `A ~ B + C`
 where `A` is the dependent variable and `B + C` are independent fixed effects.
 Alternatively, if written as `A ~ B * D` then `D` will be added as a fixed effect
 along with an interaction term between `B` and `D` (equivalent to alternate notation `A ~ B + D + B * D`).
-If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect. A variable is specified as categorical in statsmodel by wrapping it with `C`, for example: `C(variable)`, would specify that `variable` as categorical.
+If a fixed effect is categorical, then it is dummy coded and each dummy variable added as a fixed effect.
+A variable is specified as categorical in statsmodel by wrapping it with `C`, for example: `C(variable)`, would specify that `variable` as categorical.
 Lastly, if a variable is wrapped in `log10()`, then the logarithm of the variable with base 10 has been used.
 
 

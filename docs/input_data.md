@@ -17,6 +17,8 @@ sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard
 Likewise, we additionally downloaded each subject's automatically computed
 [FreeSurfer ROI stats](https://fscph.nru.dk/slides/Martin/fs.roi.mr.pdf) files. 
 
+![Input Data](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/input_photo.png)
+
 ## Modality
 
 We chose to use [structural MRI](https://www.sciencedirect.com/topics/medicine-and-dentistry/structural-magnetic-resonance-imaging)
