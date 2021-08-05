@@ -6,6 +6,8 @@ description: Information of the input data used.
 
 # Input Data
 
+![Input Data](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/input_photo.png)
+
 ## Source
 
 Data is sourced from the baseline (9-10 yr old) [ABCD Study](abcdstudy.org)
@@ -16,8 +18,6 @@ sulcal depth, cortical thickness and unsmoothed myelin map, each in the standard
 [FS LR 32k vertex space](https://emmarobinson01.com/2016/02/10/unofficial-guide-to-the-hcp-surface-file-formats/).
 Likewise, we additionally downloaded each subject's automatically computed
 [FreeSurfer ROI stats](https://fscph.nru.dk/slides/Martin/fs.roi.mr.pdf) files. 
-
-![Input Data](https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/input_photo.png)
 
 ## Modality
 
