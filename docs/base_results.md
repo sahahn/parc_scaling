@@ -19,6 +19,8 @@ below just these two lines of fit, as estimated by the OLS, and colored by parce
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)
 
+Is it problematic that we only have random parcellations with over 3,000 parcels? No, but see [here](./size_differences.html) for a more detailed look.
+
 ## Parcellation Type As Interaction
 
 We can also alternately model parcellation type as as both a fixed effect and with a possible interaction with Size. 
