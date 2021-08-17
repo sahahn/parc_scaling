@@ -5,36 +5,56 @@ import numpy as np
 import sys
 sys.path.append("../exp/")
 from helpers import get_ensemble_options
+from models import get_base_parcel_names
 
 from datetime import timedelta
 
-def get_adj_size(parcel_str, grid=False):
 
-    n_parcels = int(parcel_str.split('_')[3])
-    parcel_size = parcel_str.split('_')[2]
-
-    # If parcel size is a range
-    if '-' in parcel_size:
-
-        min_size = int(parcel_size.split('-')[0])
-        max_size = int(parcel_size.split('-')[1])
-        
-        # In case of grid, lets go with max size... ?
-        if grid:
-            return max_size
-
-        # Generate sizes as points between either end,
-        sizes = np.linspace(min_size, max_size, n_parcels).astype('int')
-        return np.sum(sizes)
+def get_multi_parcel_size(parcel, parc_dr):
     
-    # If fixed just multiply size by base size
+    # Get names of component parcels
+    base_parcels = get_base_parcel_names(parcel)
+    
+    # Get size of each base parcel
+    base_parcel_sizes = [get_parcel_size(parc, parc_dr) for parc in base_parcels]
+
+    # If grid, take max
+    if parcel.startswith('grid_'):
+        return max(base_parcel_sizes)
+
+    # Otherwise, sum
+    return sum(base_parcel_sizes)
+
+def get_parcel_size(parcel, parc_dr):
+    
+    # Multiple parcellation cases
+    if parcel.startswith('stacked_') or parcel.startswith('voted_') or parcel.startswith('grid_'):
+        return get_multi_parcel_size(parcel, parc_dr)
+    
+    # Random parcel case (can know size from name, no need to load)
+    if parcel.startswith('random_'):
+        return int(parcel.split('_')[1])
+    
+    # Freesurfer cases
+    if parcel == 'freesurfer_destr':
+        return 150
+    if parcel == 'freesurfer_desikan':
+        return 68
+
+    # Otherwise determine size by loading and checking unique number of parcels
+
+    # Load parcel to check size
+    parc = np.load(os.path.join(parc_dr, parcel + '.npy'))
+    
+    # If probabilistic
+    if len(parc.shape) == 2:
+        sz = parc.shape[1]
+
+    # If static, minus 1 for parc marking empty / 0
     else:
-        base_sz = int(parcel_size)
+        sz = len(np.unique(parc)) - 1
 
-        if grid:
-            return base_sz
-
-        return base_sz * n_parcels
+    return sz
 
 
 def get_parc_sizes(parc_dr='../parcels',
@@ -45,6 +65,7 @@ def get_parc_sizes(parc_dr='../parcels',
                    stacked=False,
                    voted=False,
                    grid=False,
+                   add_special=False,
                    everything=False,
                    size_min=None,
                    size_max=None):
@@ -57,15 +78,14 @@ def get_parc_sizes(parc_dr='../parcels',
         stacked = True
         voted = True
         grid = True
+        add_special = True
 
-    parc_sizes = {}
-    
-    # Get list of all parcels
-    all_parcels = os.listdir(parc_dr)
+    # First fill list with all options based on passed options
     parcels = []
-
+    
+    # Base parcels are either random, ico or base existing
+    all_parcels = [parc.replace('.npy', '') for parc in os.listdir(parc_dr)]
     for p in all_parcels:
-
         if p.startswith('random_'):
             if random:
                 parcels.append(p)
@@ -76,37 +96,25 @@ def get_parc_sizes(parc_dr='../parcels',
             if base:
                 parcels.append(p)
 
-    # Add all requested parcels
-    for p in parcels:
-
-        name = p.replace('.npy', '')
-        parc = np.load(os.path.join(parc_dr, p))
-        
-        if len(parc.shape) == 2:
-            sz = parc.shape[1]
-        else:
-            sz = len(np.unique(parc)) - 1
-        
-        parc_sizes[name] = sz
-    
     # If extra freesurfer requested
     if fs:
-        parc_sizes['freesurfer_destr'] = 150
-        parc_sizes['freesurfer_desikan'] = 68
-    
-    # If different requested
-    if stacked:
-        for p in get_ensemble_options('stacked'):
-            parc_sizes[p] = get_adj_size(p)
+        parcels.append('freesurfer_destr')
+        parcels.append('freesurfer_desikan')
 
+    # Check for extra multiple parcellations
+    if stacked:
+        parcels += get_ensemble_options('stacked', add_special=add_special)
     if voted:
-        for p in get_ensemble_options('voted'):
-            parc_sizes[p] = get_adj_size(p)
-    
+        parcels += get_ensemble_options('voted', add_special=add_special)
     if grid:
-        for p in get_ensemble_options('grid'):
-            parc_sizes[p] = get_adj_size(p, grid=True)
-    
+        parcels += get_ensemble_options('grid', add_special=add_special)
+
+    # Fill in parcel sizes
+    parc_sizes = {}
+    for parcel in parcels:
+        parc_sizes[parcel] = get_parcel_size(parcel, parc_dr)
+
+    # Apply any passed size restrictions
     keys = list(parc_sizes)
     for key in keys:
         d = False
@@ -118,7 +126,8 @@ def get_parc_sizes(parc_dr='../parcels',
         if size_max is not None:
             if parc_sizes[key] > size_max:
                 d = True
-
+        
+        # If delete flag remove
         if d:
             del parc_sizes[key]
 

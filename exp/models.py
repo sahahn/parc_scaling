@@ -9,8 +9,31 @@ from config import cache_dr, cache_fit_dr, parcel_dr, extra_parcel_dr, ensemble_
 from config import models as all_model_strs
 
 
-def get_base_parcel_names(parcel):
-    '''Utility for ensemble / extra.'''
+def get_existing_parcel_names():
+    '''Function to get all existing non random and non-ico parcel names.'''
+    
+    # Get all parcels in folder
+    files = os.listdir(parcel_dr)
+
+    # Exclude random + ico
+    parcels = [file for file in files if 'random' not in file and 'icosahedron' not in file]
+    parcels = [p.replace('.npy', '') for p in parcels]
+
+    return parcels
+
+
+def get_special_parcel_names(start_str):
+    '''Function to help get just a special subset of parcels.'''
+
+    files = os.listdir(parcel_dr)
+    parcels = [file.replace('.npy', '') for file in files if file.startswith(start_str)]
+
+    return parcels
+
+
+def get_random_parcel_names(parcel):
+    '''Specific function for getting the correct random base parcel names
+    from the passed parcel name.'''
 
     # Either range or fixed
     parcel_size = parcel.split('_')[2]
@@ -21,8 +44,10 @@ def get_base_parcel_names(parcel):
 
     # If parcel size is a range
     if '-' in parcel_size:
-        min_size = int(parcel_size.split('-')[0])
-        max_size = int(parcel_size.split('-')[1])
+        
+        # Extract min and max sizes
+        sizes = parcel_size.split('-')
+        min_size, max_size = int(sizes[0]), int(sizes[1])
         
         # Generate sizes as points between either end,
         # including either end.
@@ -42,6 +67,30 @@ def get_base_parcel_names(parcel):
         base_parcels = ['random_' + str(parcel_size) + '_' + str(n) for n in range(start, end)]
 
     return base_parcels
+
+
+def get_base_parcel_names(parcel):
+    '''Utility for ensemble / extra.'''
+
+    # Check the parcel type, either random or special case
+    parcels_type = parcel.split('_')[1]
+
+    # Special cases
+    if parcels_type == 'existing':
+        return get_existing_parcel_names()
+    elif parcels_type == 'schaefer':
+        return get_special_parcel_names('schaefer_')
+    elif parcels_type == 'mist':
+        return get_special_parcel_names('vol-resamp-mist-')
+    elif parcels_type == 'icosahedron':
+        return get_special_parcel_names('icosahedron-')
+    elif parcels_type == 'basc':
+        return get_special_parcel_names('vol-resamp-basc-')
+    elif parcels_type == 'difumo':
+        return get_special_parcel_names('vol-resamp-difumo-')
+
+    # Otherwise is random
+    return get_random_parcel_names(parcel)
 
 
 def get_ensemble_base_models(model_str, parcel, cv_strat=None):
@@ -67,8 +116,8 @@ def get_ensemble_base_models(model_str, parcel, cv_strat=None):
     return base_models
 
 
-def get_random_grid(model_str, parcel, cv_strat=None):
-    '''Get the grid search style pipeline'''
+def get_grid(model_str, parcel, cv_strat=None):
+    '''Get a grid search style pipeline'''
     
     # Get base models
     base_models = get_ensemble_base_models(model_str=model_str,
@@ -89,7 +138,7 @@ def get_random_grid(model_str, parcel, cv_strat=None):
     return pipeline
 
 
-def get_random_voted(model_str, parcel, cv_strat=None):
+def get_voted(model_str, parcel, cv_strat=None):
     '''Get the voting ensemble style pipeline'''
 
     # Get base models
@@ -107,8 +156,8 @@ def get_random_voted(model_str, parcel, cv_strat=None):
     return pipeline
 
 
-def get_random_stacked(model_str, parcel, cv_strat=None):
-    '''Get the stacking ensemble style pipeline'''
+def get_stacked(model_str, parcel, cv_strat=None):
+    '''Get a stacking ensemble style pipeline'''
 
     # Set the outer combining / stacking model
     stack_param_search = ParamSearch(search_type='RandomSearch',
@@ -224,6 +273,11 @@ def get_loader_step(parcel, ensemble):
     else:
         parc_loc = os.path.join(extra_parcel_dr, parcel + '.npy')
         cache_loc = os.path.join(cache_dr, parcel + '_e')
+
+        # Special case - for ensembles of existing use base parcel dr
+        if not os.path.exists(parc_loc):
+            parc_loc = os.path.join(parcel_dr, parcel + '.npy')
+            cache_loc = os.path.join(cache_dr, parcel)
     
     # Depending on type of parcellation use SurfMaps or Labels
     if len(np.load(parc_loc).shape) == 2:
@@ -245,14 +299,14 @@ def get_pipe(model_str, parcel, cv_strat=None, ensemble=None):
 
     # First check to see if special ensemble / extra option
     # based on passed parcel name
-    if parcel.startswith('stacked_random'):
-        return get_random_stacked(model_str, parcel, cv_strat=cv_strat)
+    if parcel.startswith('stacked_'):
+        return get_stacked(model_str, parcel, cv_strat=cv_strat)
     
-    elif parcel.startswith('voted_random'):
-        return get_random_voted(model_str, parcel, cv_strat=cv_strat)
+    elif parcel.startswith('voted_'):
+        return get_voted(model_str, parcel, cv_strat=cv_strat)
     
-    elif parcel.startswith('grid_random'):
-        return get_random_grid(model_str, parcel, cv_strat=cv_strat)
+    elif parcel.startswith('grid_'):
+        return get_grid(model_str, parcel, cv_strat=cv_strat)
 
     # Get loader as list
     loader = get_loader_step(parcel, ensemble=ensemble)

@@ -7,6 +7,7 @@
                    "50-500", "100-1000", "300-1200"],
 "ensemble_n_choices": ["3", "5", "8", "10"],
 "ensemble_n_repeats": 2,
+"run_special_ensembles": true,
 "matlab_bin_loc": "/home/sage/Downloads/matlab/bin",
 "conv_script_loc": "/home/sage/data/CBIG/stable_projects/registration/Wu2017_RegistrationFusion/bin/standalone_scripts_for_MNI_fsaverage_projection/CBIG_RF_projectMNI2fsaverage.sh",
 "freesurfer_loc": "/home/sage/Downloads/freesurfer"

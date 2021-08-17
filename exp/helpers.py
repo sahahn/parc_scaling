@@ -8,7 +8,8 @@ import pickle as pkl
 
 from config import (models, split_if, results_dr,
                     fixed_done_loc, targets_loc, parcel_dr,
-                    ensemble_sizes, ensemble_n_choices, ensemble_n_repeats)
+                    ensemble_sizes, ensemble_n_choices, ensemble_n_repeats,
+                    special_ensembles)
 
 def check_if_done(result_loc):
     '''Check if a saved location is finished or not.'''
@@ -83,21 +84,23 @@ def load_target_names():
 
     return targets
 
-def get_ensemble_options(prepend):
+def get_ensemble_options(prepend, add_special=True):
 
     parcels = []
 
+    # First add the different combinations of random ensembles
     random_seeds = [str(i) for i in range(int(ensemble_n_repeats))]
-    
-    # Sizes
-    for s in ensemble_sizes:
-        
-        # Number of parcels
-        for n in ensemble_n_choices:
 
-            # Random seed
+    for s in ensemble_sizes:
+        for n in ensemble_n_choices:
             for r in random_seeds:
+
                 parcels += [prepend + '_random_' + s + '_' + n + '_' + r]
+
+    # Then add the extra special combinations
+    if add_special:
+        for key in special_ensembles:
+            parcels += [prepend + '_' + key]
 
     return parcels
 

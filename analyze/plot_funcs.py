@@ -806,7 +806,7 @@ def add_extra_ticks(ax, ref, r2_extra_ticks, roc_extra_ticks):
 def get_highest_performing_df(results, **kwargs):
     
     # Get just svm non random existing
-    non_random_single, parc_sizes = get_results_df(results, base=True,ico=True, fs=True, **kwargs)
+    non_random_single, parc_sizes = get_results_df(results, base=True, ico=True, fs=True, **kwargs)
     non_random_single.rename(index={'svm': 'existing'}, inplace=True)
     
     # Get just stacked and voted

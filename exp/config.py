@@ -20,6 +20,12 @@ ensemble_n_choices = config['ensemble_n_choices']
 ensemble_n_repeats = config['ensemble_n_repeats']
 ensemble_max_choice = max([int(c) for c in ensemble_n_choices])
 
+# If requested add the special ensembles
+if bool(config['run_special_ensembles']):
+    special_ensembles = ['existing', 'schaefer', 'mist', 'icosahedron', 'basc', 'difumo']
+else:
+    special_ensembles = []
+
 # Which parcellations, start str stub, should be run as a job with only
 # one fold, e.g., those that take a long time to complete.
 split_if = ['stacked_', 'voted_', 'grid_', 'random_1500_', 'random_2000_',
