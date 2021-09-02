@@ -52,6 +52,10 @@ This project is setup with a few different directories, which if necessary conta
 
   This folder contains the code used to setup the rest of the expiriments, including processing input data and parcellations for later ML. See [setup/](setup/) README.md for more details.
 
+### Cloning Repository
+
+Before cloning this repository (if you desire to run any of the analysis scripts) make sure you have git-lfs installed first, as some large files are hosted this way. Next after cloning i.e., `git clone git clone https://github.com/sahahn/parc_scaling` then make sure to tar extract the results. This can be done by first navigating to subfolder exp/, then running command `tar -xf results.tar.gz`.
+
 
 <p align="center">
   <img width="600" src="https://raw.githubusercontent.com/sahahn/parc_scaling/master/data/t32_logo.png">
