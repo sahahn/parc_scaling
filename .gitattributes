@@ -1,6 +1,16 @@
+parcels/vol-resamp-difumo-64_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-difumo-128_prob.npy filter=lfs diff=lfs merge=lfs -text
 parcels/vol-resamp-difumo-256_prob.npy filter=lfs diff=lfs merge=lfs -text
 parcels/vol-resamp-difumo-512_prob.npy filter=lfs diff=lfs merge=lfs -text
 parcels/vol-resamp-difumo-1024_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-craddock-scorr_2level_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-craddock-scorr_mean_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-craddock-tcorr_2level_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-craddock-tcorr_mean_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-harvard-oxford-cort-prob-1mm_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-msdl_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-smith-bm70_prob.npy filter=lfs diff=lfs merge=lfs -text
+parcels/vol-resamp-smith-rsn70_prob.npy filter=lfs diff=lfs merge=lfs -text
 raw/difumo/64.nii.gz filter=lfs diff=lfs merge=lfs -text
 raw/difumo/1024.nii.gz filter=lfs diff=lfs merge=lfs -text
 raw/difumo/128.nii.gz filter=lfs diff=lfs merge=lfs -text
