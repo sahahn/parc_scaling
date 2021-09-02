@@ -794,7 +794,7 @@ def add_extra_ticks(ax, ref, r2_extra_ticks, roc_extra_ticks):
         if int(tick) in roc_extra_ticks:
             roc =  "%.3f" % closest['roc_auc'].replace('0.', '.')
             roc = roc.replace('0.', '.')
-            label = f'[roc~={roc}]  '
+            label = f'[auc~={roc}]  '
 
         new_labels.append(label)
 
