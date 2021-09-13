@@ -94,7 +94,6 @@ def remove_duplicate_labels(ax):
     by_label = dict(zip(labels, handles))
     ax.legend(by_label.values(), by_label.keys(), loc=1, fontsize=12)
 
-
 def extract_scatter_points():
 
     xs = []
@@ -391,7 +390,10 @@ def plot_scores(parc_sizes, means, ylabel, model='average', **plot_args):
                         'Mean Across Pipelines', ylabel,
                         xlim=None, **plot_args)
 
-def get_mean_avg_ranks(r_df, models=['svm', 'elastic', 'lgbm']):
+def get_mean_avg_ranks(r_df, models='default'):
+
+    if models == 'default':
+        models = ['svm', 'elastic', 'lgbm']
 
     parcel_df = r_df.reset_index().set_index('parcel')
     ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
@@ -429,13 +431,18 @@ def get_cut_off_df(r_df):
 
     return r_df.iloc[i:j]
 
+def get_intra_pipeline_df(results, log=False,
+                          threshold=False,
+                          models='default',
+                          **kwargs):
 
-def get_intra_pipeline_df(results, log=False, threshold=False, **kwargs):
+    if models == 'default':
+        models = ['lgbm', 'elastic', 'svm']
     
     # Get each one w/ ranks seperately
     r_dfs = []
 
-    for model in ['lgbm', 'elastic', 'svm']:
+    for model in models:
         r_df = get_ranks_sizes(results, log=log,
                                models=[model],
                                threshold=threshold,
@@ -448,17 +455,21 @@ def get_intra_pipeline_df(results, log=False, threshold=False, **kwargs):
     # Return with clean model names
     return clean_model_names(intra_pipe_df)
 
-
 def get_ranks_sizes(results, by_group=True, avg_targets=True,
                     log=False, threshold=False,
                     only_targets=None, add_raw=False,
-                    models=['svm', 'elastic', 'lgbm'],
+                    models='default',
                     keep_full_name=False, add_ranks_labels=False,
                     binary_only=False,
                     regression_only=False,
                     **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
+
+    # Set to subset of models here
+    if models == 'default':
+        models = ['svm', 'elastic', 'lgbm']
+    df = df.loc[models]
 
     # If binary or regression only
     if binary_only:
@@ -545,14 +556,18 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
 
     return r_df
 
-
 def get_across_ranks(results, only_targets=None, log=False,
-                     drop_all=False, keep_full_name=True, **kwargs):
+                     models='default',
+                     keep_full_name=True,
+                     **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets,
                                     **kwargs)
-    if drop_all:
-        df = df.drop('all', level=0)
+
+    # Set to subset of models here
+    if models == 'default':
+        models = ['svm', 'elastic', 'lgbm']
+    df = df.loc[models]
 
     parcel_df = df.reset_index().set_index('parcel')
     ranks = parcel_df.groupby(['target']).apply(get_rank_model_order)
@@ -731,7 +746,10 @@ def check_best(df, top_vals=[1, 3, 5, 10]):
         plt.title('Models in Top ' + str(i))
         plt.show()
         
-def check_best_by_model(df, models=['elastic', 'svm', 'lgbm']):
+def check_best_by_model(df, models='default'):
+
+    if models == 'default':
+        models = ['elastic', 'svm', 'lgbm']
     
     # Top specific to each model for each target
     for model in models:
@@ -739,7 +757,6 @@ def check_best_by_model(df, models=['elastic', 'svm', 'lgbm']):
 
         for target in df.target.unique():
             display(df[df['target'] == target].loc[model].sort_values('score', ascending=False).head(5))
-
 
 def get_single_vs_multiple_df(results, **kwargs):
 
@@ -802,7 +819,6 @@ def add_extra_ticks(ax, ref, r2_extra_ticks, roc_extra_ticks):
     ax.set_yticklabels(new_labels)
     ax.yaxis.set_label_coords(-.075, .5)
 
-
 def get_highest_performing_df(results, **kwargs):
     
     # Get just svm non random existing
@@ -817,7 +833,8 @@ def get_highest_performing_df(results, **kwargs):
     parc_sizes.update(parc_sizes_ensemble)
     
     # Restrict to only all and svm
-    df = df.drop(['elastic', 'lgbm'], level=0)
+    df = df.drop(['elastic', 'lgbm',
+                  'elasticFS', 'lgbmFS'], level=0)
 
     # Get as explicit comparison ranks
     parcel_df = df.reset_index().set_index('parcel')
@@ -835,8 +852,8 @@ def get_highest_performing_df(results, **kwargs):
     
     # Add raw r2 and roc auc
     split_means = parcel_df.groupby(['is_binary', 'model', 'parcel']).apply(mean_score)
-    regression_means = split_means.loc[False]
-    binary_means = split_means.loc[True]
+    regression_means = split_means.loc[0]
+    binary_means = split_means.loc[1]
     scores['r2'] = regression_means
     scores['roc_auc'] = binary_means
     
@@ -867,7 +884,10 @@ def clean_name(parc):
     return name
 
 def clean_model_names(df):
-    return df.replace({'lgbm': 'LGBM', 'elastic': 'Elastic-Net',
+    return df.replace({'lgbm': 'LGBM',
+                       'lgbmFS': 'LGBM FS',
+                       'elastic': 'Elastic-Net',
+                       'elasticFS': 'Elastic-Net FS',
                        'svm':'SVM', 'all': 'All',
                        'existing': 'Existing'})
 
