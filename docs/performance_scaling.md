@@ -39,7 +39,8 @@ Notably, the ensemble based random parcellations continue to exhibit scaling bey
 range where scaling was estimated to have ended with respect in analyses with single parcellations.
 These results establish the merit in constructing ensembles across multiple parcellations to achieve maximal predictive performance.
 Specifically, we found no significant differences in predictive performance between the voting and stacking ensemble approaches tested.
-We did observe significant differences between ensembles with random parcellations of the same size versus ensembles with parcellations of multiple sizes, in this case finding that the fixed size parcellations on average performed better.
+We did observe significant differences between ensembles with random parcellations of the same size versus ensembles with parcellations of multiple sizes, in this case finding that the fixed size
+parcellations on average performed better.
 Therefore, to maximize predictive performance and computational demands, we recommend that,
 of the ensemble methods tested, fixed size parcellations with a voting ensemble be used in future work.
 
