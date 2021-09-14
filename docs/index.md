@@ -65,7 +65,6 @@ provides a gradual introduction to the format the results are plotted with below
 - How stable are these results across different target variables? See [Results by Target](./results_by_target.html).
 
 
-
 ## Multiple Parcellation Strategies
 
 As an additional set of analyses we sought to characterize the potential gains in performance from employing strategies that can
