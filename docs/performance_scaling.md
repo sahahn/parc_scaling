@@ -25,6 +25,11 @@ For parcellations larger than size ~100 the SVM based pipeline outperformed all 
 for those less than ~100 the Elastic-Net pipeline.
 Whereas the LGBM tree-based pipeline was not competitive at any size,
 an observation inline with recent work based on sMRI ML on UK Biobank participants (Schulz 2020).
+We also investigate one potential explanation for why the SVM outperforms the other pipelines, that is
+[is the front-end univariate feature selection responsible for improved scaling?](./effect_of_fs.html) as that
+is a piece only added to the SVM based pipeline. In short, we found that this was not the case.
+
+
 While perhaps interesting conceptually, treating choice of parcellation as a nested hyper-parameter,
 in practice, yielded lackluster results, especially when compared with the ensemble based methods.
 We observed that this approach fell closely in line with expected random parcellation performance at the same size.
@@ -34,8 +39,8 @@ Notably, the ensemble based random parcellations continue to exhibit scaling bey
 range where scaling was estimated to have ended with respect in analyses with single parcellations.
 These results establish the merit in constructing ensembles across multiple parcellations to achieve maximal predictive performance.
 Specifically, we found no significant differences in predictive performance between the voting and stacking ensemble approaches tested.
-We did observe significant differences between ensembles with random parcellations of the same size versus ensembles with
-parcellations of multiple sizes, in this case finding that the fixed size parcellations on average performed better.
+We did observe significant differences between ensembles with random parcellations of the same size versus ensembles with parcellations of multiple sizes, in this case finding that the fixed size
+parcellations on average performed better.
 Therefore, to maximize predictive performance and computational demands, we recommend that,
 of the ensemble methods tested, fixed size parcellations with a voting ensemble be used in future work.
 

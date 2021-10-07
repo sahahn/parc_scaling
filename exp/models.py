@@ -196,6 +196,17 @@ def get_base_model_step(model_str, cv_strat):
         ParamSearch(search_type='RandomSearch',
                     n_iter=60,
                     cv=param_cv)
+
+    # Define feat selectors with variance threshold and then univariate selection
+    feat_selectors =\
+        [FeatSelector('variance threshold'),
+         FeatSelector('univariate selection', params=2)]
+
+    # Define alternate LGBM param search
+    p_cv = CV(splits=.25, n_repeats=1, cv_strategy=cv_strat)
+    lgbm_param_search = ParamSearch(search_type='TwoPointsDE',
+                                    n_iter=180,
+                                    cv=p_cv)
     
     # Elastic-Net option
     if model_str == 'elastic':
@@ -206,29 +217,46 @@ def get_base_model_step(model_str, cv_strat):
                       tol=1e-3,
                       max_iter=1000)
         return [model]
+
+    elif model_str == 'elasticFS':
+
+        # Create nested Elastic-Net
+        base_model = Model('elastic',
+                           params=1,
+                           tol=1e-3,
+                           max_iter=1000)
+
+        # As Pipeline
+        nested_elastic_pipe = Pipeline(steps=feat_selectors + [base_model],
+                                       param_search=base_param_search)
+        
+        # Return wrapped in Model
+        return [Model(nested_elastic_pipe)]
     
     # LGBM option
-    if model_str == 'lgbm':
-        
-        # This option has a different param search
-        p_cv = CV(splits=.25, n_repeats=1, cv_strategy=cv_strat)
-        lgbm_param_search = ParamSearch(search_type='TwoPointsDE',
-                                        n_iter=180,
-                                        cv=p_cv)
+    elif model_str == 'lgbm':
 
         model = Model('light gbm',
                       params=1,
                       param_search=lgbm_param_search)
 
         return [model]
-    
-    # SVM option
-    if model_str == 'svm':
 
-        # Use a feat selector with variance threshold and univariate selection
-        feat_selectors =\
-            [FeatSelector('variance threshold'),
-             FeatSelector('univariate selection', params=2)]
+    # LGBM with feature selection option
+    elif model_str == 'lgbmFS':
+
+        # Create base LGBM
+        base_model = Model('light gbm', params=1)
+
+        # As Pipeline
+        nested_lgbm_pipe = Pipeline(steps=feat_selectors + [base_model],
+                                    param_search=lgbm_param_search)
+           
+        # Return wrapped in Model
+        return [Model(nested_lgbm_pipe)]
+
+    # SVM option
+    elif model_str == 'svm':
 
         # For svm param search add special search only parameter
         base_param_search.search_only_params = {'svm classifier__probability': False}
@@ -245,7 +273,7 @@ def get_base_model_step(model_str, cv_strat):
         # Return wrapped in Model
         return [Model(nested_svm_pipe)]
     
-    # If not grabbed
+    # If none of the above
     raise RuntimeError(f'Invalid model_str: {model_str}')
 
 

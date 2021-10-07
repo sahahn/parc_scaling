@@ -451,9 +451,26 @@ def get_intra_pipeline_df(results, log=False,
         r_dfs.append(r_df)
 
     intra_pipe_df = pd.concat(r_dfs)
+
+    # Clean model names
+    intra_pipe_df = clean_model_names(intra_pipe_df)
     
-    # Return with clean model names
-    return clean_model_names(intra_pipe_df)
+    # Return
+    return intra_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
+
+def get_inter_pipe_df(results, models='default',
+                      log=False, **kwargs):
+
+    if models == 'default':
+        models = ['lgbm', 'elastic', 'svm']
+
+    # Get inter pipe df
+    inter_pipe_df = clean_model_names(
+        get_across_ranks(results, models=models,
+                         log=log, **kwargs))
+    
+    # Return
+    return inter_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
 
 def get_ranks_sizes(results, by_group=True, avg_targets=True,
                     log=False, threshold=False,
