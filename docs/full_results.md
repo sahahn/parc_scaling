@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Full Results Table
+description: Full Results Table
 ---
 
 # Full Results Table

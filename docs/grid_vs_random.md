@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Future Work
-description: Future work / extensions
+title: Grid vs. Random
+description: Comparison between Grid vs. Random
 ---
 
 # Grid vs Random
