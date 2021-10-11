@@ -76,6 +76,9 @@ a stacking based ensemble comprised of 10 random parcellations all of size 500. 
 The across sizes variant is simmilar, but maybe a bit confusing. For example if the name is
 "voted random 100 1000 10 0", then that means it was a voting based ensemble with 10 random parcellations ranging in size from 100 to 1000 (in this case sizes 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000).
 
+Lastly, in section [Special Ensembles](./special_ensembles.html) there is an additional variation where names can be listed under stacked and then a special keyword referring
+to a collection of existing parcellations. For example "stacked schaefer" refers to a stacking ensemble over all of the the 10 [Schaefer Parcellations](./parcels_viz#schaefer).
+
 ## Implementation
 
 The implementation for these different ensemble methods is contained within the same file where the different pipelines are defined,

@@ -11,25 +11,31 @@ Given some of the insights from ([best strategies across different sizes](./what
 
 In this section we do exactly that, ensembling across 6 special subsets of existing parcellations.
 
-- 'schaefer':
+- schaefer:
+    
     The 10 [Schaefer Parcellations](./parcels_viz#schaefer) ranging in size
     from 100-1000.
 
-- 'mist':
+- mist:
+    
     The 9 [MIST Parcellations](./parcels_viz#mist) ranging in size from 7 to 444.
 
-- 'basc'
+- basc
+    
     The 9 [BASC Parcellations](./parcels_viz#basc) ranging in size from 9 to 444.
   
-- 'difumo'
+- difumo
+    
     The 5 probabilistic / soft [DiFuMo Parcellations](parcels_viz#difumo) ranging
     in sizes from 64 to 1024.
   
-- 'icosahedron'
+- icosahedron
+    
     The 6 [Icosahedron Parcellations](./parcels_viz#icosahedron) ranging in
     sizes from 42 to 1442.
   
-- 'existing':
+- existing:
+    
     All of the 82 [Existing Parcellations](./parcellations.html). Note: not
     including the Icosahedron based parcellations.
   
