@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Whats best
-description: Across different scales what performs best
+title: Whats best?
+description: Across different scales what performs best?
 ---
 
 # Whats best?
@@ -25,6 +25,9 @@ The last plotted is the special 'All' ensembled results, which ensembles
 over both pipeline and parcellation (See [Multiple Parcellations Evaluation](./multiple_parcellations_setup#evaluation)).
 
 ![Best](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure6.png)
+
+Also see a special extra comparison between these results and some even
+further special ensembles of existing parcellations [here](./special_ensembles.html).
 
 ## Results Table
 
