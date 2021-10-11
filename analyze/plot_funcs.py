@@ -472,11 +472,13 @@ def get_inter_pipe_df(results, models='default',
     # Return
     return inter_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
 
-def get_ranks_sizes(results, by_group=True, avg_targets=True,
+def get_ranks_sizes(results, by_group=True,
+                    avg_targets=True,
                     log=False, threshold=False,
                     only_targets=None, add_raw=False,
                     models='default',
-                    keep_full_name=False, add_ranks_labels=False,
+                    keep_full_name=False,
+                    add_ranks_labels=False,
                     binary_only=False,
                     regression_only=False,
                     **kwargs):
@@ -551,18 +553,33 @@ def get_ranks_sizes(results, by_group=True, avg_targets=True,
     groups = []
     for parcel in r_df['parcel']:
 
-        if parcel.startswith('stacked_random_'):
-            label = 'Stacked'
-        elif parcel.startswith('voted_random_'):
-            label = 'Voted'
-        elif parcel.startswith('grid_random_'):
-            label = 'Grid'
+        if parcel.startswith('stacked_'):
+            if parcel.startswith('stacked_random_'):
+                label = 'Stacked'
+            else:
+                label = 'Stacked Special'
+
+        elif parcel.startswith('voted_'):
+            if parcel.startswith('voted_random_'):
+                label = 'Voted'
+            else:
+                label = 'Voted Special'
+
+        elif parcel.startswith('grid_'):
+            if parcel.startswith('grid_random_'):
+                label = 'Grid'
+            else:
+                label = 'Grid Special'
+
         elif 'icosahedron' in parcel:
             label = 'Icosahedron'
+
         elif 'random' in parcel:
             label = 'Random'
+
         elif 'freesurfer' in parcel:
             label = 'Freesurfer Extracted'
+
         else:
             label = 'Existing'
         

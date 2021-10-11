@@ -110,4 +110,3 @@ towards significant, but not quite.
 We can therefore conclude that the unique scaling behavior exhibited by the SVM based pipelines is not the result of a front-end feature scaling.
 In practice, the choice to include the front-end scaling step can be an easy way to speed up training times (and maybe slightly improve performance)
 at the expense of a bit of added complexity in construction and description of the underlying pipeline.
-is 
