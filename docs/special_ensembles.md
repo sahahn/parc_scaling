@@ -81,7 +81,11 @@ ensembles are included as valid comparisons (along with all of the same results 
 ![special](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/special_highest.png)
 
 It's a bit hard from this plot to parse out exactly which specific new / from the special ensembles are most competitive,
-so it is likely worthwhile to consider this plot along with the sortable table of results below.
+so it is likely worthwhile to consider this plot along with the sortable table of results below. 
+
+If curious though, results indicate that the very best single combination,
+is as perhaps expected, the stacking 'All' ensemble across all 82 parcellations
+(17,420 unique parcellations) and 3 pipelines.
 
 
 ## Results Table
