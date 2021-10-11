@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Special Ensembles
+description: Additional consideration for ensembles over subsets of existing parcellations.
 ---
 
 # Special Ensembles

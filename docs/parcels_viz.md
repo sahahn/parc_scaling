@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Parcellations Viz
-description: All static parcellations
+description: All static parcellations visualized.
 ---
 
 # Schaefer
