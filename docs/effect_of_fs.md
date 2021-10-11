@@ -5,11 +5,15 @@ title: Effects of Feature Selection
 
 # How does front-end univariate feature selection influence scaling?
 
-One reasonable question to ask when comparing the results of the SVM and Elastic-Net pipelines, for example, is to wonder if the SVM's better scaling (i.e., the Elastic-Net stop showing improvment to performance at a lower number of parcels relative to the SVM) is a result of the front-end feature selection built into the SVM See [ML Pipelines](./ml_pipelines.html).
+One reasonable question to ask when comparing the results of the SVM and Elastic-Net pipelines, for example,
+is to wonder if the SVM's better scaling (i.e., the Elastic-Net stop showing improvement to
+performance at a lower number of parcels relative to the SVM) is a result of the front-end feature selection
+built into the SVM See [ML Pipelines](./ml_pipelines.html).
 
 ## Elastic-Net FS
 
-To answer this, we can compare the base Elastic-Net pipeline (see [Elastic-Net](./ml_pipelines#elastic-net)) to a modfied version, Elastic-Net FS (feature selection) where a front-end feature selection step is added, simmilar to how the SVM pipeline is setup. Specifically,
+To answer this, we can compare the base Elastic-Net pipeline (see [Elastic-Net](./ml_pipelines#elastic-net)) to a modified version,
+Elastic-Net FS (feature selection) where a front-end feature selection step is added, simmilar to how the SVM pipeline is setup. Specifically,
 
 Elastic-Net FS BPt Code:
 
@@ -38,13 +42,15 @@ Elastic-Net FS BPt Code:
 
 ## Elastic-Net vs. Elastic-Net FS (Intra-Pipeline)
 
-We compare here the two pipeline in an intra-pipeline fashion, essentially comparing the patterns of scaling between the two pipelines. First, we consider an unthresholded version (i.e., without [first estimating the powerlaw region](./estimate_powerlaw.html) then truncating). This comparison is notably limited to only the parcellations from the [base results](./base_results.md). The statistical models fit are of the form: `log10(Mean_Rank) ~ log10(Size) + C(Pipeline)`.
+We compare here the two pipeline in an intra-pipeline fashion, essentially comparing the patterns of scaling between the two pipelines.
+First, we consider an un-thresholded version (i.e., without [first estimating the powerlaw region](./estimate_powerlaw.html) then truncating). This comparison is notably limited to only the parcellations from the [base results](./base_results.md). The statistical models fit are of the form: `log10(Mean_Rank) ~ log10(Size) + C(Pipeline)`.
 
 ![Intra No Threshold](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/intra_elastic_vs_fs_no_threshold.png)
 
 {% include intra_elastic_vs_fs_no_threshold.html %}
 
-It also may be worthwhile to consider the same version but only within the regions seperately estimated to be consistent with powerlaw scaling (See [Powerlaw Scaling](./estimate_powerlaw.html)).
+It also may be worthwhile to consider the same version but only within the regions separately
+estimated to be consistent with powerlaw scaling (See [Powerlaw Scaling](./estimate_powerlaw.html)).
 
 ![Intra Threshold](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/intra_elastic_vs_fs_threshold.png)
 
@@ -55,10 +61,53 @@ In both cases, regardless of thresholding, we find that scaling remains quite co
 
 ## Elastic-Net vs. Elastic-Net FS (Inter-Pipeline)
 
-It is also useful to consider the choice between with front-end feature selection and without in the context of raw performance (i.e., maybe there are no scaling benefits, but is performance improved?). We apply a simmilar statistical model from before, but this time where Mean Rank is derived in an inter-pipeline fashion, formula: `log10(Mean_Rank) ~ log10(Size) + C(Pipeline)`.
+It is also useful to consider the choice between with front-end feature selection and without in the
+context of raw performance (i.e., maybe there are no scaling benefits, but is performance improved?).
+We apply a simmilar statistical model from before, but this time where Mean Rank is
+derived in an inter-pipeline fashion, formula: `log10(Mean_Rank) ~ log10(Size) + C(Pipeline)`.
 
 ![Inter](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/inter_elastic_vs_fs.png)
 
 {% include inter_elastic_vs_fs.html %}
 
-In this case we observe only a very slight, and just barely non signifigant increase in performance when the nested feature selection is added. In practice, it should not matter which version is used.
+In this case we observe only a very slight, and just barely non significant increase
+in performance when the nested feature selection is added. In practice, it should not matter which version is used.
+
+
+## LGBM vs. LGBM FS (Intra-Pipeline)
+
+In the same manner as introduced above, we can consider a version of the LGBM vs. LGBM with front-end feature selection,
+first in an inter-pipeline un-thresholded manner - with the same statistical model and scope as in the earlier
+section on Elastic-Net. 
+
+![Intra No Threshold](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/intra_lgbm_vs_fs_no_threshold.png)
+
+{% include intra_lgbm_vs_fs_no_threshold.html %}
+
+Likewise, as before, we consider for completeness, the powerlaw thresholded version (See [Powerlaw Scaling](./estimate_powerlaw.html)).
+
+![Intra Threshold](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/intra_lgbm_vs_fs_threshold.png)
+
+{% include intra_lgbm_vs_fs_threshold.html %}
+
+As before with the Elastic-Net based comparison, we find almost identical scaling (actually in this case the difference between the two version might even be smaller than before).
+
+## LGBM vs. LGBM FS (Inter-Pipeline)
+
+To complete our comparisons, we last conduct an analysis comparing performance in an inter-pipeline fashion, the same as in the Elastic-Net vs. Elastic-Net FS (Inter-Pipeline) section, but with an LGBM base classifier. 
+
+![Inter](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/inter_lgbm_vs_fs.png)
+
+{% include inter_lgbm_vs_fs.html %}
+
+As with the Elastic-Net, any difference in performance is quite minimal - with maybe in both cases a slight, slight
+tendency towards higher performance with the nested feature selection stage, a difference which is trending
+towards significant, but not quite.
+
+
+## Conclusion 
+
+We can therefore conclude that the unique scaling behavior exhibited by the SVM based pipelines is not the result of a front-end feature scaling.
+In practice, the choice to include the front-end scaling step can be an easy way to speed up training times (and maybe slightly improve performance)
+at the expense of a bit of added complexity in construction and description of the underlying pipeline.
+is 
