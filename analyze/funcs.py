@@ -268,7 +268,7 @@ def save_stats_summary(model, name):
 
 def clean_col_names(r_df):
 
-    return r_df.rename({'Mean_Rank': 'Mean Rank', 'r2': 'Mean R2',
+    return r_df.rename({'Mean_Rank': 'Mean Rank', 'Median_Rank': 'Median Rank', 'r2': 'Mean R2',
                         'roc_auc': 'Mean ROC AUC', 'target': 'Target', 'Model': 'Pipeline',
                         'full_name': 'Parcellation', 'Mean_Score': 'Mean Score'}, axis=1)
 
@@ -276,11 +276,16 @@ def save_results_table(r_df, name):
     
     r_df = clean_col_names(r_df)
 
-    r_df = r_df[['Parcellation', 'Mean Rank', 'Size',
-                 'Mean R2', 'Mean ROC AUC']]
+    order = ['Parcellation', 'Mean Rank', 'Size',
+             'Mean R2', 'Mean ROC AUC']
+    if 'Median Rank' in list(r_df):
+        order += ['Median Rank']
 
+    # Sort columns and rows
+    r_df = r_df[order]
     r_df = r_df.sort_values('Mean Rank')
 
+    # Save as html
     save_table(r_df, name)
     
 def save_table(r_df, name):
