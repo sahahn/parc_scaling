@@ -470,6 +470,7 @@ def get_cut_off_df(r_df):
 def get_intra_pipeline_df(results, log=False,
                           threshold=False,
                           models='default',
+                          rank_type='Mean_Rank',
                           **kwargs):
 
     if models == 'default':
@@ -482,6 +483,7 @@ def get_intra_pipeline_df(results, log=False,
         r_df = get_ranks_sizes(results, log=log,
                                models=[model],
                                threshold=threshold,
+                               rank_type=rank_type,
                                **kwargs)
         r_df['Model'] = model
         r_dfs.append(r_df)
@@ -491,11 +493,12 @@ def get_intra_pipeline_df(results, log=False,
     # Clean model names
     intra_pipe_df = clean_model_names(intra_pipe_df)
     
-    # Return
+    # Return w/ model name changed
     return intra_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
 
 def get_inter_pipe_df(results, models='default',
-                      log=False, **kwargs):
+                      log=False, rank_type='Mean_Rank',
+                       **kwargs):
 
     if models == 'default':
         models = ['lgbm', 'elastic', 'svm']
@@ -503,7 +506,8 @@ def get_inter_pipe_df(results, models='default',
     # Get inter pipe df
     inter_pipe_df = clean_model_names(
         get_across_ranks(results, models=models,
-                         log=log, **kwargs))
+                         log=log, rank_type=rank_type,
+                         **kwargs))
     
     # Return
     return inter_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
@@ -588,6 +592,12 @@ def get_ranks_sizes(results, by_group=True,
         pm_df[rank_type] = np.log10(pm_df[rank_type])
         pm_df['Size'] = np.log10(pm_df['Size'])
 
+        # Log if requested
+        if 'r2' in pm_df:
+            pm_df['r2'] = np.log10(pm_df['r2'])
+        if 'roc_auc' in pm_df:
+            pm_df['roc_auc'] = np.log10(pm_df['roc_auc'])
+
     if not by_group:
         
         # Pretty hacky... but
@@ -646,11 +656,14 @@ def get_ranks_sizes(results, by_group=True,
 
     return r_df
 
-def get_across_ranks(results, only_targets=None, log=False,
+def get_across_ranks(results, only_targets=None,
+                     log=False,
                      models='default',
                      keep_full_name=True,
+                     rank_type='Mean_Rank',
                      **kwargs):
 
+    # Get base results df
     df, parc_sizes = get_results_df(results, only_targets=only_targets,
                                     **kwargs)
 
@@ -659,25 +672,31 @@ def get_across_ranks(results, only_targets=None, log=False,
         models = ['svm', 'elastic', 'lgbm']
     df = df.loc[models]
 
+    # Get base ranks sep by just target
     parcel_df = df.reset_index().set_index('parcel')
     ranks = parcel_df.groupby(['target']).apply(get_rank_model_order)
-
-    mean_ranks = ranks.groupby(['model', 'parcel']).apply(mean_rank)
-    scores = mean_ranks.reset_index()
-
-    if keep_full_name:
-        scores['full_name'] = scores['parcel'].copy().apply(clean_name)
     
-    # Change names
-    scores = scores.rename(columns={0: 'Mean_Rank', 'model':
-                                    'Model', 'parcel': 'Parcellation'})
+    # Get requested rank func and use to gen scores
+    rank_func = get_rank_func(rank_type)
+    avg_ranks = ranks.groupby(['model', 'parcel']).apply(rank_func)
+    scores = avg_ranks.reset_index()
+    
+    # Update names of columns
+    scores = scores.rename(columns={0: rank_type,
+                                   'model': 'Model',
+                                   'parcel': 'Parcellation'})
+
+    # Add full name if requested
+    if keep_full_name:
+        scores['full_name'] = scores['Parcellation'].copy().apply(clean_name)
     
     # Add size
     scores['Size'] = [parc_sizes[p] for p in scores['Parcellation']]
 
+    # Log size and rank if requested
     if log:
         scores['Size'] = np.log10(scores['Size'])
-        scores['Mean_Rank'] = np.log10(scores['Mean_Rank'])
+        scores[rank_type] = np.log10(scores[rank_type])
 
     return scores
 
