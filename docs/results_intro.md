@@ -38,6 +38,17 @@ a large number of target variables, then this will be accurately reflected as th
 Mean Rank. The core idea here is that if the difference in performance is too small between two parcellations, i.e., not actually better,
 then Mean Rank when computed across enough individual rankings will correctly show the two parcellations to have equivalent rank.
 
+## Alternative Ranks
+
+Instead of Mean Rank, we could also instead just use the median when averaging across multiple target variables.
+This Median rank may provide an interesting alternative way of summarizing across 45 targets
+(where a simple mean would still be used when necessary
+to average across the three pipelines). We could also likewise
+perform comparisons instead with either the Maximum or Minimum rank.
+These would correspond interestingly in the case of
+Max Rank to the worst case performance of a parcellation and in the case of Min Rank,
+the best case performance for a parcellation.
+
 ## Modelling Results
 
 We employ ordinary least squares regression (OLS), as implemented in

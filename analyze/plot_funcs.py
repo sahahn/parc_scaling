@@ -94,27 +94,6 @@ def remove_duplicate_labels(ax):
     by_label = dict(zip(labels, handles))
     ax.legend(by_label.values(), by_label.keys(), loc=1, fontsize=12)
 
-def extract_scatter_points():
-
-    xs = []
-    ys = []
-
-    ax = plt.gca()
-    for cs in ax.collections:
-        cs.set_offset_position('data')
-        data = cs.get_offsets()[0]
-
-        xs.append(data[0])
-        ys.append(data[1])
-
-    # Return as sorted
-    xys = list(zip(xs, ys))
-    xys_sorted = np.array(sorted(xys, key=lambda s: s[0]))
-    xs = xys_sorted[:, 0]
-    ys = xys_sorted[:, 1]
-
-    return xs, ys
-
 def check_powerlaw(xs, ys, trunc=None, e_trunc=None, add_to_log=False, color=None):
 
     if trunc is not None:
@@ -376,10 +355,15 @@ def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050,
         ax.scatter(n_parcels, score,
                    color=color, alpha=alpha,
                    label=label, marker=marker, s=s*sm)
-        
+
+    # Clean y label and add
+    ylabel = ylabel.replace('_', '')
     ax.set_ylabel(ylabel, fontsize=16)
+
+    # Set x label
     ax.set_xlabel('Size / Num. Parcels', fontsize=16)
 
+    # Finishing touches
     _finish_plot(ax, title, xlim, log)
     
 def plot_scores(parc_sizes, means, ylabel, model='average', **plot_args):
@@ -409,6 +393,21 @@ def get_rank_func(rank_type):
         return max_rank
     elif rank_type in ['Min_Rank', 'min']:
         return min_rank
+
+    raise RuntimeError(f'Invalid rank_type: {rank_type}')
+
+def get_score_func(rank_type):
+
+    if rank_type in ['Mean_Rank', 'mean']:
+        return mean_score
+    elif rank_type in ['Median_Rank', 'median']:
+        return median_score
+
+    # Swap max and min
+    elif rank_type in ['Max_Rank', 'max']:
+        return min_score
+    elif rank_type in ['Min_Rank', 'min']:
+        return max_score
 
     raise RuntimeError(f'Invalid rank_type: {rank_type}')
 
@@ -509,6 +508,24 @@ def get_inter_pipe_df(results, models='default',
     # Return
     return inter_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
 
+def _add_raw(df, pm_df, rank_type):
+
+    # Get correct score func
+    score_func = get_score_func(rank_type)
+
+    # Calculate by score func summary
+    split_avgs = df.groupby(['is_binary', 'model', 'parcel']).apply(score_func)
+
+    # Get mean across models separate for regression / binary per parcellation
+    regression_means = split_avgs.loc[False].groupby('parcel').apply(lambda x : x[0].mean())
+    binary_means = split_avgs.loc[True].groupby('parcel').apply(lambda x : x[0].mean())
+
+    # Add to df
+    pm_df['r2'] = regression_means
+    pm_df['roc_auc'] = binary_means
+
+    return pm_df
+
 def get_ranks_sizes(results, by_group=True,
                     avg_targets=True,
                     log=False, threshold=False,
@@ -552,13 +569,9 @@ def get_ranks_sizes(results, by_group=True,
         print('Smallest size:', pm_df.sort_values('Size').iloc[0].Size)
         print('Largest size:', pm_df.sort_values('Size').iloc[-1].Size)
 
-    # If request add raw scores
+    # If request add raw scores - as following same type as rank, w/ mean / median / min / max
     if add_raw:
-        split_means = df.groupby(['is_binary', 'model', 'parcel']).apply(mean_score)
-        regression_means = split_means.loc[False].groupby('parcel').apply(lambda x : x[0].mean())
-        binary_means = split_means.loc[True].groupby('parcel').apply(lambda x : x[0].mean())
-        pm_df['r2'] = regression_means
-        pm_df['roc_auc'] = binary_means
+        pm_df = _add_raw(df, pm_df, rank_type)
 
     # If request to add rank labels
     if add_ranks_labels:
@@ -671,6 +684,15 @@ def get_across_ranks(results, only_targets=None, log=False,
 def mean_score(df):
     return df['score'].mean()
 
+def median_score(df):
+    return df['score'].median()
+
+def max_score(df):
+    return df['score'].max()
+
+def min_score(df):
+    return df['score'].min()
+
 def mean_rank(df):
     return df['rank'].mean()
 
@@ -747,7 +769,7 @@ def plot_rank_comparison(parc_sizes, df,
     scores = mean_ranks.reset_index()
 
     if ax is None:
-        fig, ax = plt.subplots(figsize=(12, 8))
+        _, ax = plt.subplots(figsize=(12, 8))
 
     cmap = plt.get_cmap('viridis')
 
@@ -868,6 +890,9 @@ def get_single_vs_multiple_df(results, **kwargs):
     return r_df
 
 def add_extra_ticks(ax, ref, r2_extra_ticks, roc_extra_ticks):
+
+    # Get name of rank col
+    rank_col = get_rt(ref)
     
     ticks = ax.get_yticks()
     ticks = sorted(list(ticks) + r2_extra_ticks + roc_extra_ticks)
@@ -876,7 +901,7 @@ def add_extra_ticks(ax, ref, r2_extra_ticks, roc_extra_ticks):
     for tick in ticks:
 
         label = str(int(tick)).rjust(3)
-        closest = ref.iloc[(ref['Mean_Rank'] - tick).abs().argsort()[:1]]
+        closest = ref.iloc[(ref[rank_col] - tick).abs().argsort()[:1]]
 
         if int(tick) in r2_extra_ticks:
             r2 =  "%.3f" % closest['r2']

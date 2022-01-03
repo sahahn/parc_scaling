@@ -30,7 +30,11 @@ below just these two lines of fit, as estimated by the OLS, and colored by parce
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_median.png)
 
 As might be expected, the difference between mean and median ranks ends up being pretty small. Interesting, we actually
-end up with a more robust power-law scaling fit when using median, as well as a larger size range in which the relationship holds. 
+end up with a more robust power-law scaling fit when using median, as well as a larger size range in which the relationship holds.
+
+A recreation of the main figure from the index page, but with median rank is provided here:
+
+![base](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2_median.png)
 
 ## Max Rank
 
@@ -42,6 +46,10 @@ To match the plot above, and to limit the complexity of the plot, we just show f
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_max.png)
 
+A recreation of the main figure from the index page, but with max rank is provided here:
+
+![base](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2_max.png)
+
 ## Min Rank
 
 Using Min Rank is similarly different to Mean and Median like Max Rank, but describes the best case performance.
@@ -52,3 +60,6 @@ To match the plot above, and to limit the complexity of the plot, we just show f
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_min.png)
 
+A recreation of the main figure from the index page, but with min rank is provided here:
+
+![base](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/Figure2_min.png)
