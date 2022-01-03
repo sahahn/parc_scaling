@@ -22,7 +22,7 @@ below just these two lines of fit, as estimated by the OLS, and colored by parce
 
 Is it problematic that we only have random parcellations with over 3,000 parcels? No, but see [here](./size_differences.html) for a more detailed look.
 
-An additional page recreating this results according to [Alternative Ranks](./results_intro#alternative-rank)
+An additional page recreating this results according to [Alternative Ranks](./results_intro#alternative-ranks)
 is also provided [here](./base_results_extra).
 
 ## Parcellation Type As Interaction
