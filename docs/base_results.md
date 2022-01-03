@@ -14,7 +14,8 @@ We first though [estimate the region where a powerlaw holds](./estimate_powerlaw
 
 {% include base_results1.html %}
 
-We note here the significant coef. between [existing] and [random] parcellations - we plot
+We note here the significant coef. between [existing](./parcellations#existing-parcellations)
+and [random](./parcellations#random-parcellations) parcellations - we plot
 below just these two lines of fit, as estimated by the OLS, and colored by parcellation type.
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1.png)

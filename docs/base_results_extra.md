@@ -24,7 +24,8 @@ For ease of comparison we again provide the results from the Mean Rankings here.
 
 {% include base_results1_median.html %}
 
-As with mean rank, we have only the significant coef. between [existing] and [random] parcellations - we plot
+As with mean rank, we have only the significant coef. between [existing](./parcellations#existing-parcellations)
+and [random](./parcellations#random-parcellations) parcellations - we plot
 below just these two lines of fit, as estimated by the OLS, and colored by parcellation type.
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_median.png)
