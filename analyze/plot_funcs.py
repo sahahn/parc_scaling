@@ -61,8 +61,8 @@ rev_target_map = {target_map[k]: k for k in target_map}
 
 def plot_avg_ranks(results, only_targets=None, across=False,
                    raw=False, model='average',
-                   plot='mean', log=False, ax=None, sm=1,
-                   sep_dif_sizes=False, **kwargs):
+                   rank_type='Mean_Rank', log=False,
+                   ax=None, sm=1, sep_dif_sizes=False, **kwargs):
 
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
     
@@ -75,7 +75,7 @@ def plot_avg_ranks(results, only_targets=None, across=False,
             plot_raw_scores(parc_sizes, df, model=model, log=log)
         else:
             plot_ranks(parc_sizes, df, model=model,
-                       plot=plot, log=log, ax=ax, sm=sm,
+                       rank_type=rank_type, log=log, ax=ax, sm=sm,
                        sep_dif_sizes=sep_dif_sizes)
 
 def get_results_df(results, only_targets=None, **kwargs):
@@ -166,11 +166,17 @@ def get_divergence(ij, in_xs, in_ys, plot=False):
     # Return kstest
     return k
 
+def get_rt(df):
+
+    cols = list(df)
+    cols = [col for col in cols if col.endswith('_Rank')]
+    return cols[0]
+
 def get_min_max_bounds(r_df, plot=False):
     
     # To array
     xs = np.array(r_df['Size'])
-    ys = np.array(r_df['Mean_Rank'])
+    ys = np.array(r_df[get_rt(r_df)])
  
     up_to = len(xs) // 4
 
@@ -296,9 +302,12 @@ def conv_to_df(results, only=None, only_targets=None):
 def plot_score_by_n(parc_sizes, scores, title, ylabel, xlim=1050,
                     log=False, ax=None, sm=1, sep_dif_sizes=False):
     
+    # To handle either adding to existing plot or
+    # generate new plot.
     if ax is None:
         _, ax = plt.subplots(figsize=(12, 8))
     
+    # Use viridis color map
     cmap = plt.get_cmap('viridis')
 
     scores.index = ['a_' + p if 'freesurfer' in p else p for p in scores.index]
@@ -390,25 +399,53 @@ def plot_scores(parc_sizes, means, ylabel, model='average', **plot_args):
                         'Mean Across Pipelines', ylabel,
                         xlim=None, **plot_args)
 
-def get_mean_avg_ranks(r_df, models='default'):
+def get_rank_func(rank_type):
+
+    if rank_type in ['Mean_Rank', 'mean']:
+        return mean_rank
+    elif rank_type in ['Median_Rank', 'median']:
+        return median_rank
+    elif rank_type in ['Max_Rank', 'max']:
+        return max_rank
+    elif rank_type in ['Min_Rank', 'min']:
+        return min_rank
+
+    raise RuntimeError(f'Invalid rank_type: {rank_type}')
+
+def _get_ranks_df(df):
+
+    # Get as parcel df
+    parcel_df = df.reset_index().set_index('parcel')
+
+    # Then convert to rank order
+    ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
+
+    # Set as correct DataFrame
+    ranks = ranks.to_frame().reset_index()
+
+    return ranks
+
+def get_summary_ranks(r_df, rank_type='Mean_Rank', models='default'):
 
     if models == 'default':
         models = ['svm', 'elastic', 'lgbm']
 
-    parcel_df = r_df.reset_index().set_index('parcel')
-    ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
-    ranks = ranks.to_frame().reset_index()
+    # Get base ranks
+    ranks = _get_ranks_df(r_df)
 
-    means = ranks.groupby(['model', 'parcel']).apply(mean_rank)
-    parcel_means = means.loc[models].groupby('parcel').mean()
+    # Get rank func from type
+    rank_func = get_rank_func(rank_type)
+
+    # Apply rank func
+    avgs = ranks.groupby(['model', 'parcel']).apply(rank_func)
+    parcel_avgs = avgs.loc[models].groupby('parcel').mean()
     
-    return pd.DataFrame(parcel_means, columns=['Mean_Rank'])
+    return pd.DataFrame(parcel_avgs, columns=[rank_type])
 
 def get_model_avg_ranks(df):
     
-    parcel_df = df.reset_index().set_index('parcel')
-    ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
-    ranks = ranks.to_frame().reset_index()
+    # Get base ranks
+    ranks = _get_ranks_df(df)
 
     means = ranks.groupby(['target', 'parcel']).apply(mean_rank)
     scores = df.reset_index().groupby(['target', 'parcel']).apply(mean_score)
@@ -481,8 +518,10 @@ def get_ranks_sizes(results, by_group=True,
                     add_ranks_labels=False,
                     binary_only=False,
                     regression_only=False,
+                    rank_type='Mean_Rank',
                     **kwargs):
 
+    # Base get results df
     df, parc_sizes = get_results_df(results, only_targets=only_targets, **kwargs)
 
     # Set to subset of models here
@@ -498,7 +537,7 @@ def get_ranks_sizes(results, by_group=True,
     
     # Base case is average over targets
     if avg_targets:
-        pm_df = get_mean_avg_ranks(df, models=models)
+        pm_df = get_summary_ranks(df, rank_type=rank_type, models=models)
 
     # Otherwise, only average over models to get ranks
     else:
@@ -507,11 +546,13 @@ def get_ranks_sizes(results, by_group=True,
 
     pm_df['Size'] = [parc_sizes[p] for p in pm_df.index]
 
+    # Use powerlaw threshold if requested
     if threshold:
         pm_df = get_cut_off_df(pm_df)
         print('Smallest size:', pm_df.sort_values('Size').iloc[0].Size)
         print('Largest size:', pm_df.sort_values('Size').iloc[-1].Size)
 
+    # If request add raw scores
     if add_raw:
         split_means = df.groupby(['is_binary', 'model', 'parcel']).apply(mean_score)
         regression_means = split_means.loc[False].groupby('parcel').apply(lambda x : x[0].mean())
@@ -519,19 +560,20 @@ def get_ranks_sizes(results, by_group=True,
         pm_df['r2'] = regression_means
         pm_df['roc_auc'] = binary_means
 
+    # If request to add rank labels
     if add_ranks_labels:
-        base = 'Mean Rank: ' + pm_df['Mean_Rank'].round(3).astype(str)
-        extra = '<br>log10(Mean Rank): ' + np.log10(pm_df['Mean_Rank']).round(3).astype(str)
+        base = f'{rank_type}: ' + pm_df[rank_type].round(3).astype(str)
+        extra = f'<br>log10({rank_type}): ' + np.log10(pm_df[rank_type]).round(3).astype(str)
         pm_df['rank_label'] = base + extra
 
         base = 'Size: ' + pm_df['Size'].astype(str)
         extra = '<br>log10(Size): ' + np.log10(pm_df['Size']).round(3).astype(str)
         pm_df['size_label'] = base + extra
 
+    # If log results
     if log:
-        pm_df['Mean_Rank'] = np.log10(pm_df['Mean_Rank'])
+        pm_df[rank_type] = np.log10(pm_df[rank_type])
         pm_df['Size'] = np.log10(pm_df['Size'])
-
 
     if not by_group:
         
@@ -550,6 +592,7 @@ def get_ranks_sizes(results, by_group=True,
     if keep_full_name:
         r_df['full_name'] = r_df['parcel'].copy().apply(clean_name)
 
+    # Add labels by parcel
     groups = []
     for parcel in r_df['parcel']:
 
@@ -631,6 +674,9 @@ def mean_score(df):
 def mean_rank(df):
     return df['rank'].mean()
 
+def median_rank(df):
+    return df['rank'].median()
+
 def max_rank(df):
     return df['rank'].max()
 
@@ -657,26 +703,21 @@ def get_rank_model_order(df):
 
     return df[['rank', 'model']]
 
-def plot_ranks(parc_sizes, df, plot='mean',
+def plot_ranks(parc_sizes, df, rank_type='mean',
                model='average', **plot_args):
     
-    parcel_df = df.reset_index().set_index('parcel')
-    ranks = parcel_df.groupby(['model', 'target']).apply(get_rank_order)
-    ranks = ranks.to_frame().reset_index()
+    # Get base ranks
+    ranks = _get_ranks_df(df)
 
-    mean_ranks = ranks.groupby(['model', 'parcel']).apply(mean_rank)
-    max_ranks = ranks.groupby(['model', 'parcel']).apply(max_rank)
-    min_ranks = ranks.groupby(['model', 'parcel']).apply(min_rank)
+    # Get rank func
+    rank_func = get_rank_func(rank_type)
 
-    if plot == 'max':
-        plot_scores(parc_sizes, max_ranks,
-                    ylabel='Max Rank', model=model, **plot_args)
-    elif plot == 'min':
-        plot_scores(parc_sizes, min_ranks,
-                    ylabel='Min Rank', model=model, **plot_args)
-    else:
-        plot_scores(parc_sizes, mean_ranks,
-                    ylabel='Mean Rank', model=model, **plot_args)
+    # Get summary ranks
+    summary_ranks = ranks.groupby(['model', 'parcel']).apply(rank_func)
+
+    # Then plot
+    plot_scores(parc_sizes, summary_ranks,
+                ylabel=rank_type, model=model, **plot_args)
 
 def _finish_plot(ax, title, xlim, log):
 
