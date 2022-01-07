@@ -1,4 +1,4 @@
-from BPt.extensions import SurfLabels, SurfMaps
+from neurotools.transform import SurfLabels, SurfMaps
 from BPt import (Model, Pipeline, Scaler,
                  Loader, ParamSearch, FeatSelector,
                  CV, Ensemble, Select, Imputer)
@@ -216,6 +216,13 @@ def get_base_model_step(model_str, cv_strat):
                       param_search=base_param_search,
                       tol=1e-3,
                       max_iter=1000)
+        return [model]
+
+    elif model_str == 'ridge':
+
+        model = Model('ridge',
+                      params=1,
+                      param_search=base_param_search)
         return [model]
 
     elif model_str == 'elasticFS':

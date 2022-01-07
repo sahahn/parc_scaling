@@ -512,7 +512,10 @@ def get_inter_pipe_df(results, models='default',
     # Return
     return inter_pipe_df.rename({'Model': 'Pipeline'}, axis=1)
 
-def _add_raw(df, pm_df, rank_type):
+def _add_raw(df, pm_df, rank_type, models):
+
+    if models == 'default':
+        models = ['svm', 'elastic', 'lgbm']
 
     # Get correct score func
     score_func = get_score_func(rank_type)
@@ -521,8 +524,8 @@ def _add_raw(df, pm_df, rank_type):
     split_avgs = df.groupby(['is_binary', 'model', 'parcel']).apply(score_func)
 
     # Get mean across models separate for regression / binary per parcellation
-    regression_means = split_avgs.loc[False].groupby('parcel').apply(lambda x : x[0].mean())
-    binary_means = split_avgs.loc[True].groupby('parcel').apply(lambda x : x[0].mean())
+    regression_means = split_avgs.loc[False, models].groupby('parcel').apply(np.mean)
+    binary_means = split_avgs.loc[True, models].groupby('parcel').apply(np.mean)
 
     # Add to df
     pm_df['r2'] = regression_means
@@ -532,7 +535,8 @@ def _add_raw(df, pm_df, rank_type):
 
 def get_ranks_sizes(results, by_group=True,
                     avg_targets=True,
-                    log=False, threshold=False,
+                    log=False, log_raw=False,
+                    threshold=False,
                     only_targets=None, add_raw=False,
                     models='default',
                     keep_full_name=False,
@@ -575,7 +579,7 @@ def get_ranks_sizes(results, by_group=True,
 
     # If request add raw scores - as following same type as rank, w/ mean / median / min / max
     if add_raw:
-        pm_df = _add_raw(df, pm_df, rank_type)
+        pm_df = _add_raw(df, pm_df, rank_type, models)
 
     # If request to add rank labels
     if add_ranks_labels:
@@ -592,7 +596,7 @@ def get_ranks_sizes(results, by_group=True,
         pm_df[rank_type] = np.log10(pm_df[rank_type])
         pm_df['Size'] = np.log10(pm_df['Size'])
 
-        # Log if requested
+    if log_raw:
         if 'r2' in pm_df:
             pm_df['r2'] = np.log10(pm_df['r2'])
         if 'roc_auc' in pm_df:
