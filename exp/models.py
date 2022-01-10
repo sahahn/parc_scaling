@@ -291,6 +291,8 @@ def get_loader_step(parcel, ensemble):
     # and parcel_cache_name as None
     if parcel == '':
         return []
+    elif parcel == 'identity':
+        return [Loader('identity')]
     
     # If parcel starts with freesurfer, then
     # instead of a loader, we want to use mean imputation
