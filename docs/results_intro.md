@@ -29,7 +29,9 @@ A key benefit of Mean Rank over employing metrics like
 [R2](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score)
 directly is that we can now compare across both different binary and regression metrics, as well as to address [scaling issues](./scaling_issues.html) between metrics
 (e.g., [Sex at Birth](./target_variables#sex-at-birth) is more predictive than
-[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)). In some degenerative cases Mean Rank has the potential to hide
+[KSADS ADHD Composite](./target_variables#ksads-adhd-composite)). 
+
+In some degenerative cases Mean Rank has the potential to hide
 information about magnitude of difference, but in general when computed over a sufficient number of comparisons (in this case
 different parcellations) then this will be less of an issue. For example consider that if two parcellations varied only by
 a very slight amount in performance, then their mean rank as computed across many target variables would end up being very close,
@@ -37,6 +39,9 @@ as each each evaluated target will be noisy. On the other hand, if a parcellatio
 a large number of target variables, then this will be accurately reflected as the better parcellation obtaining a much better
 Mean Rank. The core idea here is that if the difference in performance is too small between two parcellations, i.e., not actually better,
 then Mean Rank when computed across enough individual rankings will correctly show the two parcellations to have equivalent rank.
+
+That said, while the magnitude of differences in performance is partially preserved by using R2 and ROC AUC directly, this information becomes muddled if not fully corrupted when averaging across multiple target variables. The reason why this occurs is the same as discussed earlier with respect to the different scaling of predictability for different target variables. We would even go so far as to argue that any remaining information of the magnitude of differences left after averaging across multiple targets is potentially misleading, not just less informative. This point is also directly related to the notion that the results when presented as mean rank have lost their immediate connection to a standard reference, whereas the averaged R2 and ROC AUC results have not. We note that when averaging across 22 or 23 variables, mean R2 or mean ROC AUC also loses its intuitive reference.
+
 
 ## Alternative Ranks
 

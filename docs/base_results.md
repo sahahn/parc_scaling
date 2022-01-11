@@ -44,6 +44,8 @@ powerlaw relationship between Size and Performance.
 We see that despite the choice of how we model parcellation type, this estimated coef. stays fairly stable.
 Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
 
+
+
 ## Results Table
 
 The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
@@ -55,3 +57,28 @@ Warning: Mean R2 and ROC AUC should be taken with a grain of salt due to [scalin
 {: style="font-size: 85%; text-align: center;"}
 
 {% include raw_results1.html %}
+
+
+## Parcellation Type by Raw Metric
+
+What happens when we look at the results separately for regression and binary targets, according to their respective raw metrics?
+Note that because we are limiting each analyses to one problem type, the results shown are averaged over less target variables (22 / 23).
+
+Keep in mind also when interpreting the below results that it is fundamentally flawed to look at the raw metrics directly! These results should therefore
+not be considered as standalone results, see [Mean Rank](./results_intro#mean-rank) for a description on why this occurs.
+
+### Regression
+
+An [Interactive plot](./interactive1_r2.html) by parcellation type as plotted according to R2 values can be found [here](./interactive1_r2.html).
+
+{% include base_results1_r2.html %}
+
+![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_r2.png)
+
+### Binary
+
+An [Interactive plot](./interactive1_roc_auc.html) by parcellation type as plotted according to ROC AUC values can be found [here](./interactive1_roc_auc.html).
+
+{% include base_results1_roc_auc.html %}
+
+![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_roc_auc.png)
