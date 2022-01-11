@@ -13,25 +13,25 @@ to just the subset of regression or binary targets.
 
 ### Log
 
-Click [Here](./interactive5_r2.html) for a fullscreen version of the plot.
-{% include interactive5_r2.html %}
+Click [Here](./interactive6_r2.html) for a fullscreen version of the plot.
+{% include interactive6_r2.html %}
 
 ### Base
 
-Click [Here](./interactive5_base_r2.html) for a fullscreen version of the plot.
-{% include interactive5_base_r2.html %}
+Click [Here](./interactive6_base_r2.html) for a fullscreen version of the plot.
+{% include interactive6_base_r2.html %}
 
 ## Binary
 
 ### Log
 
-Click [Here](./interactive5_roc_auc.html) for a fullscreen version of the plot.
-{% include interactive5_roc_auc.html %}
+Click [Here](./interactive6_roc_auc.html) for a fullscreen version of the plot.
+{% include interactive6_roc_auc.html %}
 
 ### Base
 
-Click [Here](./interactive5_base_roc_auc.html) for a fullscreen version of the plot.
-{% include interactive5_base_roc_auc.html %}
+Click [Here](./interactive6_base_roc_auc.html) for a fullscreen version of the plot.
+{% include interactive6_base_roc_auc.html %}
 
 ## Extra
 

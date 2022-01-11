@@ -152,6 +152,7 @@ Departments of [Complex Systems](https://vermontcomplexsystems.org/) and [Psychi
 This project website is surprisingly expansive when considering nested hyper-links. Listed below are links in alphabetical order to all main site pages (many of which include multiple sub-sections):
 
 - [All Results by Target Table Results ](all_results_by_target_table.html)
+- [All Raw Results by Pipeline](all_by_pipeline_raw.html)
 - [All Targets](target_variables.html)
 - [Base Results Size Differences](size_differences.html)
 - [Base Results](./base_results.html)
@@ -171,8 +172,9 @@ This project website is surprisingly expansive when considering nested hyper-lin
 - [Inter-Pipeline Table Results](interpipe_table.html)
 - [Interactive Figure 1](interactive1.html)
 - [Interactive Figure 1 R2](interactive1_r2.html)
-- [Interactive Figure 1 ROC AUC](interactive1_r2.html)
+- [Interactive Figure 1 ROC AUC](interactive1_roc_auc.html)
 - [Interactive Figure 2](interactive2.html)
+- [Interactive Figure 2 Base](interactive2_base.html)
 - [Interactive Figure 3](interactive3.html)
 - [Interactive Figure 4](interactive4.html)
 - [Interactive Figure 5](interactive5.html)

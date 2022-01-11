@@ -50,6 +50,7 @@ Click [Here](./interactive2.html) for a fullscreen version of the plot.
 
 A nice feature of the interactive plot is that by selecting different pipelines from the toggle, you can watch an animation of how specific results change
 with with different pipelines. You can also hover over specific data points to find out more information, for example what parcellation that data point corresponds to.
+You can also find a version of the interactive plot with non log10 axis [here](./interactive2_base.html).
 
 - Click [here](./intrapipe_table.html) to see the full results table containing intra-pipeline specific results.
 - See also Intra-Pipeline results as plotted by raw metric [here](./by_pipeline_raw)

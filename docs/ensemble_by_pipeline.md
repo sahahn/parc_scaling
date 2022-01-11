@@ -20,7 +20,7 @@ calculated between each combination.
   for each pipeline across both figures (shaded regions around the lines of fit represent the bootstrap estimated 95% CI).
   The OLS fit here was with [robust regression](https://www.statsmodels.org/stable/rlm.html).
 
-These results are interesting when contrasted with the same [single parcellation results by pipeline](./by_pipeline.html)]
+These results are interesting when contrasted with the same [single parcellation results by pipeline](./by_pipeline.html).
 
 
 ## Intra-Pipeline
@@ -30,12 +30,12 @@ Click [Here](./interactive6.html) for a fullscreen version of the plot.
 {% include interactive6.html %}
 
 Note: You can watch an animation of how specific results change with with different pipelines.
-You can also hover over specific data points to find out more information. 
+You can also hover over specific data points to find out more information. You can also find a version of the interactive plot with non log10 axis [here](./interactive6_base.html).
 
 The pattern of the intra ensemble stays fairly consistent across pipelines. One interesting trait is that the LGBM based pipeline exhibits the steepest scaling slope.
 
 - Click [here](./ensemble_intrapipe_table.html) to see the full results table containing ensemble inter-pipeline specific results.
-- See also Intra-Pipeline results as plotted by raw metric [here](./ensemble_by_pipeline_raw)
+- See also ensembled Intra-Pipeline results as plotted by raw metric [here](./ensemble_by_pipeline_raw)
 
 ## Inter-Pipeline
 
@@ -56,3 +56,6 @@ Included below is an interactive intra-pipeline visualization including results 
 Click [Here](./interactive5.html) for a fullscreen version of the plot.
 
 {% include interactive5.html %}
+
+- Click [Here](./interactive5_base.html) to see this results as plotted on a non-log10 axis.
+- Click [Here](./all_by_pipeline_raw.html) to see these results as plotted by raw metric.
