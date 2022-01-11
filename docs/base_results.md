@@ -44,20 +44,6 @@ powerlaw relationship between Size and Performance.
 We see that despite the choice of how we model parcellation type, this estimated coef. stays fairly stable.
 Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
 
-
-## Results Table
-
-The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
-averaged across both [target variables](./variables.html) and [ML pipelines](./ml_pipelines.html).
-Mean R2 and ROC AUC are calculated only from their relevant subsets of 22 and 23 [target variables](./variables.html) respectively.
-Warning: Mean R2 and ROC AUC should be taken with a grain of salt due to [scaling issues](./scaling_issues.html) between different targets.
-
-*Table columns are sortable!*
-{: style="font-size: 85%; text-align: center;"}
-
-{% include raw_results1.html %}
-
-
 ## Parcellation Type by Raw Metric
 
 What happens when we look at the results separately for regression and binary targets, according to their respective raw metrics?
@@ -81,3 +67,18 @@ An [Interactive plot](./interactive1_roc_auc.html) by parcellation type as plott
 {% include base_results1_roc_auc.html %}
 
 ![fits](https://raw.githubusercontent.com/sahahn/parc_scaling/master/analyze/Figures/base_results_fit1_roc_auc.png)
+
+
+## Results Table
+
+The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
+averaged across both [target variables](./variables.html) and [ML pipelines](./ml_pipelines.html).
+Mean R2 and ROC AUC are calculated only from their relevant subsets of 22 and 23 [target variables](./variables.html) respectively.
+Warning: Mean R2 and ROC AUC should be taken with a grain of salt due to [scaling issues](./scaling_issues.html) between different targets.
+
+*Table columns are sortable!*
+{: style="font-size: 85%; text-align: center;"}
+
+{% include raw_results1.html %}
+
+
