@@ -74,3 +74,6 @@ We can alternatively cluster over all of the target variables at once (ignoring 
 
 - See [All Interactive By Target](./interactive7.html) to see a version of the interactive plot above,
   but with the results from the multiple parcellation strategies added as well.
+
+- Likewise, Click [here](./all_results_by_target_table.html) to see the full and sortable raw results as broken down by target variable,
+  with the extra results from the multiple parcellation strategies added - though the [interactive plot](./interactive7.html) may be more legible.
