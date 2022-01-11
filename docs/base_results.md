@@ -45,7 +45,6 @@ We see that despite the choice of how we model parcellation type, this estimated
 Lastly, exploring the [interactive plot](./interactive1.html) may be useful seeing how any one parcellation did.
 
 
-
 ## Results Table
 
 The table below includes all parcellations specific scores. Notably these are [mean relative rankings](./results_intro#mean-rank) as
