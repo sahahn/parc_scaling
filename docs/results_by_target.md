@@ -72,8 +72,12 @@ We can alternatively cluster over all of the target variables at once (ignoring 
 
 ## See Also
 
+- See [Regression Interactive By Target ](./interactive3_r2.html) and [Binary Interactive By Target ](./interactive3_roc_auc.html).
+
 - See [All Interactive By Target](./interactive7.html) to see a version of the interactive plot above,
   but with the results from the multiple parcellation strategies added as well.
 
-- Likewise, Click [here](./all_results_by_target_table.html) to see the full and sortable raw results as broken down by target variable,
+- Likewise, see regression and binary version of the full interactive plots under [All Regression Interactive By Target ](./interactive7_r2.html) and [All Binary Interactive By Target ](./interactive7_roc_auc.html).
+
+- Click [here](./all_results_by_target_table.html) to see the full and sortable raw results as broken down by target variable,
   with the extra results from the multiple parcellation strategies added - though the [interactive plot](./interactive7.html) may be more legible.
