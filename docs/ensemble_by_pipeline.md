@@ -35,6 +35,7 @@ You can also hover over specific data points to find out more information.
 The pattern of the intra ensemble stays fairly consistent across pipelines. One interesting trait is that the LGBM based pipeline exhibits the steepest scaling slope.
 
 - Click [here](./ensemble_intrapipe_table.html) to see the full results table containing ensemble inter-pipeline specific results.
+- See also Intra-Pipeline results as plotted by raw metric [here](./ensemble_by_pipeline_raw)
 
 ## Inter-Pipeline
 

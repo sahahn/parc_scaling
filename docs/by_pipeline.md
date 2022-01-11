@@ -52,6 +52,7 @@ A nice feature of the interactive plot is that by selecting different pipelines 
 with with different pipelines. You can also hover over specific data points to find out more information, for example what parcellation that data point corresponds to.
 
 - Click [here](./intrapipe_table.html) to see the full results table containing intra-pipeline specific results.
+- See also Intra-Pipeline results as plotted by raw metric [here](./by_pipeline_raw)
 
 ## Inter-Pipeline Comparison
 
@@ -72,3 +73,4 @@ We model these results in the same way as with the intra-pipeline comparison, bu
 - See a recreation of these results but with Median Rank instead of Mean Rank [here](./by_pipeline_median.html)
 - See also Inter/Intra Pipeline comparisons for ensembled results [here](./ensemble_by_pipeline.html)
 - [How does front-end univariate feature selection influence scaling?](./effect_of_fs.html)
+- See also Intra-Pipeline results as plotted by raw metric [here](./by_pipeline_raw)
