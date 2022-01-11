@@ -170,6 +170,8 @@ This project website is surprisingly expansive when considering nested hyper-lin
 - [Input Data](input_data.html)
 - [Inter-Pipeline Table Results](interpipe_table.html)
 - [Interactive Figure 1](interactive1.html)
+- [Interactive Figure 1 R2](interactive1_r2.html)
+- [Interactive Figure 1 ROC AUC](interactive1_r2.html)
 - [Interactive Figure 2](interactive2.html)
 - [Interactive Figure 3](interactive3.html)
 - [Interactive Figure 4](interactive4.html)
@@ -204,3 +206,4 @@ This project website is surprisingly expansive when considering nested hyper-lin
 - [Whats best?](whats_best.html)
 - [Why a performance boost?](why_performance_boost.html)
 - [Why ensemble boost?](why_ensemble_boost.html)
+  
