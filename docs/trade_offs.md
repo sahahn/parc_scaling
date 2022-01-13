@@ -27,7 +27,7 @@ In both cases, model-agnostic measures can of course also be used, as if sub-mod
 then the previously mentioned strategies become difficult or impossible to implement.
 
 We provide an example jupyter notebook exploring in depth some of the different options for back projecting feature weights across all the different kinds of
-base estimators, ensembles, and parcellations considered in this project. An HTML version of this notebook is available [here](./back_projection_examples.html) and the notebook itself can be found on the github [here](https://github.com/sahahn/parc_scaling/blob/main/extra/back_projection_examples.ipynb).  [try](./bpe/back_projection_examples.html)
+base estimators, ensembles, and parcellations considered in this project. An HTML version of this notebook is available [here](./back_projection_examples.html) and the notebook itself can be found on the github [here](https://github.com/sahahn/parc_scaling/blob/main/extra/back_projection_examples.ipynb).
 
 
 
