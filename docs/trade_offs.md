@@ -26,7 +26,10 @@ according to the stacking models beta weights, can be used.
 In both cases, model-agnostic measures can of course also be used, as if sub-models are made up of different combinations of estimators,
 then the previously mentioned strategies become difficult or impossible to implement.
 
-That said, within this project we were not interested directly in interpretability concerns, although important. 
+We provide an example jupyter notebook exploring in depth some of the different options for back projecting feature weights across all the different kinds of
+base estimators, ensembles, and parcellations considered in this project. An HTML version of this notebook is available [here](./back_projection_examples.html) and the notebook itself can be found on the github [here](https://github.com/sahahn/parc_scaling/blob/main/extra/back_projection_examples.ipynb).
+
+
 
 ## Runtime
 
