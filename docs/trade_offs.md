@@ -20,14 +20,7 @@ for example the Elastic-Net has associated beta weights and LGBM based pipeline 
 The SVM based model though, since it employs the nonlinear radial basis function kernel, does not compute any built in measures of feature importance.
 Instead, a model-agnostic method must be used in order to derive feature importances. While these methods have their own trade-offs, there is certainly a growing interest in developing approaches to explain the outputs from “black-box” models ([Altmann 2010](https://academic.oup.com/bioinformatics/article/26/10/1340/193348), [Lundberg 2017](https://arxiv.org/abs/1705.07874), [Poyiadzi 2020](https://research-information.bris.ac.uk/ws/portalfiles/portal/221094080/aies2020cr.pdf)).
 
-Similar to choice of pipeline is if to ensemble over multiple parcellations, where if an ensemble method is used, then interpretation is generally made more complex.
-For the voting ensemble, feature importances from the sub-model can be simply averaged, whereas for the stacking based ensemble a weighted average,
-according to the stacking models beta weights, can be used.
-In both cases, model-agnostic measures can of course also be used, as if sub-models are made up of different combinations of estimators,
-then the previously mentioned strategies become difficult or impossible to implement.
-
-We provide an example jupyter notebook exploring in depth some of the different options for back projecting feature weights across all the different kinds of
-base estimators, ensembles, and parcellations considered in this project. An HTML version of this notebook is available [here](./back_projection_examples.html) and the notebook itself can be found on the github [here](https://github.com/sahahn/parc_scaling/blob/main/extra/back_projection_examples.ipynb).
+Similar to the choice of pipeline is the choice of whether to ensemble over multiple parcellations. Where if an ensemble method is used, then interpretation is generally made more complex. However, for the voting ensemble, feature importances from the sub-model can be simply averaged, whereas for the stacking based ensemble a weighted average, according to the stacking models beta weights, can be used. In both cases, the use of permutation based feature importance can further be employed, allowing for the calculation of feature importances from base estimators without built in measures of importance. This idea is further expanded upon and implemented within the Python library Brain Predictability Toolbox (BPt). We provide an example jupyter notebook exploring in depth some of the different options for back projecting feature weights across all the different kinds of base estimators, ensembles, and parcellations considered in this project. An HTML version of this notebook is available [here](./back_projection_examples.html) and the notebook itself can be found on the github [here](https://github.com/sahahn/parc_scaling/blob/main/extra/back_projection_examples.ipynb).
 
 
 
