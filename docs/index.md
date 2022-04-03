@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Performance Scaling for Structural MRI Surface Parcellations
+description: A Machine Learning Analysis in the ABCD Study
 ---
 
 ## Project Introduction
